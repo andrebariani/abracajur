@@ -32,12 +32,6 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 
 [node name="World" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 95, 56 )
-
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
-remote_path = NodePath("../../Camera2D")
-
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 2 )
 cell_size = Vector2( 16, 16 )
@@ -51,5 +45,17 @@ current = true
 smoothing_enabled = true
 smoothing_speed = 2.0
 
-[node name="Geladeira" parent="." instance=ExtResource( 3 )]
-position = Vector2( 215.879, 64.2684 )
+[node name="YSort" type="YSort" parent="."]
+
+[node name="Player" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 95, 56 )
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/Player"]
+remote_path = NodePath("../../../Camera2D")
+
+[node name="Enemies" type="Node2D" parent="YSort"]
+
+[node name="Geladeira" parent="YSort/Enemies" instance=ExtResource( 3 )]
+position = Vector2( 286, 61 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
