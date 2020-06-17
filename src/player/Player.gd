@@ -3,7 +3,7 @@ extends KinematicBody2D
 onready var pointer = $Pointer
 onready var rayCast = $RayCast2D
 onready var anim = $LampAnim
-onready var spellScene = preload("res://src/spells/LaserSpell.tscn")
+onready var spellScene = preload("res://src/spells/SparkSpell.tscn")
 
 
 export (int) var cooldownTeleport = 0.1
@@ -26,8 +26,6 @@ func _process(_delta):
 			
 	if Input.is_action_just_pressed("spell_q"):
 		_on_cast_spell(spellScene)
-		
-	print_debug(str(look_vector))
 
 
 func teleport():
@@ -39,4 +37,12 @@ func teleport():
 	
 	
 func _on_cast_spell(spell_scene):
-	pass
+	var spell = spell_scene.instance()
+	var player_radius = get_node("Hurtbox/CollisionShape2D").get_shape().radius
+	var spell_radius = spell.get_node("Hitbox/CollisionShape2D").get_shape().radius
+	var total_radius = player_radius + spell_radius
+	spell.position = global_position + Vector2(total_radius, total_radius) * look_vector.normalized()
+	spell.init(look_vector.normalized())
+	
+	var world = get_tree().current_scene
+	world.add_child(spell)
