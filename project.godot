@@ -16,15 +16,24 @@ _global_script_class_icons={
 [application]
 
 config/name="Abracajur"
+run/main_scene="res://src/world/World.tscn"
 config/icon="res://icon.png"
 
-[input]
+[display]
 
-Teleport={
-"deadzone": 0.5,
-"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":2,"pressed":false,"doubleclick":false,"script":null)
- ]
-}
+window/size/width=400
+window/size/height=224
+window/size/test_width=800
+window/size/test_height=450
+window/stretch/mode="2d"
+
+[layer_names]
+
+2d_physics/layer_1="World"
+2d_physics/layer_2="Player"
+2d_physics/layer_3="Enemy"
+2d_physics/layer_4="HurtboxPlayer"
+2d_physics/layer_5="HurtboxEnemy"
 
 [rendering]
 
