@@ -7,3 +7,5 @@ export_presets.cfg
 .mono/
 *.import
 *.import
+*.import
+icon.png.import
