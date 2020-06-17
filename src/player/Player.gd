@@ -46,3 +46,7 @@ func _on_cast_spell(spell_scene):
 	
 	var world = get_tree().current_scene
 	world.add_child(spell)
+
+
+func _on_Magic_System_cast_spell():
+	pass # Replace with function body.

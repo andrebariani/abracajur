@@ -14,13 +14,13 @@ export(Dictionary) var spells = {
 	"damage": [
 		preload("res://src/spells/SparkSpell.tscn")
 	], 
-	"knockback": [
+	"disabler": [
 		preload("res://src/spells/SparkSpell.tscn")
 	], 
-	"stun/break": [
+	"debuff": [
 		preload("res://src/spells/SparkSpell.tscn")
 	], 
-	"heal/shield": [
+	"defensive": [
 		preload("res://src/spells/SparkSpell.tscn")
 	]
 }
@@ -65,7 +65,10 @@ func reset_spells():
 	emit_signal("reset_spells")
 	var key_position = -1
 	
-	for i in range(spells_at_a_time):
+	var randomized_order = range(spells_at_a_time).duplicate()
+	randomized_order.shuffle()
+	
+	for i in randomized_order:
 		# generate the next random key
 		var remaining_options = len(keys) - key_position - (spells_at_a_time - i)
 		var rand_key_offset = 1
@@ -76,10 +79,11 @@ func reset_spells():
 		var rand_key = keys[key_position]
 		
 		# generate a new random spell
-		var rand_spell = spells[int(rand_range(1, spells.size()))][randi() % len(spells[i])]
+		var spell_category = spells[spells.keys()[i]]
+		var rand_spell = spell_category[randi() % len(spell_category)]
 		while rand_spell in active_spells.values():
-			rand_spell = spells[i][int(rand_range(1, spells.size())) % len(spells[i])]
+			rand_spell = spell_category [randi() % len(spell_category)]
 		
 		active_spells[rand_key] = rand_spell
 		
-		print_debug(str(i) + ": " + OS.get_scancode_string(rand_key) + ", " + rand_spell.name)
+		print_debug(str(i) + ": " + OS.get_scancode_string(rand_key) + ", " + rand_spell.SPELL_NAME)
