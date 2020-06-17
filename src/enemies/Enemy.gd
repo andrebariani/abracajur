@@ -1,7 +1,10 @@
 extends KinematicBody2D
 
+const FRICTION = 200
+const ACCELERATION = 200
+
 export var max_hp = 3
-export var speed = 30
+export var MAX_SPEED = 50
 onready var hp = max_hp
 var MoveDirection = Vector2.ZERO
 
