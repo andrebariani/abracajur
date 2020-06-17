@@ -1,5 +1,52 @@
 extends Node
 
+enum EFFECTS {
+	DAMAGE,
+	SLOW,
+	STUN,
+	KNOCKBACK,
+	GREASE,
+	BREAK,
+	SHIELD
+}
+
+#var effect_scrolls = [
+#	{ "NAME":"DE FOGO", "TYPE": DAMAGE, "VALUE": 0},
+#	{ "NAME":"DE GOSMA", "TYPE":SLOW, "VALUE": 1}, 
+#	{ "NAME":"DE RAIO", "TYPE":STUN, "VALUE": 1},
+#	{ "NAME":"DE VENTO", "TYPE":KNOCKBACK, "VALUE": 1},
+#	{ "NAME":"DE GELO", "TYPE":GREASE, "VALUE": 1},
+#	{ "NAME":"DA CORRUPÇÃO", "TYPE":BREAK, "VALUE": 1},
+#	{ "NAME":"DE CURA", "TYPE":DAMAGE, "VALUE": 1},
+#	{ "NAME": "DE PEDRA", "TYPE":SHIELD, "VALUE": 1},
+#]
+
+var shape_scrolls = [
+	{ 
+		"NAME":"MÍSSEIS", 
+		"SCENE":preload("res://src/spells/SparkSpell.tscn"), 
+		"ICON": null,
+		"EFFECTS": {
+			"DAMAGE": 0
+		}
+	},
+	{ 
+		"NAME":"Explosivo", 
+		"SCENE":preload("res://src/spells/AOESpell.tscn"), 
+		"ICON": null,
+		"EFFECTS": {
+			"DAMAGE": 0
+		}
+	},
+]
+
+
+func create_spell(category):
+	pass
+	
+	
+
+
 # ---------------------
 
 # parametros de signal reset_spells: nada nada nada, nada
@@ -12,16 +59,16 @@ var keys = [KEY_Q, KEY_W, KEY_E, KEY_R]
 
 export(Dictionary) var spells = {
 	"damage": [
-		preload("res://src/spells/SparkSpell.tscn")
+		DAMAGE
 	], 
 	"disabler": [
-		preload("res://src/spells/SparkSpell.tscn")
+		STUN, KNOCKBACK
 	], 
 	"debuff": [
-		preload("res://src/spells/SparkSpell.tscn")
+		GREASE, BREAK
 	], 
 	"defensive": [
-		preload("res://src/spells/SparkSpell.tscn")
+		DAMAGE, SHIELD
 	]
 }
 # damage, knockback, stun/break, cura/escudo
@@ -87,3 +134,8 @@ func reset_spells():
 		active_spells[rand_key] = rand_spell
 		
 		print_debug(str(i) + ": " + OS.get_scancode_string(rand_key) + ", " + rand_spell.SPELL_NAME)
+		
+	keys.shuffle()
+	for k in keys:
+		
+		

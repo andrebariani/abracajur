@@ -2,10 +2,9 @@ extends KinematicBody2D
 
 export var SPELL_NAME = "RAJADAS DE FOGO"
 export var DAMAGE = -1
-export var KNOCKBACK = 0
-export var STUN = 0
-export var GREASE = 0
-export var SLOW = 0
-export var BREAK = 0
-export var SHIELD = 0
-export(Texture) var icon
+export var KNOCKBACK = 50
+export var STUN = 2
+export var GREASE = 5
+export var SLOW = 5
+export var BREAK = 5
+export var SHIELD = 5

@@ -15,7 +15,6 @@ scale = Vector2( 0.5, 0.5 )
 collision_layer = 0
 script = ExtResource( 3 )
 SPELL_NAME = "RAJADAS DE RAIO"
-icon = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
