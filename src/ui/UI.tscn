@@ -1,0 +1,45 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/ui/UI.gd" type="Script" id=1]
+
+[node name="UI" type="Control"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -40.0
+margin_right = 40.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SpellQ" type="Label" parent="HBoxContainer"]
+margin_top = 13.0
+margin_bottom = 27.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SpellW" type="Label" parent="HBoxContainer"]
+margin_left = 4.0
+margin_top = 13.0
+margin_right = 4.0
+margin_bottom = 27.0
+
+[node name="SpellE" type="Label" parent="HBoxContainer"]
+margin_left = 8.0
+margin_top = 13.0
+margin_right = 8.0
+margin_bottom = 27.0
+
+[node name="SpellR" type="Label" parent="HBoxContainer"]
+margin_left = 12.0
+margin_top = 13.0
+margin_right = 12.0
+margin_bottom = 27.0

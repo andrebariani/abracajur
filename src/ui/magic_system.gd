@@ -11,7 +11,20 @@ extends Node
 var keys = [KEY_Q, KEY_W, KEY_E, KEY_R, 
 			KEY_A, KEY_S, KEY_D, KEY_F]
 
-export var spells = [[], [], [], []]
+export(Dictionary) var spells = {
+	"damage": [
+		preload("res://src/spells/LaserSpell.tscn")
+	], 
+	"knockback": [
+		preload("res://src/spells/LaserSpell.tscn")
+	], 
+	"stun/break": [
+		preload("res://src/spells/LaserSpell.tscn")
+	], 
+	"heal/shield": [
+		preload("res://src/spells/LaserSpell.tscn")
+	]
+}
 # damage, knockback, stun/break, cura/escudo
 
 # key da magia: magia
@@ -30,7 +43,7 @@ func _ready():
 	reset_spells()
 
 func _input(event):
-	if event is InputEventKey and event.pressed:
+	if event is InputEventKey and event.just_pressed:
 		var keycode = event.scancode
 		
 		if keycode in active_spells.keys():
@@ -58,15 +71,15 @@ func reset_spells():
 		var remaining_options = len(keys) - key_position - (spells_at_a_time - i)
 		var rand_key_offset = 1
 		if remaining_options != 0:
-			rand_key_offset = 1 + (randi() % remaining_options)
+			rand_key_offset = 1 + (int(rand_range(1, spells_at_a_time)) % remaining_options)
 		
 		key_position += rand_key_offset
 		var rand_key = keys[key_position]
 		
 		# generate a new random spell
-		var rand_spell = spells[i][randi() % len(spells[i])]
+		var rand_spell = spells[int(rand_range(1, spells.size()))][randi() % len(spells[i])]
 		while rand_spell in active_spells.values():
-			rand_spell = spells[i][randi() % len(spells[i])]
+			rand_spell = spells[i][int(rand_range(1, spells.size())) % len(spells[i])]
 		
 		active_spells[rand_key] = rand_spell
 		
