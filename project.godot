@@ -16,7 +16,24 @@ _global_script_class_icons={
 [application]
 
 config/name="Abracajur"
+run/main_scene="res://src/world/World.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/size/width=400
+window/size/height=224
+window/size/test_width=800
+window/size/test_height=450
+window/stretch/mode="2d"
+
+[layer_names]
+
+2d_physics/layer_1="World"
+2d_physics/layer_2="Player"
+2d_physics/layer_3="Enemy"
+2d_physics/layer_4="HurtboxPlayer"
+2d_physics/layer_5="HurtboxEnemy"
 
 [rendering]
 

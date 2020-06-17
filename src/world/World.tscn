@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/enemies/Enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/spells/LaserSpell.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/enemies/Geladeira.tscn" type="PackedScene" id=3]
+
+[node name="World" type="Node2D"]
+
+[node name="Enemy" parent="." instance=ExtResource( 1 )]
+position = Vector2( 132, 35 )
+
+[node name="SparkSpell" parent="." instance=ExtResource( 2 )]
+position = Vector2( 30, 33 )
+
+[node name="Geladeira" parent="." instance=ExtResource( 3 )]
+position = Vector2( 96, 35 )
