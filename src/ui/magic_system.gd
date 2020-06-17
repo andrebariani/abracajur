@@ -8,21 +8,20 @@ extends Node
 # ---------------------
 
 
-var keys = [KEY_Q, KEY_W, KEY_E, KEY_R, 
-			KEY_A, KEY_S, KEY_D, KEY_F]
+var keys = [KEY_Q, KEY_W, KEY_E, KEY_R]
 
 export(Dictionary) var spells = {
 	"damage": [
-		preload("res://src/spells/LaserSpell.tscn")
+		preload("res://src/spells/SparkSpell.tscn")
 	], 
 	"knockback": [
-		preload("res://src/spells/LaserSpell.tscn")
+		preload("res://src/spells/SparkSpell.tscn")
 	], 
 	"stun/break": [
-		preload("res://src/spells/LaserSpell.tscn")
+		preload("res://src/spells/SparkSpell.tscn")
 	], 
 	"heal/shield": [
-		preload("res://src/spells/LaserSpell.tscn")
+		preload("res://src/spells/SparkSpell.tscn")
 	]
 }
 # damage, knockback, stun/break, cura/escudo
