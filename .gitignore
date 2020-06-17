@@ -5,3 +5,7 @@ export_presets.cfg
 
 # Mono-specific ignores
 .mono/
+*.import
+*.import
+*.import
+icon.png.import

@@ -1,11 +1,19 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/enemies/Enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/engine/AggroBox.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/enemies/Geladeira.gd" type="Script" id=3]
 
 [node name="Geladeira" instance=ExtResource( 1 )]
-max_hp = 5
+collision_mask = 3
+script = ExtResource( 3 )
 
 [node name="ColorRect" parent="." index="1"]
 color = Color( 0, 1, 0.952941, 1 )
+
+[node name="AggroBox" parent="." index="4" instance=ExtResource( 2 )]
+collision_layer = 0
+
+[node name="RayCast2D" type="RayCast2D" parent="." index="5"]
 
 [editable path="Hurtbox"]
