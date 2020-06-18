@@ -18,3 +18,14 @@ var colors = {
 func _set_colors():
 	$Sprite.material.set_shader_param("color_base", colors.COLOR_BASE)
 	$Sprite.material.set_shader_param("color_outline", colors.COLOR_OUTLINE)
+
+func _explode(packed):
+	var spell = packed.instance()
+	spell.effects = effects
+	spell.chosen_effect = chosen_effect
+	spell.colors = colors
+	spell._set_colors()
+	spell.position = self.position
+	
+	var world = get_tree().current_scene
+	world.add_child(spell)
