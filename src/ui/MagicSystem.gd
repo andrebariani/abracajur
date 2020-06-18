@@ -2,36 +2,89 @@ extends Node
 
 export(Dictionary) var effects_scrolls = {
 	"damage": [
-		{ "NAME":" DE FOGO", "TYPE": "DAMAGE",
-			"COLOR_BASE": Color("bd3c30"),
-			"COLOR_OUTLINE": Color("bdac2c")}
+		{ 
+			"NAME":" DE FOGO", 
+			"TYPE": "DAMAGE",
+			"COLORS": {
+				"COLOR_BASE": Color("bd3c30"),
+				"COLOR_OUTLINE": Color("bdac2c")
+			}
+		}
 	], 
 	"disabler": [
 		{ 
 			"NAME":" DE RAIO",
 			"TYPE": "STUN",
-			"COLOR_BASE": Color(0, 0, 1, 1),
-			"COLOR_OUTLINE": Color(1, 0, 0, 1)
+			"COLORS": {
+				"COLOR_BASE": Color("bd3c30"),
+				"COLOR_OUTLINE": Color("bdac2c")
+			}
 		}, 
-		{ "NAME":" DE VENTO", "TYPE": "KNOCKBACK",
-			"COLOR_BASE": Color(0, 0, 0, 1),
-			"COLOR_OUTLINE": Color(1, 0, 0, 1)},
+		{ 
+			"NAME":" DE VENTO"
+			 "TYPE": "KNOCKBACK",
+			 "COLORS": {
+				"COLOR_BASE": Color("bd3c30"),
+				"COLOR_OUTLINE": Color("bdac2c")
+			}
 	], 
 	"debuff": [
-		{ "NAME":" DE GELO", "TYPE":"GREASE",
-			"COLOR_BASE": Color(0, 1, 0, 1),
-			"COLOR_OUTLINE": Color(1, 0, 0, 1)},
-		{ "NAME":" DA CORRUPÇÃO", "TYPE":"BREAK",
-			"COLOR_BASE": Color(1, 0, 1, 1),
-			"COLOR_OUTLINE": Color(1, 0, 0, 1)},
+		{ 
+			"NAME":" DE GELO",
+			"TYPE":"GREASE",
+			"COLORS": {
+				"COLOR_BASE": Color("bd3c30"),
+				"COLOR_OUTLINE": Color("bdac2c")
+			}
+		{ 
+			"NAME":" DA CORRUPÇÃO",
+			"TYPE":"BREAK",
+			"COLORS": {
+				"COLOR_BASE": Color("bd3c30"),
+				"COLOR_OUTLINE": Color("bdac2c")
+			}
 	], 
 	"defensive": [
-		{ "NAME":" DE CURA", "TYPE":"HEAL",
-			"COLOR_BASE": Color(0, 1, 0, 0.5),
-			"COLOR_OUTLINE": Color(1, 0, 0, 1)},
-		{ "NAME": " DE PEDRA", "TYPE":"SHIELD",
-			"COLOR_BASE": Color(1, 0.9, 0, 1),
-			"COLOR_OUTLINE": Color(1, 0, 0, 1)},
+		{ 
+			"NAME":" DE CURA",
+			"TYPE":"HEAL",
+			"COLORS": {
+				"COLOR_BASE": Color("bd3c30"),
+				"COLOR_OUTLINE": Color("bdac2c")
+			}
+		{ 
+			"NAME": " DE PEDRA",
+			"TYPE":"SHIELD",
+			"COLORS": {
+				"COLOR_BASE": Color("bd3c30"),
+				"COLOR_OUTLINE": Color("bdac2c")
+			}
+	],
+}
+
+	"disabler": [
+		{ 
+			"NAME":" DE RAIO",
+			"TYPE": "STUN", "COLOR":Color(0, 0, 1, 1)}, 
+		{ 
+			"NAME":" DE VENTO",
+			"TYPE": "KNOCKBACK", "COLOR":Color(0, 93.0/255.0, 0, 1)},
+	], 
+	"debuff": [
+		{ 
+			"NAME":" DE GELO",
+			"TYPE":"GREASE", "COLOR":Color(0, 1, 1, 1)},
+		{ 
+			"NAME":" DA CORRUPÇÃO",
+			"TYPE":"BREAK", "COLOR":Color(151.0/255.0, 0, 1, 1)},
+	], 
+	"defensive": [
+		{ 
+			"NAME":" DE CURA",
+			"TYPE":"HEAL", "COLOR":Color(1, 0, 155.0/255.0, 1)},
+		{ 
+			"NAME": " DE PEDRA",
+			"TYPE":"SHIELD", "COLOR":Color(1, 1, 1, 1)},
 	]
 }
 
