@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/font/Title.tres" type="DynamicFont" id=1]
 [ext_resource path="res://assets/abracajour/abracajour.png" type="Texture" id=2]
 [ext_resource path="res://src/ui/MainUI.gd" type="Script" id=3]
 [ext_resource path="res://icon.png" type="Texture" id=4]
+[ext_resource path="res://assets/font/Text.tres" type="DynamicFont" id=5]
+[ext_resource path="res://assets/font/Credits.tres" type="DynamicFont" id=6]
 
 [node name="MainUI" type="Control"]
 anchor_right = 1.0
@@ -29,19 +31,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Abracajour" type="Label" parent="StartScreen/VBoxContainer"]
-margin_top = 14.0
+[node name="Abracajur" type="Label" parent="StartScreen/VBoxContainer"]
+margin_top = 5.0
 margin_right = 400.0
-margin_bottom = 79.0
+margin_bottom = 85.0
 custom_fonts/font = ExtResource( 1 )
-text = "Abracajour"
+text = "Abracajur"
 align = 1
 valign = 1
 
 [node name="Player" type="TextureRect" parent="StartScreen/VBoxContainer"]
-margin_top = 89.0
+margin_top = 95.0
 margin_right = 400.0
-margin_bottom = 149.0
+margin_bottom = 155.0
 rect_min_size = Vector2( 400, 60 )
 texture = ExtResource( 2 )
 stretch_mode = 6
@@ -50,23 +52,27 @@ __meta__ = {
 }
 
 [node name="Start" type="Button" parent="StartScreen/VBoxContainer"]
-margin_left = 173.0
-margin_top = 159.0
-margin_right = 226.0
-margin_bottom = 179.0
+margin_left = 154.0
+margin_top = 165.0
+margin_right = 246.0
+margin_bottom = 187.0
 size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 5 )
 text = "JOGAR"
+flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Credits" type="Button" parent="StartScreen/VBoxContainer"]
-margin_left = 162.0
-margin_top = 189.0
-margin_right = 237.0
-margin_bottom = 209.0
+margin_left = 130.0
+margin_top = 197.0
+margin_right = 270.0
+margin_bottom = 219.0
 size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 5 )
 text = "CRÉDITOS"
+flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -89,37 +95,42 @@ __meta__ = {
 }
 
 [node name="Score" type="Label" parent="EndScreen/VBoxContainer"]
-margin_top = 64.0
+margin_top = 40.0
 margin_right = 400.0
-margin_bottom = 129.0
+margin_bottom = 120.0
 custom_fonts/font = ExtResource( 1 )
 text = "The End"
 align = 1
 valign = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="EndScreen/VBoxContainer"]
-margin_top = 139.0
+[node name="HBoxContainer" type="VBoxContainer" parent="EndScreen/VBoxContainer"]
+margin_top = 130.0
 margin_right = 400.0
-margin_bottom = 159.0
-custom_constants/separation = 60
+margin_bottom = 184.0
+custom_constants/separation = 10
 alignment = 1
 
 [node name="Restart" type="Button" parent="EndScreen/VBoxContainer/HBoxContainer"]
-margin_left = 99.0
-margin_right = 189.0
-margin_bottom = 20.0
+margin_left = 122.0
+margin_right = 278.0
+margin_bottom = 22.0
 size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 5 )
 text = "RECOMEÇAR"
+flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="MainMenu" type="Button" parent="EndScreen/VBoxContainer/HBoxContainer"]
-margin_left = 249.0
-margin_right = 300.0
-margin_bottom = 20.0
+margin_left = 162.0
+margin_top = 32.0
+margin_right = 238.0
+margin_bottom = 54.0
 size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 5 )
 text = "MENU"
+flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -139,53 +150,59 @@ __meta__ = {
 }
 
 [node name="Credits" type="Label" parent="CreditsScreen/VBoxContainer"]
-margin_top = 16.0
+margin_top = 20.0
 margin_right = 400.0
-margin_bottom = 81.0
+margin_bottom = 100.0
 custom_fonts/font = ExtResource( 1 )
 text = "Créditos"
 align = 1
 valign = 1
 
 [node name="Credits2" type="Label" parent="CreditsScreen/VBoxContainer"]
-margin_top = 91.0
+margin_top = 110.0
 margin_right = 400.0
-margin_bottom = 105.0
+margin_bottom = 118.0
+custom_fonts/font = ExtResource( 6 )
 text = "Anderson Garrote - Arte & Game Design"
 align = 1
 valign = 1
 
 [node name="Credits3" type="Label" parent="CreditsScreen/VBoxContainer"]
-margin_top = 115.0
+margin_top = 128.0
 margin_right = 400.0
-margin_bottom = 129.0
+margin_bottom = 136.0
+custom_fonts/font = ExtResource( 6 )
 text = "André Bariani - Programação & Game Design"
 align = 1
 valign = 1
 
 [node name="Credits4" type="Label" parent="CreditsScreen/VBoxContainer"]
-margin_top = 139.0
+margin_top = 146.0
 margin_right = 400.0
-margin_bottom = 153.0
+margin_bottom = 154.0
+custom_fonts/font = ExtResource( 6 )
 text = "Danilo Isamu - Programação & Game Design"
 align = 1
 valign = 1
 
 [node name="Credits5" type="Label" parent="CreditsScreen/VBoxContainer"]
-margin_top = 163.0
+margin_top = 164.0
 margin_right = 400.0
-margin_bottom = 177.0
-text = "Anderson Garrote - Arte & Game Design"
+margin_bottom = 172.0
+custom_fonts/font = ExtResource( 6 )
+text = "Luis D - Arte & Game Design"
 align = 1
 valign = 1
 
 [node name="MainMenu" type="Button" parent="CreditsScreen/VBoxContainer"]
-margin_left = 174.0
-margin_top = 187.0
-margin_right = 225.0
-margin_bottom = 207.0
+margin_left = 162.0
+margin_top = 182.0
+margin_right = 238.0
+margin_bottom = 204.0
 size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 5 )
 text = "MENU"
+flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
