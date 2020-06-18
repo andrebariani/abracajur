@@ -124,9 +124,8 @@ func reset_spells():
 		
 	# generate a new random spell
 		# generate an effect based on the given category
-		var rand_effect = random_from_dict(effects_scrolls)
-		while rand_effect in active_spells.values():
-			rand_effect = random_from_dict(effects_scrolls)
+		var spell_category = effects_scrolls[effects_scrolls.keys()[k]]
+		var rand_effect = spell_category[randi() % len(spell_category)]
 		
 		# erase all unavailable shapes
 		var available_shapes = shape_scrolls.duplicate()
