@@ -1,6 +1,7 @@
-extends "res://src/spells/Spell.gd"
+extends "res://src/spells/ProjectileSpell.gd"
 
-var player
+export(PackedScene) var explosion #= preload("res://src/spells/AOESpell.tscn")
 
-func _process(delta):
-	pass
+func _on_Hitbox_area_entered(area):
+	_explode(explosion)
+	._on_Hitbox_area_entered(area)
