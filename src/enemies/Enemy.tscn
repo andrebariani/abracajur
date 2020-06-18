@@ -38,11 +38,19 @@ shape = SubResource( 2 )
 
 [node name="StunTimer" type="Timer" parent="."]
 process_mode = 0
+one_shot = true
+
+[node name="ShieldTimer" type="Timer" parent="."]
+one_shot = true
 
 [node name="AggroBox" parent="." instance=ExtResource( 3 )]
-collision_layer = 0
+collision_mask = 2
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
+cast_to = Vector2( 0, 0 )
+
+[node name="WorldRayCast" type="RayCast2D" parent="."]
+cast_to = Vector2( 0, 0 )
 
 [node name="MoveDebug" type="Label" parent="."]
 margin_left = -38.0
@@ -57,5 +65,6 @@ __meta__ = {
 }
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 [connection signal="timeout" from="StunTimer" to="." method="_on_StunTimer_timeout"]
+[connection signal="timeout" from="ShieldTimer" to="." method="_on_ShieldTimer_timeout"]
 
 [editable path="Hurtbox"]
