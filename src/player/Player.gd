@@ -48,12 +48,13 @@ func _on_Magic_System_cast_spell(spell_data, letter, position):
 	spell.colors = spell_data.COLORS
 	spell._set_colors()
 	
-	if spell.name == "SparkSpell":
-		var player_radius = hurtbox.get_shape().radius
-		var spell_radius = spell.get_node("Hitbox/CollisionShape2D").get_shape().radius
-		var total_radius = player_radius + spell_radius
-		spell.position = global_position + Vector2(total_radius, total_radius) * look_vector.normalized()
-		spell.init(look_vector.normalized())
+	match (spell.name):
+		"SparkSpell":
+			var player_radius = hurtbox.get_shape().radius
+			var spell_radius = spell.get_node("Hitbox/CollisionShape2D").get_shape().radius
+			var total_radius = player_radius + spell_radius
+			spell.position = global_position + Vector2(total_radius, total_radius) * look_vector.normalized()
+			spell.init(look_vector.normalized())
 	
 	var world = get_tree().current_scene
 	world.add_child(spell)
