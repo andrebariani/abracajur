@@ -1,0 +1,220 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/font/Title.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/abracajour/abracajour.png" type="Texture" id=2]
+[ext_resource path="res://src/ui/MainUI.gd" type="Script" id=3]
+[ext_resource path="res://icon.png" type="Texture" id=4]
+
+[node name="MainUI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StartScreen" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="StartScreen"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 10
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Abracajour" type="Label" parent="StartScreen/VBoxContainer"]
+margin_top = 14.0
+margin_right = 400.0
+margin_bottom = 79.0
+custom_fonts/font = ExtResource( 1 )
+text = "Abracajour"
+align = 1
+valign = 1
+
+[node name="Player" type="TextureRect" parent="StartScreen/VBoxContainer"]
+margin_top = 89.0
+margin_right = 400.0
+margin_bottom = 149.0
+rect_min_size = Vector2( 400, 60 )
+texture = ExtResource( 2 )
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Start" type="Button" parent="StartScreen/VBoxContainer"]
+margin_left = 173.0
+margin_top = 159.0
+margin_right = 226.0
+margin_bottom = 179.0
+size_flags_horizontal = 4
+text = "JOGAR"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Credits" type="Button" parent="StartScreen/VBoxContainer"]
+margin_left = 162.0
+margin_top = 189.0
+margin_right = 237.0
+margin_bottom = 209.0
+size_flags_horizontal = 4
+text = "CRÉDITOS"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EndScreen" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EndScreen"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 10
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score" type="Label" parent="EndScreen/VBoxContainer"]
+margin_top = 64.0
+margin_right = 400.0
+margin_bottom = 129.0
+custom_fonts/font = ExtResource( 1 )
+text = "The End"
+align = 1
+valign = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="EndScreen/VBoxContainer"]
+margin_top = 139.0
+margin_right = 400.0
+margin_bottom = 159.0
+custom_constants/separation = 60
+alignment = 1
+
+[node name="Restart" type="Button" parent="EndScreen/VBoxContainer/HBoxContainer"]
+margin_left = 99.0
+margin_right = 189.0
+margin_bottom = 20.0
+size_flags_horizontal = 4
+text = "RECOMEÇAR"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainMenu" type="Button" parent="EndScreen/VBoxContainer/HBoxContainer"]
+margin_left = 249.0
+margin_right = 300.0
+margin_bottom = 20.0
+size_flags_horizontal = 4
+text = "MENU"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CreditsScreen" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CreditsScreen"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 10
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Credits" type="Label" parent="CreditsScreen/VBoxContainer"]
+margin_top = 16.0
+margin_right = 400.0
+margin_bottom = 81.0
+custom_fonts/font = ExtResource( 1 )
+text = "Créditos"
+align = 1
+valign = 1
+
+[node name="Credits2" type="Label" parent="CreditsScreen/VBoxContainer"]
+margin_top = 91.0
+margin_right = 400.0
+margin_bottom = 105.0
+text = "Anderson Garrote - Arte & Game Design"
+align = 1
+valign = 1
+
+[node name="Credits3" type="Label" parent="CreditsScreen/VBoxContainer"]
+margin_top = 115.0
+margin_right = 400.0
+margin_bottom = 129.0
+text = "André Bariani - Programação & Game Design"
+align = 1
+valign = 1
+
+[node name="Credits4" type="Label" parent="CreditsScreen/VBoxContainer"]
+margin_top = 139.0
+margin_right = 400.0
+margin_bottom = 153.0
+text = "Danilo Isamu - Programação & Game Design"
+align = 1
+valign = 1
+
+[node name="Credits5" type="Label" parent="CreditsScreen/VBoxContainer"]
+margin_top = 163.0
+margin_right = 400.0
+margin_bottom = 177.0
+text = "Anderson Garrote - Arte & Game Design"
+align = 1
+valign = 1
+
+[node name="MainMenu" type="Button" parent="CreditsScreen/VBoxContainer"]
+margin_left = 174.0
+margin_top = 187.0
+margin_right = 225.0
+margin_bottom = 207.0
+size_flags_horizontal = 4
+text = "MENU"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameUI" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GANHAR O JOGO" type="Button" parent="GameUI"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -94.0
+margin_top = -35.0
+margin_right = 94.0
+margin_bottom = 35.0
+text = "GANHAR O JOGO"
+icon = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="StartScreen/VBoxContainer/Start" to="." method="_on_Start_pressed"]
+[connection signal="pressed" from="StartScreen/VBoxContainer/Credits" to="." method="_on_Credits_pressed"]
+[connection signal="pressed" from="EndScreen/VBoxContainer/HBoxContainer/Restart" to="." method="_on_Restart_pressed"]
+[connection signal="pressed" from="EndScreen/VBoxContainer/HBoxContainer/MainMenu" to="." method="_on_MainMenu_pressed"]
+[connection signal="pressed" from="CreditsScreen/VBoxContainer/MainMenu" to="." method="_on_MainMenu_pressed"]
+[connection signal="pressed" from="GameUI/GANHAR O JOGO" to="." method="_on_GANHAR_O_JOGO_pressed"]
