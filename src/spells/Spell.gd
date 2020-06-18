@@ -10,3 +10,7 @@ var effects = {
 	"SHIELD": 0
 }
 var chosen_effect = ""
+var color_base = Color(0,0,0,0)
+var color_outline = Color(0,0,0,0)
+
+

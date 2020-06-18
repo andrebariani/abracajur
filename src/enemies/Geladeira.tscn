@@ -12,6 +12,7 @@ script = ExtResource( 3 )
 color = Color( 0, 1, 0.952941, 1 )
 
 [node name="AggroBox" parent="." index="4" instance=ExtResource( 2 )]
+self_modulate = Color( 1, 1, 1, 0.105882 )
 collision_layer = 0
 
 [node name="RayCast2D" type="RayCast2D" parent="." index="5"]

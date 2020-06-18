@@ -2,19 +2,36 @@ extends Node
 
 export(Dictionary) var effects_scrolls = {
 	"damage": [
-		{ "NAME":" DE FOGO", "TYPE": "DAMAGE"}
+		{ "NAME":" DE FOGO", "TYPE": "DAMAGE",
+			"COLOR_BASE": Color(1, 0, 0, 1),
+			"COLOR_OUTLINE": Color(0.929412, 0.698039, 0.086275, 1)}
 	], 
 	"disabler": [
-		{ "NAME":" DE RAIO", "TYPE": "STUN"}, 
-		{ "NAME":" DE VENTO", "TYPE": "KNOCKBACK"},
+		{ 
+			"NAME":" DE RAIO",
+			"TYPE": "STUN",
+			"COLOR_BASE": Color(0, 0, 1, 1),
+			"COLOR_OUTLINE": Color(1, 0, 0, 1)
+		}, 
+		{ "NAME":" DE VENTO", "TYPE": "KNOCKBACK",
+			"COLOR_BASE": Color(0, 0, 0, 1),
+			"COLOR_OUTLINE": Color(1, 0, 0, 1)},
 	], 
 	"debuff": [
-		{ "NAME":" DE GELO", "TYPE":"GREASE"},
-		{ "NAME":" DA CORRUPÇÃO", "TYPE":"BREAK"},
+		{ "NAME":" DE GELO", "TYPE":"GREASE",
+			"COLOR_BASE": Color(0, 1, 0, 1),
+			"COLOR_OUTLINE": Color(1, 0, 0, 1)},
+		{ "NAME":" DA CORRUPÇÃO", "TYPE":"BREAK",
+			"COLOR_BASE": Color(1, 0, 1, 1),
+			"COLOR_OUTLINE": Color(1, 0, 0, 1)},
 	], 
 	"defensive": [
-		{ "NAME":" DE CURA", "TYPE":"HEAL"},
-		{ "NAME": " DE PEDRA", "TYPE":"SHIELD"},
+		{ "NAME":" DE CURA", "TYPE":"HEAL",
+			"COLOR_BASE": Color(0, 1, 0, 0.5),
+			"COLOR_OUTLINE": Color(1, 0, 0, 1)},
+		{ "NAME": " DE PEDRA", "TYPE":"SHIELD",
+			"COLOR_BASE": Color(1, 0.9, 0, 1),
+			"COLOR_OUTLINE": Color(1, 0, 0, 1)},
 	]
 }
 
@@ -30,24 +47,29 @@ var shape_scrolls = [
 			"GREASE": 175,
 			"BREAK": 1,
 			"HEAL": 1,
-		},
-		"CHOSEN_EFFECT": ""
-	},
-	{ 
-		"NAME":"EXPLOSÃO", 
-		"SCENE":preload("res://src/spells/AOESpell.tscn"), 
-		"ICON": null,
-		"EFFECTS": {
-			"DAMAGE": 3,
-			"STUN": 1,
-			"KNOCKBACK": 1000,
-			"GREASE": 175,
-			"BREAK": 2,
-			"HEAL": 2,
 			"SHIELD": 2
 		},
-		"CHOSEN_EFFECT": ""
+		"CHOSEN_EFFECT": "",
+		"COLOR_BASE": Color(0,0,0,0),
+		"COLOR_OUTLINE": Color(0,0,0,0)
 	},
+	#{ 
+	#	"NAME":"EXPLOSÃO", 
+	#	"SCENE":preload("res://src/spells/AOESpell.tscn"), 
+	#	"ICON": null,
+	#	"EFFECTS": {
+	#		"DAMAGE": 3,
+	#		"STUN": 1,
+	#		"KNOCKBACK": 1000,
+	#		"GREASE": 175,
+	#		"BREAK": 2,
+	#		"HEAL": 2,
+	#		"SHIELD": 2
+	#	},
+	#	"CHOSEN_EFFECT": "",
+	#	"COLOR_BASE": Color(0,0,0,0),
+	#	"COLOR_OUTLINE": Color(0,0,0,0)
+	#},
 ]
 
 
@@ -120,6 +142,8 @@ func reset_spells():
 		var rand_shape = available_shapes[randi() % len(available_shapes)].duplicate(true)
 		
 		rand_shape.CHOSEN_EFFECT = rand_effect.TYPE
+		rand_shape.COLOR_BASE = rand_effect.COLOR_BASE
+		rand_shape.COLOR_OUTLINE = rand_effect.COLOR_OUTLINE
 		
 		rand_shape["NAME"] += rand_effect["NAME"]
 		active_spells[keys[k]] = rand_shape
