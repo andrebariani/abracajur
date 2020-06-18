@@ -2,19 +2,19 @@ extends Node
 
 export(Dictionary) var effects_scrolls = {
 	"damage": [
-		{ "NAME":" DE FOGO", "TYPE": "DAMAGE"}
+		{ "NAME":" DE FOGO", "TYPE": "DAMAGE", "COLOR":Color(1, 0, 0, 1)}
 	], 
 	"disabler": [
-		{ "NAME":" DE RAIO", "TYPE": "STUN"}, 
-		{ "NAME":" DE VENTO", "TYPE": "KNOCKBACK"},
+		{ "NAME":" DE RAIO", "TYPE": "STUN", "COLOR":Color(0, 0, 1, 1)}, 
+		{ "NAME":" DE VENTO", "TYPE": "KNOCKBACK", "COLOR":Color(0, 93.0/255.0, 0, 1)},
 	], 
 	"debuff": [
-		{ "NAME":" DE GELO", "TYPE":"GREASE"},
-		{ "NAME":" DA CORRUPÇÃO", "TYPE":"BREAK"},
+		{ "NAME":" DE GELO", "TYPE":"GREASE", "COLOR":Color(0, 1, 1, 1)},
+		{ "NAME":" DA CORRUPÇÃO", "TYPE":"BREAK", "COLOR":Color(151.0/255.0, 0, 1, 1)},
 	], 
 	"defensive": [
-		{ "NAME":" DE CURA", "TYPE":"HEAL"},
-		{ "NAME": " DE PEDRA", "TYPE":"SHIELD"},
+		{ "NAME":" DE CURA", "TYPE":"HEAL", "COLOR":Color(1, 0, 155.0/255.0, 1)},
+		{ "NAME": " DE PEDRA", "TYPE":"SHIELD", "COLOR":Color(1, 1, 1, 1)},
 	]
 }
 
