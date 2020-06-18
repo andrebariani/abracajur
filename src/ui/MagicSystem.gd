@@ -99,7 +99,7 @@ func _input(event):
 
 func cast_spell(keycode):
 	emit_signal("cast_spell", active_spells[keycode], OS.get_scancode_string(keycode), 
-				active_spells.keys().find(keycode))
+				keys.find(keycode))
 	
 	# Desce a quantidade de casts disponiveis
 	scroll_count -= 1
@@ -118,23 +118,31 @@ func reset_spells():
 		
 	# generate a new random spell
 		# generate an effect based on the given category
-		var spell_category = effects_scrolls[effects_scrolls.keys()[k]]
-		var rand_effect = spell_category[randi() % len(spell_category)]
+		var rand_effect = random_from_dict(effects_scrolls)
 		while rand_effect in active_spells.values():
-			rand_effect = spell_category [randi() % len(spell_category)]
+			rand_effect = random_from_dict(effects_scrolls)
+		
+		# erase all unavailable shapes
+		var available_shapes = shape_scrolls.duplicate()
+		
+		for shape in shape_scrolls:
+			if not rand_effect in shape["EFFECTS"]:
+				available_shapes.erase(shape)
 		
 		# generate a shape
-		var rand_shape = shape_scrolls[shape_scrolls.keys()[randi() % len(shape_scrolls)]].duplicate(true)
+		var rand_shape = available_shapes[randi() % len(available_shapes)].duplicate(true)
+		
 		for effect in rand_shape["EFFECTS"].keys():
 			if effect != rand_effect:
 				rand_shape["EFFECTS"].erase(effect)
 		
-		active_spells[k] = rand_shape
+		active_spells[keys[k]] = rand_shape
 		
 		print_debug(str(k) + ": " + OS.get_scancode_string(keys[k]) + ", " + rand_shape["NAME"])
 		
 
-
+func random_from_dict(dict):
+	return dict[dict.keys()[randi() % len(dict)]]
 
 
 
