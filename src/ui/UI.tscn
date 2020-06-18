@@ -39,7 +39,7 @@ __meta__ = {
 }
 
 [node name="Icon" type="TextureRect" parent="HBoxContainer/SpellQ"]
-modulate = Color( 0, 0.8125, 0.0349462, 1 )
+modulate = Color( 0.117647, 0.101961, 0.0705882, 1 )
 material = ExtResource( 3 )
 margin_left = 1.86282
 margin_top = -36.094
