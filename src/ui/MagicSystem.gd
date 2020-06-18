@@ -1,16 +1,5 @@
 extends Node
 
-enum EFFECTS {
-	DAMAGE,
-	SLOW,
-	STUN,
-	KNOCKBACK,
-	GREASE,
-	BREAK,
-	HEAL,
-	SHIELD
-}
-
 #var effect_scrolls = [
 #	{ "NAME":"DE FOGO", "TYPE": DAMAGE, "VALUE": 0},
 #	{ "NAME":"DE GOSMA", "TYPE":SLOW, "VALUE": 1}, 
@@ -24,19 +13,19 @@ enum EFFECTS {
 
 export(Dictionary) var effects_scrolls = {
 	"damage": [
-		{ "NAME":"DE FOGO", "TYPE": EFFECTS.DAMAGE}
+		{ "NAME":" DE FOGO", "TYPE": "DAMAGE"}
 	], 
 	"disabler": [
-		{ "NAME":"DE RAIO", "TYPE":EFFECTS.STUN}, 
-		{ "NAME":"DE VENTO", "TYPE":EFFECTS.KNOCKBACK},
+		{ "NAME":" DE RAIO", "TYPE": "STUN"}, 
+		{ "NAME":" DE VENTO", "TYPE": "KNOCKBACK"},
 	], 
 	"debuff": [
-		{ "NAME":"DE GELO", "TYPE":EFFECTS.GREASE},
-		{ "NAME":"DA CORRUPÇÃO", "TYPE":EFFECTS.BREAK},
+		{ "NAME":" DE GELO", "TYPE":"GREASE"},
+		{ "NAME":" DA CORRUPÇÃO", "TYPE":"BREAK"},
 	], 
 	"defensive": [
-		{ "NAME":"DE CURA", "TYPE":EFFECTS.HEAL},
-		{ "NAME": "DE PEDRA", "TYPE":EFFECTS.SHIELD},
+		{ "NAME":" DE CURA", "TYPE":"HEAL"},
+		{ "NAME": " DE PEDRA", "TYPE":"SHIELD"},
 	]
 }
 
@@ -46,11 +35,11 @@ var shape_scrolls = [
 		"SCENE":preload("res://src/spells/SparkSpell.tscn"), 
 		"ICON": null,
 		"EFFECTS": {
-			EFFECTS.DAMAGE: 2,
-			EFFECTS.STUN: 1,
-			EFFECTS.KNOCKBACK: 50,
-			EFFECTS.GREASE: 2,
-			EFFECTS.BREAK: 2,
+			"DAMAGE": 2,
+			"STUN": 1,
+			"KNOCKBACK": 50,
+			"GREASE": 2,
+			"BREAK": 2,
 		}
 	},
 	{ 
@@ -58,13 +47,13 @@ var shape_scrolls = [
 		"SCENE":preload("res://src/spells/AOESpell.tscn"), 
 		"ICON": null,
 		"EFFECTS": {
-			EFFECTS.DAMAGE: 2,
-			EFFECTS.STUN: 1,
-			EFFECTS.KNOCKBACK: 50,
-			EFFECTS.GREASE: 2,
-			EFFECTS.BREAK: 2,
-			EFFECTS.HEAL: 1,
-			EFFECTS.SHIELD: 2
+			"DAMAGE": 2,
+			"STUN": 1,
+			"KNOCKBACK": 50,
+			"GREASE": 2,
+			"BREAK": 2,
+			"HEAL": 1,
+			"SHIELD": 2
 		}
 	},
 ]
@@ -93,10 +82,11 @@ signal reset_spells
 signal cast_spell
 
 func _ready():
+	randomize()
 	reset_spells()
 
 func _input(event):
-	if event is InputEventKey and event.just_pressed:
+	if event is InputEventKey and event.pressed:
 		var keycode = event.scancode
 		
 		if keycode in active_spells.keys():
@@ -141,6 +131,7 @@ func reset_spells():
 			if effect != rand_effect["TYPE"]:
 				rand_shape["EFFECTS"].erase(effect)
 		
+		rand_shape["NAME"] += rand_effect["NAME"]
 		active_spells[keys[k]] = rand_shape
 		
 		print_debug(str(k) + ": " + OS.get_scancode_string(keys[k]) + ", " + rand_shape["NAME"])
