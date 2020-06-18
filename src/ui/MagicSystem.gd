@@ -69,7 +69,7 @@ export(Dictionary) var effects_scrolls = {
 
 var shape_scrolls = [
 	{ 
-		"NAME":"MÍSSEIS", 
+		"NAME":"ESFERA", 
 		"SCENE":preload("res://src/spells/SparkSpell.tscn"), 
 		"ICON": null,
 		"EFFECTS": {
@@ -78,8 +78,8 @@ var shape_scrolls = [
 			"KNOCKBACK": 500,
 			"GREASE": 175,
 			"BREAK": 1,
-			"HEAL": 1,
-			"SHIELD": 2
+			#"HEAL": 1,
+			#"SHIELD": 2
 		},
 		"CHOSEN_EFFECT": "",
 		"COLORS": {
@@ -93,7 +93,27 @@ var shape_scrolls = [
 		"ICON": null,
 		"EFFECTS": {
 			"DAMAGE": 3,
-			"STUN": 1,
+			"STUN": 2,
+			"KNOCKBACK": 1000,
+			"GREASE": 175,
+			"BREAK": 2,
+			"HEAL": 2,
+			"SHIELD": 2
+		},
+		"CHOSEN_EFFECT": "",
+		"COLORS": {
+			"COLOR_BASE": Color("bd3c30"),
+			"COLOR_OUTLINE": Color("bdac2c"),
+		},
+	},
+	
+	{ 
+		"NAME":"ERUPÇÃO", 
+		"SCENE":preload("res://src/spells/EruptionSpell.tscn"), 
+		"ICON": null,
+		"EFFECTS": {
+			"DAMAGE": 3,
+			"STUN": 2,
 			"KNOCKBACK": 1000,
 			"GREASE": 175,
 			"BREAK": 2,

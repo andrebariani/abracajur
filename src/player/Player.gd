@@ -55,6 +55,10 @@ func _on_Magic_System_cast_spell(spell_data, letter, position):
 			var total_radius = player_radius + spell_radius
 			spell.position = global_position + Vector2(total_radius, total_radius) * look_vector.normalized()
 			spell.init(look_vector.normalized())
+		"AOESpell":
+			spell.player = self
+		"EruptionSpell":
+			pass
 	
 	var world = get_tree().current_scene
 	world.add_child(spell)

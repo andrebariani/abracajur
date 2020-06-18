@@ -58,7 +58,7 @@ func state_machine(delta):
 			else:
 				set_state(WANDER)
 		STUN:
-			return
+			MoveDirection = Vector2.ZERO
 
 func set_state(new_state):
 	state = new_state
