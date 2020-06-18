@@ -9,7 +9,7 @@
 radius = 16.0
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 16.0
+radius = 12.0
 
 [sub_resource type="Animation" id=3]
 resource_name = "explode"
@@ -20,8 +20,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 2.21914 ),
 "update": 0,
 "values": [ 12.0, 18.0 ]
 }

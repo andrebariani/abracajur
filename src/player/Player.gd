@@ -59,6 +59,8 @@ func _on_Magic_System_cast_spell(spell_data, letter, position):
 			spell.player = self
 		"EruptionSpell":
 			pass
+		"RuneSpell":
+			spell.position = position
 	
 	var world = get_tree().current_scene
 	world.add_child(spell)
