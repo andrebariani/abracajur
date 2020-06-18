@@ -1,17 +1,16 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://src/player/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://src/player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/enemies/Geladeira.tscn" type="PackedScene" id=3]
-[ext_resource path="res://src/ui/MagicSystem.gd" type="Script" id=4]
-[ext_resource path="res://src/ui/UI.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/ui/MainUI.tscn" type="PackedScene" id=4]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 
 [sub_resource type="TileSet" id=2]
 0/name = "icon.png 0"
-0/texture = ExtResource( 2 )
+0/texture = ExtResource( 1 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( 32, 16, 16, 16 )
@@ -49,7 +48,7 @@ smoothing_speed = 2.0
 
 [node name="YSort" type="YSort" parent="."]
 
-[node name="Player" parent="YSort" instance=ExtResource( 1 )]
+[node name="Player" parent="YSort" instance=ExtResource( 2 )]
 position = Vector2( 95, 56 )
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/Player"]
@@ -62,10 +61,4 @@ position = Vector2( 286, 61 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="UI" parent="CanvasLayer" instance=ExtResource( 5 )]
-
-[node name="Magic System" type="Node" parent="."]
-script = ExtResource( 4 )
-[connection signal="cast_spell" from="Magic System" to="YSort/Player" method="_on_Magic_System_cast_spell"]
-[connection signal="cast_spell" from="Magic System" to="CanvasLayer/UI" method="_on_Magic_System_cast_spell"]
-[connection signal="reset_spells" from="Magic System" to="CanvasLayer/UI" method="_on_Magic_System_reset_spells"]
+[node name="UI" parent="." instance=ExtResource( 4 )]
