@@ -34,7 +34,8 @@ func teleport():
 	
 
 func _on_Hurtbox_area_entered(area):
-	HP += area.DAMAGE
+	var spell = area.spell
+	HP += spell.DAMAGE
 	hurtbox.start_invicibility(INVICIBILITY)
 	anim.play("flash")
 	if HP <= 0:

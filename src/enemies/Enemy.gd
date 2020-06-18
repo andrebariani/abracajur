@@ -3,6 +3,7 @@ extends KinematicBody2D
 const FRICTION = 200
 const ACCELERATION = 200
 
+export var DAMAGE = -1 
 export var max_hp = 3
 export var MAX_SPEED = 50
 
