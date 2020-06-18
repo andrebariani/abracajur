@@ -58,7 +58,13 @@ var shape_scrolls = [
 		"SCENE":preload("res://src/spells/AOESpell.tscn"), 
 		"ICON": null,
 		"EFFECTS": {
-			EFFECTS.DAMAGE: 0
+			EFFECTS.DAMAGE: 2,
+			EFFECTS.STUN: 1,
+			EFFECTS.KNOCKBACK: 50,
+			EFFECTS.GREASE: 2,
+			EFFECTS.BREAK: 2,
+			EFFECTS.HEAL: 1,
+			EFFECTS.SHIELD: 2
 		}
 	},
 ]
