@@ -46,7 +46,6 @@ func _on_Magic_System_cast_spell(spell_data, letter, position):
 	spell.effects = spell_data.EFFECTS
 	spell.chosen_effect = spell_data.CHOSEN_EFFECT
 	spell.colors = spell_data.COLORS
-	print_debug(spell.colors)
 	spell._set_colors()
 	
 	if spell.name == "SparkSpell":
