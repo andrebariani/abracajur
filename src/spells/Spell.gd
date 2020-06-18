@@ -1,23 +1,20 @@
 extends KinematicBody2D
 
-export var DAMAGE = -1
-export var KNOCKBACK = 0
-export var STUN = 0
-export var BREAK = 0
-export var SHIELD = 0
-export(ImageTexture) var icon
+var effects = {
+	"DAMAGE": 0,
+	"STUN": 0,
+	"KNOCKBACK": 0,
+	"GREASE": 0,
+	"BREAK": 0,
+	"HEAL": 0,
+	"SHIELD": 0
+}
+var chosen_effect = ""
+var colors = {
+	"COLOR_BASE": Color(0,0,0,0),
+	"COLOR_OUTLINE": Color(0,0,0,0),
+}
 
-# ISSO É SÓ UM PROTOTIPO PROOF-OF-CONCEPT BOBO, NÃO VAI FICAR ASSIM PROVAVELMENTE
-func get_type():
-	if DAMAGE > 0:
-		return "DAMAGE"
-	elif DAMAGE < 0:
-		return "HEAL"
-	elif KNOCKBACK > 0:
-		return "KNOCKBACK"
-	elif STUN > 0:
-		return "STUN"
-	elif BREAK > 0:
-		return "BREAK"
-	elif SHIELD > 0:
-		return "SHIELD"
+func _set_colors():
+	$Sprite.material.set_shader_param("color_base", colors.COLOR_BASE)
+	$Sprite.material.set_shader_param("color_outline", colors.COLOR_OUTLINE)

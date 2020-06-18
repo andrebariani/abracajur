@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/abracajour.png-af5e8ede5bc6ae41b6412f68f258453e.stex"
+path="res://.import/pointer.png-7f692ad97453b2b0ac0c72b3dc243149.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/abracajour.png"
-dest_files=[ "res://.import/abracajour.png-af5e8ede5bc6ae41b6412f68f258453e.stex" ]
+source_file="res://assets/pointer.png"
+dest_files=[ "res://.import/pointer.png-7f692ad97453b2b0ac0c72b3dc243149.stex" ]
 
 [params]
 
