@@ -132,14 +132,14 @@ func reset_spells():
 		var available_shapes = shape_scrolls.duplicate()
 		
 		for shape in shape_scrolls:
-			if not rand_effect in shape["EFFECTS"]:
+			if not rand_effect["TYPE"] in shape["EFFECTS"].keys():
 				available_shapes.erase(shape)
 		
 		# generate a shape
 		var rand_shape = available_shapes[randi() % len(available_shapes)].duplicate(true)
 		
 		for effect in rand_shape["EFFECTS"].keys():
-			if effect != rand_effect:
+			if effect != rand_effect["TYPE"]:
 				rand_shape["EFFECTS"].erase(effect)
 		
 		active_spells[keys[k]] = rand_shape
