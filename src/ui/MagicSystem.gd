@@ -1,16 +1,5 @@
 extends Node
 
-#var effect_scrolls = [
-#	{ "NAME":"DE FOGO", "TYPE": DAMAGE, "VALUE": 0},
-#	{ "NAME":"DE GOSMA", "TYPE":SLOW, "VALUE": 1}, 
-#	{ "NAME":"DE RAIO", "TYPE":STUN, "VALUE": 1},
-#	{ "NAME":"DE VENTO", "TYPE":KNOCKBACK, "VALUE": 1},
-#	{ "NAME":"DE GELO", "TYPE":GREASE, "VALUE": 1},
-#	{ "NAME":"DA CORRUPÇÃO", "TYPE":BREAK, "VALUE": 1},
-#	{ "NAME":"DE CURA", "TYPE":DAMAGE, "VALUE": 1},
-#	{ "NAME": "DE PEDRA", "TYPE":SHIELD, "VALUE": 1},
-#]
-
 export(Dictionary) var effects_scrolls = {
 	"damage": [
 		{ "NAME":" DE FOGO", "TYPE": "DAMAGE"}
@@ -139,29 +128,3 @@ func reset_spells():
 
 func random_from_dict(dict):
 	return dict[dict.keys()[randi() % len(dict)]]
-
-
-
-
-#	var randomized_order = range(spells_at_a_time).duplicate()
-#	randomized_order.shuffle()
-#
-#	for i in randomized_order:
-#		# generate the next random key
-#		var remaining_options = len(keys) - key_position - (spells_at_a_time - i)
-#		var rand_key_offset = 1
-#		if remaining_options != 0:
-#			rand_key_offset = 1 + (int(rand_range(1, spells_at_a_time)) % remaining_options)
-#
-#		key_position += rand_key_offset
-#		var rand_key = keys[key_position]
-#
-#		# generate a new random spell
-#		var spell_category = effects_scrolls[effects_scrolls.keys()[i]]
-#		var rand_spell = spell_category[randi() % len(spell_category)]
-#		while rand_spell in active_spells.values():
-#			rand_spell = spell_category [randi() % len(spell_category)]
-#
-#		active_spells[rand_key] = rand_spell
-#
-#		print_debug(str(i) + ": " + OS.get_scancode_string(rand_key) + ", " + rand_spell.SPELL_NAME)
