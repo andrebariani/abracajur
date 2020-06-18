@@ -118,7 +118,7 @@ func reset_spells():
 		
 		for effect in rand_shape["EFFECTS"].keys():
 			if effect != rand_effect["TYPE"]:
-				rand_shape["EFFECTS"].erase(effect)
+				effect = 0
 		
 		rand_shape["NAME"] += rand_effect["NAME"]
 		active_spells[keys[k]] = rand_shape

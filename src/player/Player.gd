@@ -22,10 +22,6 @@ func _process(_delta):
 		rayCast.force_raycast_update()
 		if !rayCast.is_colliding():
 			teleport()
-			
-			
-	if Input.is_action_just_pressed("spell_q"):
-		_on_cast_spell(spellScene)
 
 
 func teleport():
@@ -36,17 +32,15 @@ func teleport():
 	can_teleport = true
 	
 	
-func _on_cast_spell(spell_scene):
-	var spell = spell_scene.instance()
-	var player_radius = get_node("Hurtbox/CollisionShape2D").get_shape().radius
-	var spell_radius = spell.get_node("Hitbox/CollisionShape2D").get_shape().radius
-	var total_radius = player_radius + spell_radius
-	spell.position = global_position + Vector2(total_radius, total_radius) * look_vector.normalized()
-	spell.init(look_vector.normalized())
+func _on_Magic_System_cast_spell(spell_scene, letter, position):
+	var spell = spell_scene.SCENE.instance()
+	spell_scene.EFFECTS = spell.effects
+	if spell.name == "SparkSpell":
+		var player_radius = get_node("Hurtbox/CollisionShape2D").get_shape().radius
+		var spell_radius = spell.get_node("Hitbox/CollisionShape2D").get_shape().radius
+		var total_radius = player_radius + spell_radius
+		spell.position = global_position + Vector2(total_radius, total_radius) * look_vector.normalized()
+		spell.init(look_vector.normalized())
 	
 	var world = get_tree().current_scene
 	world.add_child(spell)
-
-
-func _on_Magic_System_cast_spell(spell, letter, position):
-	pass # Replace with function body.

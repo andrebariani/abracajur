@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/engine/Hitbox.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/spells/AOESpell.gd" type="Script" id=2]
@@ -7,7 +7,22 @@
 radius = 16.0
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 16.0
+radius = 18.0
+
+[sub_resource type="Animation" id=3]
+resource_name = "explode"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Hitbox/CollisionShape2D:shape:radius")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 12.0, 18.0 ]
+}
 
 [node name="AOESpell" type="KinematicBody2D"]
 script = ExtResource( 2 )
@@ -21,5 +36,10 @@ collision_mask = 16
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 shape = SubResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "explode"
+anims/explode = SubResource( 3 )
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 
 [editable path="Hitbox"]

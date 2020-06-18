@@ -10,5 +10,5 @@ var MoveDirection = Vector2.ZERO
 
 func _on_Hurtbox_area_entered(area):
 	var spell = area.spell
-	hp += spell.DAMAGE
+	hp += spell.effects.DAMAGE
 	print_debug(hp)
