@@ -10,12 +10,11 @@ void fragment() {
         COLOR = color_base;
     } else {
 		if (curr_color == vec4(0,0,0,1) ) {
-        	COLOR = color_outline;
+			COLOR = color_outline;
 		} else {
-			else {
-        		COLOR = curr_color;
-			
+			COLOR = curr_color;
 		}
 	}
+
 
 }

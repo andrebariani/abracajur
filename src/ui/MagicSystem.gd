@@ -3,8 +3,8 @@ extends Node
 export(Dictionary) var effects_scrolls = {
 	"damage": [
 		{ "NAME":" DE FOGO", "TYPE": "DAMAGE",
-			"COLOR_BASE": Color(1, 0, 0, 1),
-			"COLOR_OUTLINE": Color(0.929412, 0.698039, 0.086275, 1)}
+			"COLOR_BASE": Color("bd3c30"),
+			"COLOR_OUTLINE": Color("bdac2c")}
 	], 
 	"disabler": [
 		{ 
