@@ -6,6 +6,10 @@
 [node name="Geladeira" instance=ExtResource( 1 )]
 collision_mask = 1
 script = ExtResource( 3 )
+FRICTION = 200
+ACCELERATION = 200
+max_hp = 3
+MAX_SPEED = 50
 
 [node name="ColorRect" parent="." index="1"]
 color = Color( 0, 1, 0.952941, 1 )
