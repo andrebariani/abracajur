@@ -6,18 +6,18 @@
 [node name="UI" type="Control"]
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_top = -40.0
-margin_right = 40.0
+margin_top = -226.0
+margin_right = 402.0
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-margin_left = 123.983
-margin_top = -15.3172
-margin_right = 275.983
-margin_bottom = 48.6828
+margin_left = 118.283
+margin_top = 173.733
+margin_right = 270.283
+margin_bottom = 237.733
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
