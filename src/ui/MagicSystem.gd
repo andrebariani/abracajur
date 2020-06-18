@@ -7,8 +7,8 @@ export(Dictionary) var effects_scrolls = {
 			"TYPE": "DAMAGE",
 			"COLORS": {
 				"COLOR_BASE": Color("bd3c30"),
-				"COLOR_OUTLINE": Color("bdac2c")
-			}
+				"COLOR_OUTLINE": Color("bdac2c"),
+			},
 		}
 	], 
 	"disabler": [
@@ -17,16 +17,17 @@ export(Dictionary) var effects_scrolls = {
 			"TYPE": "STUN",
 			"COLORS": {
 				"COLOR_BASE": Color("bd3c30"),
-				"COLOR_OUTLINE": Color("bdac2c")
-			}
+				"COLOR_OUTLINE": Color("bdac2c"),
+			},
 		}, 
 		{ 
-			"NAME":" DE VENTO"
+			"NAME":" DE VENTO",
 			 "TYPE": "KNOCKBACK",
 			 "COLORS": {
 				"COLOR_BASE": Color("bd3c30"),
-				"COLOR_OUTLINE": Color("bdac2c")
-			}
+				"COLOR_OUTLINE": Color("bdac2c"),
+			},
+		},
 	], 
 	"debuff": [
 		{ 
@@ -34,15 +35,17 @@ export(Dictionary) var effects_scrolls = {
 			"TYPE":"GREASE",
 			"COLORS": {
 				"COLOR_BASE": Color("bd3c30"),
-				"COLOR_OUTLINE": Color("bdac2c")
-			}
+				"COLOR_OUTLINE": Color("bdac2c"),
+			},
+		},
 		{ 
 			"NAME":" DA CORRUPÇÃO",
 			"TYPE":"BREAK",
 			"COLORS": {
 				"COLOR_BASE": Color("bd3c30"),
-				"COLOR_OUTLINE": Color("bdac2c")
-			}
+				"COLOR_OUTLINE": Color("bdac2c"),
+			},
+		},
 	], 
 	"defensive": [
 		{ 
@@ -50,43 +53,45 @@ export(Dictionary) var effects_scrolls = {
 			"TYPE":"HEAL",
 			"COLORS": {
 				"COLOR_BASE": Color("bd3c30"),
-				"COLOR_OUTLINE": Color("bdac2c")
-			}
+				"COLOR_OUTLINE": Color("bdac2c"),
+			},
+		},
 		{ 
 			"NAME": " DE PEDRA",
 			"TYPE":"SHIELD",
 			"COLORS": {
 				"COLOR_BASE": Color("bd3c30"),
-				"COLOR_OUTLINE": Color("bdac2c")
-			}
+				"COLOR_OUTLINE": Color("bdac2c"),
+			},
+		},
 	],
 }
 
-	"disabler": [
-		{ 
-			"NAME":" DE RAIO",
-			"TYPE": "STUN", "COLOR":Color(0, 0, 1, 1)}, 
-		{ 
-			"NAME":" DE VENTO",
-			"TYPE": "KNOCKBACK", "COLOR":Color(0, 93.0/255.0, 0, 1)},
-	], 
-	"debuff": [
-		{ 
-			"NAME":" DE GELO",
-			"TYPE":"GREASE", "COLOR":Color(0, 1, 1, 1)},
-		{ 
-			"NAME":" DA CORRUPÇÃO",
-			"TYPE":"BREAK", "COLOR":Color(151.0/255.0, 0, 1, 1)},
-	], 
-	"defensive": [
-		{ 
-			"NAME":" DE CURA",
-			"TYPE":"HEAL", "COLOR":Color(1, 0, 155.0/255.0, 1)},
-		{ 
-			"NAME": " DE PEDRA",
-			"TYPE":"SHIELD", "COLOR":Color(1, 1, 1, 1)},
-	]
-}
+#	"disabler": [
+#		{ 
+#			"NAME":" DE RAIO",
+#			"TYPE": "STUN", "COLOR":Color(0, 0, 1, 1)}, 
+#		{ 
+#			"NAME":" DE VENTO",
+#			"TYPE": "KNOCKBACK", "COLOR":Color(0, 93.0/255.0, 0, 1)},
+#	], 
+#	"debuff": [
+#		{ 
+#			"NAME":" DE GELO",
+#			"TYPE":"GREASE", "COLOR":Color(0, 1, 1, 1)},
+#		{ 
+#			"NAME":" DA CORRUPÇÃO",
+#			"TYPE":"BREAK", "COLOR":Color(151.0/255.0, 0, 1, 1)},
+#	], 
+#	"defensive": [
+#		{ 
+#			"NAME":" DE CURA",
+#			"TYPE":"HEAL", "COLOR":Color(1, 0, 155.0/255.0, 1)},
+#		{ 
+#			"NAME": " DE PEDRA",
+#			"TYPE":"SHIELD", "COLOR":Color(1, 1, 1, 1)},
+#	]
+#}
 
 var shape_scrolls = [
 	{ 
@@ -103,26 +108,30 @@ var shape_scrolls = [
 			"SHIELD": 2
 		},
 		"CHOSEN_EFFECT": "",
-		"COLOR_BASE": Color(0,0,0,0),
-		"COLOR_OUTLINE": Color(0,0,0,0)
+		"COLORS": {
+				"COLOR_BASE": Color("bd3c30"),
+				"COLOR_OUTLINE": Color("bdac2c"),
+		},
 	},
-	#{ 
-	#	"NAME":"EXPLOSÃO", 
-	#	"SCENE":preload("res://src/spells/AOESpell.tscn"), 
-	#	"ICON": null,
-	#	"EFFECTS": {
-	#		"DAMAGE": 3,
-	#		"STUN": 1,
-	#		"KNOCKBACK": 1000,
-	#		"GREASE": 175,
-	#		"BREAK": 2,
-	#		"HEAL": 2,
-	#		"SHIELD": 2
-	#	},
-	#	"CHOSEN_EFFECT": "",
-	#	"COLOR_BASE": Color(0,0,0,0),
-	#	"COLOR_OUTLINE": Color(0,0,0,0)
-	#},
+	{ 
+		"NAME":"EXPLOSÃO", 
+		"SCENE":preload("res://src/spells/AOESpell.tscn"), 
+		"ICON": null,
+		"EFFECTS": {
+			"DAMAGE": 3,
+			"STUN": 1,
+			"KNOCKBACK": 1000,
+			"GREASE": 175,
+			"BREAK": 2,
+			"HEAL": 2,
+			"SHIELD": 2
+		},
+		"CHOSEN_EFFECT": "",
+		"COLORS": {
+			"COLOR_BASE": Color("bd3c30"),
+			"COLOR_OUTLINE": Color("bdac2c"),
+		},
+	},
 ]
 
 
@@ -174,6 +183,7 @@ func cast_spell(keycode):
 func reset_spells():
 	active_spells.clear()
 	emit_signal("reset_spells")
+	# warning-ignore:unused_variable
 	var key_position = -1
 		
 	keys.shuffle()
@@ -195,8 +205,7 @@ func reset_spells():
 		var rand_shape = available_shapes[randi() % len(available_shapes)].duplicate(true)
 		
 		rand_shape.CHOSEN_EFFECT = rand_effect.TYPE
-		rand_shape.COLOR_BASE = rand_effect.COLOR_BASE
-		rand_shape.COLOR_OUTLINE = rand_effect.COLOR_OUTLINE
+		rand_shape.COLORS = rand_effect.COLORS
 		
 		rand_shape["NAME"] += rand_effect["NAME"]
 		active_spells[keys[k]] = rand_shape

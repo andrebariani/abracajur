@@ -10,7 +10,11 @@ var effects = {
 	"SHIELD": 0
 }
 var chosen_effect = ""
-var color_base = Color(0,0,0,0)
-var color_outline = Color(0,0,0,0)
+var colors = {
+	"COLOR_BASE": Color(0,0,0,0),
+	"COLOR_OUTLINE": Color(0,0,0,0),
+}
 
-
+func _set_colors():
+	$Sprite.material.set_shader_param("color_base", colors.COLOR_BASE)
+	$Sprite.material.set_shader_param("color_outline", colors.COLOR_OUTLINE)

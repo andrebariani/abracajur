@@ -8,13 +8,6 @@ var velocity = Vector2.ZERO
 func init(direction: Vector2, speed: int = self.speed):
 	self.direction = direction
 	self.speed = speed
-	set_colors()
-
-
-func set_colors():
-	$Sprite.material.set_shader_param("color_base", color_base)
-	$Sprite.material.set_shader_param("color_outline", color_outline)
-
 
 
 func _physics_process(delta):
