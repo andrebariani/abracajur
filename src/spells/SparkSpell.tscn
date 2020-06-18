@@ -14,7 +14,6 @@ radius = 8.0
 scale = Vector2( 0.5, 0.5 )
 collision_layer = 0
 script = ExtResource( 3 )
-SPELL_NAME = "RAJADAS DE RAIO"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -28,5 +27,6 @@ collision_mask = 16
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 shape = SubResource( 2 )
+[connection signal="area_entered" from="Hitbox" to="." method="_on_Hitbox_area_entered"]
 
 [editable path="Hitbox"]

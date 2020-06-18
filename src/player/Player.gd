@@ -32,9 +32,11 @@ func teleport():
 	can_teleport = true
 	
 	
-func _on_Magic_System_cast_spell(spell_scene, letter, position):
-	var spell = spell_scene.SCENE.instance()
-	spell_scene.EFFECTS = spell.effects
+func _on_Magic_System_cast_spell(spell_data, letter, position):
+	var spell = spell_data.SCENE.instance()
+	spell.effects = spell_data.EFFECTS
+	spell.chosen_effect = spell_data.CHOSEN_EFFECT
+	
 	if spell.name == "SparkSpell":
 		var player_radius = get_node("Hurtbox/CollisionShape2D").get_shape().radius
 		var spell_radius = spell.get_node("Hitbox/CollisionShape2D").get_shape().radius

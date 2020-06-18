@@ -26,24 +26,27 @@ var shape_scrolls = [
 		"EFFECTS": {
 			"DAMAGE": 2,
 			"STUN": 1,
-			"KNOCKBACK": 50,
-			"GREASE": 2,
-			"BREAK": 2,
-		}
+			"KNOCKBACK": 500,
+			"GREASE": 175,
+			"BREAK": 1,
+			"HEAL": 1,
+		},
+		"CHOSEN_EFFECT": ""
 	},
 	{ 
 		"NAME":"EXPLOSÃO", 
 		"SCENE":preload("res://src/spells/AOESpell.tscn"), 
 		"ICON": null,
 		"EFFECTS": {
-			"DAMAGE": 2,
+			"DAMAGE": 3,
 			"STUN": 1,
-			"KNOCKBACK": 50,
-			"GREASE": 2,
+			"KNOCKBACK": 1000,
+			"GREASE": 175,
 			"BREAK": 2,
-			"HEAL": 1,
+			"HEAL": 2,
 			"SHIELD": 2
-		}
+		},
+		"CHOSEN_EFFECT": ""
 	},
 ]
 
@@ -116,15 +119,13 @@ func reset_spells():
 		# generate a shape
 		var rand_shape = available_shapes[randi() % len(available_shapes)].duplicate(true)
 		
-		for effect in rand_shape["EFFECTS"].keys():
-			if effect != rand_effect["TYPE"]:
-				effect = 0
+		rand_shape.CHOSEN_EFFECT = rand_effect.TYPE
 		
 		rand_shape["NAME"] += rand_effect["NAME"]
 		active_spells[keys[k]] = rand_shape
 		
 		print_debug(str(k) + ": " + OS.get_scancode_string(keys[k]) + ", " + rand_shape["NAME"])
-		
+	
 
 func random_from_dict(dict):
 	return dict[dict.keys()[randi() % len(dict)]]

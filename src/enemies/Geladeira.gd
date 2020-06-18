@@ -7,14 +7,14 @@ enum {
 
 onready var AggroBox = $AggroBox
 onready var rayCast = $RayCast2D
+onready var moveDebug = $MoveDebug
 var state = WANDER
-
-func _ready():
-	pass # Replace with function body.
-
 
 
 func _physics_process(delta):
+	knockback = knockback.move_toward(Vector2.ZERO, FRICTION)
+	knockback = move_and_slide(knockback)
+	
 	match state:
 		WANDER:
 			seek_player()
@@ -31,8 +31,10 @@ func _physics_process(delta):
 					state = WANDER
 			else:
 				state = WANDER
-
+				
 	MoveDirection = move_and_slide(MoveDirection)
+		
+	moveDebug.set_text(str(MoveDirection))
 
 
 

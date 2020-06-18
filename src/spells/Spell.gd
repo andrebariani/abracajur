@@ -9,3 +9,4 @@ var effects = {
 	"HEAL": 0,
 	"SHIELD": 0
 }
+var chosen_effect = ""
