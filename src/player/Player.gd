@@ -17,6 +17,7 @@ var is_active = true
 var has_shield = false
 
 signal player_stunned
+signal activated_illusion
 
 func _process(_delta):
 	look_vector = get_global_mouse_position() - global_position
@@ -53,6 +54,7 @@ func _on_Magic_System_cast_spell(spell_data, letter, position):
 	spell.chosen_effect = spell_data.CHOSEN_EFFECT
 	spell.colors = spell_data.COLORS
 	spell._set_colors()
+	spell.caster = self
 	
 	var show_behind = false
 	
@@ -82,7 +84,10 @@ func _on_Magic_System_cast_spell(spell_data, letter, position):
 	world.add_child(spell)
 	if show_behind:
 		world.move_child(spell, world.get_node_position("Camera2D"))
-	
+
+
+func activate_illusion(new_target, duration):
+	emit_signal("activated_illusion", new_target, duration)
 
 func get_total_radius(spell_radius):
 	var player_radius = hurtbox.get_shape().radius
@@ -122,12 +127,10 @@ func apply_stun(spell_effects):
 	is_active = false
 	emit_signal("player_stunned", is_active)
 	stunTimer.start(spell_effects.STUN)
-	
-	
+
 func apply_break(spell_effects):
 	max_hp = max(max_hp - spell_effects.BREAK, 1)
 	print_debug("HP reduced to " + str(max_hp))
-	
 
 func apply_shield(spell_effects):
 	has_shield = true

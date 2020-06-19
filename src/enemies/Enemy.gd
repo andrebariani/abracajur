@@ -32,7 +32,10 @@ var state = IDLE
 var MoveDirection = Vector2.ZERO
 var knockback = Vector2.ZERO
 var vulnerable = false
+var targeted = false
 var has_shield = false setget set_shield
+
+var original_target
 
 func set_shield(value):
 	has_shield = value
@@ -95,6 +98,8 @@ func _on_Hurtbox_area_entered(area):
 				apply_grease(spell.effects)
 			"BREAK":
 				apply_break(spell.effects)
+			"ILLUSION":
+				apply_illusion(spell.effects, spell.caster)
 			"HEAL":
 				apply_heal(spell.effects)
 			"SHIELD":
@@ -154,7 +159,23 @@ func set_vulnerable(_new):
 		scale *= 0.5
 	else:
 		scale *= 2
+
+func apply_illusion(spell_effects, caster):
+	if caster and caster.has_method("activate_illusion"):
+		caster.activate_illusion(self, spell_effects.ILLUSION)
+		$IllusionTimer.start(spell_effects.ILLUSION)
+		print_debug("Target for " + str(spell_effects.ILLUSION) + " seconds")
+	else:
+		print_debug("Invalid caster!")
+
+func get_diverted(new_target, duration):
+	print("Diverted!")
 	
+	if new_target != self and AggroBox.target != null:
+		if original_target == null:
+			original_target = AggroBox.target
+		$DivertedTimer.start(duration)
+		AggroBox.target = new_target
 
 func apply_shield(spell_effects):
 	has_shield = true
@@ -172,6 +193,13 @@ func _on_GreaseTimer_timeout():
 
 func _on_BreakTimer_timeout():
 	set_vulnerable(false)
+
+func _on_IllusionTimer_timeout():
+	pass
+
+
+func _on_DivertedTimer_timeout():
+	AggroBox.target = original_target
 
 func _on_ShieldTimer_timeout():
 	has_shield = false
