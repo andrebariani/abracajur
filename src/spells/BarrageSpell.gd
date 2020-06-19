@@ -18,7 +18,7 @@ func spawn_shot():
 	shots_count -= 1
 	var inst = _spawn(projectile)
 	inst.init(player.get_look_vector())
-	inst.get_node("Hitbox/CollisionShape2D").get_shape().radius = radius
+	inst.get_node("SpellHitbox/CollisionShape2D").get_shape().radius = radius
 	
 	if shots_count <= 0:
 		queue_free()
