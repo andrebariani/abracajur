@@ -15,7 +15,7 @@ var setted_effect = {
 
 var setted_spell = { 
 	"NAME":"ESFERA", 
-	"SCENE":preload("res://src/spells/SphereSpell.tscn"), 
+	"SCENE":preload("res://src/spells/RaySpell.tscn"), 
 	"ICON": null,
 	"EFFECTS": {
 		"DAMAGE": 2,
@@ -78,6 +78,7 @@ func launch_spell(player):
 			spell.global_position = spellExit.global_position
 			spell.from_player = false
 			spell.player = player
+			spell.duration = 1
 	
 	var world = get_tree().current_scene
 	world.add_child(spell)

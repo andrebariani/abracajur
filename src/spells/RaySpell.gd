@@ -10,11 +10,12 @@ var from_player = true
 
 var endpoint
 
+export var duration = 1
 var clock = 0
 
 func _physics_process(delta):
 	clock += delta
-	if clock > 1:
+	if clock > duration:
 		queue_free()
 	print_debug(player)
 	if is_instance_valid(player):
