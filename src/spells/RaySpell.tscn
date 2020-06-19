@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://color-code.png" type="Texture" id=1]
 [ext_resource path="res://src/engine/Hitbox.tscn" type="PackedScene" id=2]
@@ -7,6 +7,9 @@
 [ext_resource path="res://lasier.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8, 8 )
+
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 8, 8 )
 
 [node name="RaySpell" type="KinematicBody2D"]
@@ -29,6 +32,10 @@ region_rect = Rect2( 0, 0, 100, 16 )
 position = Vector2( 8.57361, 0.0595388 )
 collision_mask = 16
 
+[node name="CollisionShape2D" parent="SpellHitbox" index="0"]
+position = Vector2( -0.44059, 0.304369 )
+shape = SubResource( 2 )
+
 [node name="RayCast2D" type="RayCast2D" parent="."]
 position = Vector2( -0.255775, 0.341032 )
 enabled = true
@@ -45,3 +52,5 @@ material = ExtResource( 3 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
 [connection signal="area_entered" from="SpellHitbox" to="." method="_on_Hitbox_area_entered"]
+
+[editable path="SpellHitbox"]

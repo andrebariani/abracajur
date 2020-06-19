@@ -22,11 +22,11 @@ func _physics_process(delta):
 	var max_cast_to = look_vector.normalized() * MAX_LENGTH
 	uncle_ray.cast_to = max_cast_to
 	
-	if uncle_ray.is_colliding():
+	if uncle_ray.is_colliding() and look_vector:
 		end.global_position = uncle_ray.get_collision_point()
-		$Hitbox.rotation = atan2(look_vector.y, look_vector.x)
-		$Hitbox.position = (end.global_position - self.global_position + ($Begin.position - end.position)/2)
-		$Hitbox/CollisionShape2D.get_shape().extents = Vector2(end.position.length()/2, 8)
+		$SpellHitbox.rotation = atan2(look_vector.y, look_vector.x)
+		$SpellHitbox.position = (end.global_position - self.global_position + ($Begin.position - end.position)/2)
+		$SpellHitbox/CollisionShape2D.get_shape().extents = Vector2(end.position.length()/2, 8)
 	else:
 		end.global_position = uncle_ray.cast_to
 	
