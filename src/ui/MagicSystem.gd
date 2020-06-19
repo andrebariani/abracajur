@@ -46,6 +46,15 @@ export(Dictionary) var effects_scrolls = {
 				"COLOR_OUTLINE": Color("1c003e"),
 			},
 		},
+		
+		{ 
+			"NAME":" DA ILUSÃO",
+			"TYPE":"ILLUSION",
+			"COLORS": {
+				"COLOR_BASE": Color("dc03bf"),
+				"COLOR_OUTLINE": Color("44173e"),
+			},
+		},
 	], 
 	"defensive": [
 		{ 
@@ -74,12 +83,11 @@ var shape_scrolls = [
 		"ICON": null,
 		"EFFECTS": {
 			"DAMAGE": 2,
-			"STUN": 1,
-			"KNOCKBACK": 500,
-			"GREASE": 175,
-			"BREAK": 1,
-			#"HEAL": 1,
-			#"SHIELD": 2
+			"STUN": 3,
+			"KNOCKBACK": 1000,
+			"GREASE": 8,
+			"ILLUSION": 4,
+			"BREAK": 4,
 		},
 		"CHOSEN_EFFECT": "",
 		"COLORS": {
@@ -92,11 +100,11 @@ var shape_scrolls = [
 		"SCENE":preload("res://src/spells/AOESpell.tscn"), 
 		"ICON": null,
 		"EFFECTS": {
-			"DAMAGE": 3,
-			"KNOCKBACK": 1000,
-			"GREASE": 175,
-			"BREAK": 2,
-			"HEAL": 2,
+			"DAMAGE": 2,
+			"KNOCKBACK": 1500,
+			"GREASE": 10,
+			"BREAK": 5,
+			"HEAL": 1,
 			"SHIELD": 2
 		},
 		"CHOSEN_EFFECT": "",
@@ -112,11 +120,12 @@ var shape_scrolls = [
 		"ICON": null,
 		"EFFECTS": {
 			"DAMAGE": 3,
-			"STUN": 2,
-			"KNOCKBACK": 1000,
-			"GREASE": 175,
-			"BREAK": 2,
-			"HEAL": 2,
+			"STUN": 4,
+			"KNOCKBACK": 1500,
+			"GREASE": 12,
+			"BREAK": 5,
+			"ILLUSION": 3,
+			"HEAL": 1,
 			"SHIELD": 2
 		},
 		"CHOSEN_EFFECT": "",
@@ -132,10 +141,11 @@ var shape_scrolls = [
 		"ICON": null,
 		"EFFECTS": {
 			"DAMAGE": 3,
-			"STUN": 2,
+			"STUN": 4,
 			"KNOCKBACK": 1000,
-			"GREASE": 175,
-			"BREAK": 2,
+			"GREASE": 12,
+			"BREAK": 6,
+			"ILLUSION": 5,
 			"HEAL": 2,
 			"SHIELD": 2
 		},
@@ -152,10 +162,10 @@ var shape_scrolls = [
 		"ICON": null,
 		"EFFECTS": {
 			"DAMAGE": 1,
-			"STUN": 0.5,
-			"KNOCKBACK": 400,
-			"GREASE": 100,
-			"BREAK": 1,
+			"STUN": 1,
+			"KNOCKBACK": 500,
+			"GREASE": 4,
+			"BREAK": 2,
 		},
 		"CHOSEN_EFFECT": "",
 		"COLORS": {
@@ -207,9 +217,9 @@ var shape_scrolls = [
 		"ICON": null,
 		"EFFECTS": {
 			"DAMAGE": 1,
-			"STUN": 0.5,
-			"GREASE": 100,
-			"BREAK": 1,
+			"STUN": 1,
+			"GREASE": 3,
+			"BREAK": 2,
 		},
 		"CHOSEN_EFFECT": "",
 		"COLORS": {

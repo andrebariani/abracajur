@@ -36,7 +36,11 @@ var state = IDLE
 
 var MoveDirection = Vector2.ZERO
 var knockback = Vector2.ZERO
+var vulnerable = false
+var targeted = false
 var has_shield = false setget set_shield
+
+var original_target
 
 func set_shield(value):
 	has_shield = value
@@ -64,7 +68,8 @@ func state_machine():
 				rayCast.cast_to = direction
 				rayCast.force_raycast_update()
 				if !rayCast.is_colliding():
-					MoveDirection = MoveDirection.move_toward(direction.normalized() * MAX_SPEED, ACCELERATION)
+					MoveDirection = MoveDirection.move_toward(direction.normalized() * MAX_SPEED, 
+															ACCELERATION)
 				else:
 					set_state(IDLE)
 			else:
@@ -98,6 +103,8 @@ func _on_Hurtbox_area_entered(area):
 				apply_grease(spell.effects)
 			"BREAK":
 				apply_break(spell.effects)
+			"ILLUSION":
+				apply_illusion(spell.effects, spell.caster)
 			"HEAL":
 				apply_heal(spell.effects)
 			"SHIELD":
@@ -108,6 +115,10 @@ func _on_Hurtbox_area_entered(area):
 # ---- React to stimuli -------------
 
 func apply_damage(spell_effects):
+	var damage = spell_effects.DAMAGE
+	if vulnerable:
+		damage *= 5
+	
 	hp = clamp(hp - spell_effects.DAMAGE, 0, max_hp)
 	if hp == 0:
 		die()
@@ -123,7 +134,7 @@ func apply_heal(spell_effects):
 func apply_stun(spell_effects):
 	set_state(STUN)
 	$StunTimer.start(spell_effects.STUN)
-	print_debug("ouch!")
+	print_debug("Stunned for " + str(spell_effects.STUN) + " seconds!")
 	
 
 func apply_knockback(area):
@@ -132,24 +143,70 @@ func apply_knockback(area):
 
 
 func apply_grease(spell_effects):
-	ACCELERATION -= spell_effects.GREASE
-	FRICTION = 1
+	if spell_effects.GREASE == 0:
+		return
+	
+	$GreaseTimer.start(spell_effects.GREASE)
+	FRICTION = 0
+	ACCELERATION = 0
+	print_debug("Greased for " + str(spell_effects.GREASE) + " seconds")
 	
 	
 func apply_break(spell_effects):
-	max_hp = max(max_hp - spell_effects.BREAK, 1)
-	print_debug("HP reduced to " + str(max_hp))
+	set_vulnerable(true)
+	$BreakTimer.start(spell_effects.BREAK)
+	print_debug("Vulnerable for " + str(spell_effects.BREAK) + " seconds")
+
+func set_vulnerable(_new):
+	if vulnerable == _new:
+		return
 	
+	vulnerable = _new
+	if _new == true:
+		scale *= 0.5
+	else:
+		scale *= 2
+
+func apply_illusion(spell_effects, caster):
+	if caster and caster.has_method("activate_illusion"):
+		caster.activate_illusion(self, spell_effects.ILLUSION)
+		$IllusionTimer.start(spell_effects.ILLUSION)
+		print_debug("Target for " + str(spell_effects.ILLUSION) + " seconds")
+	else:
+		print_debug("Invalid caster!")
+
+func get_diverted(new_target, duration):
+	print("Diverted!")
+	
+	if new_target != self and AggroBox.target != null:
+		if original_target == null:
+			original_target = AggroBox.target
+		$DivertedTimer.start(duration)
+		AggroBox.target = new_target
 
 func apply_shield(spell_effects):
 	has_shield = true
 	shieldTimer.start(spell_effects.SHIELD)
 	print_debug("Shield is on!")
 
+# ------ Timer durations ----------------
 
 func _on_StunTimer_timeout():
 	set_state(IDLE)
 
+func _on_GreaseTimer_timeout():
+	ACCELERATION = 200
+	FRICTION = 200
+
+func _on_BreakTimer_timeout():
+	set_vulnerable(false)
+
+func _on_IllusionTimer_timeout():
+	pass
+
+
+func _on_DivertedTimer_timeout():
+	AggroBox.target = original_target
 
 func _on_ShieldTimer_timeout():
 	has_shield = false
