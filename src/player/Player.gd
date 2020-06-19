@@ -71,6 +71,8 @@ func _on_Magic_System_cast_spell(spell_data, letter, position):
 			spell.position = get_global_mouse_position()
 		"RuneSpell":
 			spell.position = self.position
+		"RaySpell":
+			spell.player = self
 	
 	var world = get_tree().current_scene
 	world.add_child(spell)
