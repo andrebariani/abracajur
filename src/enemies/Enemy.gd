@@ -25,6 +25,7 @@ onready var rayCast = $RayCast2D
 onready var moveDebug = $MoveDebug
 onready var shieldTimer = $ShieldTimer
 onready var hurtbox = $Hurtbox
+onready var softCollision = $SoftCollision
 
 enum {
 	IDLE
@@ -52,6 +53,8 @@ func _physics_process(delta):
 		knockback = knockback.move_toward(Vector2.ZERO, FRICTION)
 		knockback = move_and_slide(knockback)
 	else:
+		if softCollision.is_colliding():
+			MoveDirection += softCollision.get_push_vector() * delta * 800
 		MoveDirection = move_and_slide(MoveDirection)
 	moveDebug.set_text(str(MoveDirection) + str(state))
 

@@ -57,6 +57,8 @@ func _on_Magic_System_cast_spell(spell_data, letter, position):
 	spell._set_colors()
 	spell.caster = self
 	
+	print_debug("MIAU")
+	
 	var show_behind = false
 	
 	match (spell.name):
@@ -99,6 +101,7 @@ func _on_Hurtbox_area_entered(area):
 		match area.name:
 			"SpellHitbox":
 				var spell = area.spell
+				print_debug(spell.effects)
 				match spell.chosen_effect:
 					"DAMAGE":
 						apply_damage(spell.effects.DAMAGE)
@@ -125,7 +128,6 @@ func apply_damage(value):
 	hp = clamp(hp - value, 0, max_hp)
 	if hp == 0:
 		die()
-	print_debug("damage! " + str(hp))
 
 
 func apply_heal(value):
