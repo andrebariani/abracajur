@@ -78,7 +78,7 @@ export(Dictionary) var effects_scrolls = {
 
 var shape_scrolls = [
 	{ 
-		"NAME":"ESFERA", 
+		"NAME":"BOMBA", 
 		"SCENE":preload("res://src/spells/SphereSpell.tscn"), 
 		"ICON": null,
 		"EFFECTS": {

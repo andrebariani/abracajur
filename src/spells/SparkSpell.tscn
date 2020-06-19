@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/engine/Hitbox.tscn" type="PackedScene" id=1]
-[ext_resource path="res://color-code.png" type="Texture" id=2]
+[ext_resource path="res://assets/abracajour/Rajada5x5.png" type="Texture" id=2]
 [ext_resource path="res://src/spells/ProjectileSpell.gd" type="Script" id=3]
 [ext_resource path="res://src/spells/ColorSpellMaterial.tres" type="Material" id=4]
 
@@ -22,14 +22,13 @@ shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 material = ExtResource( 4 )
-scale = Vector2( 0.25, 0.25 )
+scale = Vector2( 3, 3 )
 texture = ExtResource( 2 )
 
 [node name="Hitbox" parent="." instance=ExtResource( 1 )]
 collision_mask = 16
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
-visible = false
 shape = SubResource( 2 )
 [connection signal="area_entered" from="Hitbox" to="." method="_on_Hitbox_area_entered"]
 
