@@ -33,7 +33,7 @@ var setted_spell = {
 	},
 }
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	MoveDirection = Vector2.ZERO
 	state_machine()
 	

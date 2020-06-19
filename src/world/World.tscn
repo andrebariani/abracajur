@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/Tile-set.png" type="Texture" id=2]
@@ -74,6 +74,3 @@ margin_right = 2.0
 
 [node name="Magic System" type="Node" parent="."]
 script = ExtResource( 4 )
-[connection signal="cast_spell" from="Magic System" to="CanvasLayer/UI" method="_on_Magic_System_cast_spell"]
-[connection signal="cast_spell" from="Magic System" to="YSort/Player" method="_on_Magic_System_cast_spell"]
-[connection signal="reset_spells" from="Magic System" to="CanvasLayer/UI" method="_on_Magic_System_reset_spells"]
