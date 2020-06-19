@@ -44,6 +44,7 @@ func launch():
 		
 		beam.rotation = uncle_ray.cast_to.angle()
 		beam.region_rect.end.x = end.position.length()
+
 	else:
 		var look_vector = global_position.direction_to(player.global_position)
 		var max_cast_to = look_vector.normalized() * MAX_LENGTH
