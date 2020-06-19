@@ -57,7 +57,7 @@ func _on_Magic_System_cast_spell(spell_data, letter, position):
 			spell.position = global_position + Vector2(total_radius, total_radius) * look_vector.normalized()
 			spell.init(look_vector.normalized())
 		"BarrageSpell":
-			var spell_radius = spell.get_radius()
+			var spell_radius = spell.radius
 			var total_radius = get_total_radius(spell_radius)
 			spell.position = global_position + Vector2(total_radius, total_radius) * look_vector.normalized()
 			spell.player = self

@@ -70,7 +70,7 @@ export(Dictionary) var effects_scrolls = {
 var shape_scrolls = [
 	{ 
 		"NAME":"ESFERA", 
-		"SCENE":preload("res://src/spells/SparkSpell.tscn"), 
+		"SCENE":preload("res://src/spells/SphereSpell.tscn"), 
 		"ICON": null,
 		"EFFECTS": {
 			"DAMAGE": 2,
@@ -93,7 +93,6 @@ var shape_scrolls = [
 		"ICON": null,
 		"EFFECTS": {
 			"DAMAGE": 3,
-			"STUN": 2,
 			"KNOCKBACK": 1000,
 			"GREASE": 175,
 			"BREAK": 2,
@@ -139,6 +138,24 @@ var shape_scrolls = [
 			"BREAK": 2,
 			"HEAL": 2,
 			"SHIELD": 2
+		},
+		"CHOSEN_EFFECT": "",
+		"COLORS": {
+			"COLOR_BASE": Color("bd3c30"),
+			"COLOR_OUTLINE": Color("bdac2c"),
+		},
+	},
+	
+	{ 
+		"NAME":"RAJADA", 
+		"SCENE":preload("res://src/spells/BarrageSpell.tscn"), 
+		"ICON": null,
+		"EFFECTS": {
+			"DAMAGE": 1,
+			"STUN": 0.5,
+			"KNOCKBACK": 400,
+			"GREASE": 100,
+			"BREAK": 1,
 		},
 		"CHOSEN_EFFECT": "",
 		"COLORS": {
