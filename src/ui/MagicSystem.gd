@@ -13,7 +13,7 @@ export(Dictionary) var effects_scrolls = {
 	], 
 	"disabler": [
 		{ 
-			"NAME":" DE RAIO",
+			"NAME":" DE CHOQUE",
 			"TYPE": "STUN",
 			"COLORS": {
 				"COLOR_BASE": Color("00ffff"),
@@ -182,6 +182,23 @@ var shape_scrolls = [
 				"COLOR_OUTLINE": Color("bdac2c"),
 		},
 	}
+	
+	{ 
+		"NAME":"RAIO", 
+		"SCENE":preload("res://src/spells/RaySpell.tscn"), 
+		"ICON": null,
+		"EFFECTS": {
+			"DAMAGE": 1,
+			"STUN": 0.5,
+			"GREASE": 100,
+			"BREAK": 1,
+		},
+		"CHOSEN_EFFECT": "",
+		"COLORS": {
+			"COLOR_BASE": Color("bd3c30"),
+			"COLOR_OUTLINE": Color("bdac2c"),
+		},
+	},
 ]
 
 
