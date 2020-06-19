@@ -28,11 +28,7 @@ texture = ExtResource( 2 )
 [node name="SpellHitbox" parent="." instance=ExtResource( 1 )]
 collision_mask = 16
 
-<<<<<<< HEAD:src/spells/SparkSpell.tscn
-[node name="CollisionShape2D" parent="Hitbox" index="0"]
-=======
 [node name="CollisionShape2D" parent="SpellHitbox" index="0"]
->>>>>>> master:src/spells/ProjectileSpell.tscn
 shape = SubResource( 2 )
 [connection signal="area_entered" from="SpellHitbox" to="." method="_on_Hitbox_area_entered"]
 

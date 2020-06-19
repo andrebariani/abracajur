@@ -1,34 +1,37 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://src/engine/Hurtbox.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/enemies/Enemy.gd" type="Script" id=2]
 [ext_resource path="res://src/engine/AggroBox.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/font/Text.tres" type="DynamicFont" id=4]
 [ext_resource path="res://src/engine/EnemyHitbox.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/enemies/EnemyBlinkMaterial.tres" type="Material" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 8 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 8, 8 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 8, 8 )
 
 [node name="Enemy" type="KinematicBody2D"]
 collision_layer = 4
 collision_mask = 4
 script = ExtResource( 2 )
+blink_material = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
+use_parent_material = true
 margin_left = -8.0
 margin_top = -8.0
 margin_right = 8.0
 margin_bottom = 8.0
-color = Color( 0.00392157, 0, 0.00392157, 1 )
+color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -36,14 +39,20 @@ __meta__ = {
 [node name="EnemyHitbox" parent="." instance=ExtResource( 5 )]
 
 [node name="CollisionShape2D" parent="EnemyHitbox" index="0"]
-shape = SubResource( 3 )
+visible = false
+shape = SubResource( 2 )
 
 [node name="Hurtbox" parent="." instance=ExtResource( 1 )]
 collision_layer = 16
 collision_mask = 0
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
-shape = SubResource( 2 )
+visible = false
+shape = SubResource( 3 )
+
+[node name="BlinkTimer" type="Timer" parent="."]
+process_mode = 0
+one_shot = true
 
 [node name="StunTimer" type="Timer" parent="."]
 process_mode = 0
@@ -86,6 +95,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
+[connection signal="timeout" from="BlinkTimer" to="." method="_on_BlinkTimer_timeout"]
 [connection signal="timeout" from="StunTimer" to="." method="_on_StunTimer_timeout"]
 [connection signal="timeout" from="GreaseTimer" to="." method="_on_GreaseTimer_timeout"]
 [connection signal="timeout" from="BreakTimer" to="." method="_on_BreakTimer_timeout"]
@@ -93,6 +103,6 @@ __meta__ = {
 [connection signal="timeout" from="DivertedTimer" to="." method="_on_DivertedTimer_timeout"]
 [connection signal="timeout" from="ShieldTimer" to="." method="_on_ShieldTimer_timeout"]
 
-
 [editable path="EnemyHitbox"]
+
 [editable path="Hurtbox"]

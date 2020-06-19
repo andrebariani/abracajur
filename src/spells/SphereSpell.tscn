@@ -10,7 +10,7 @@
 extents = Vector2( 8, 8 )
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 7.0
+radius = 8.0
 
 [node name="SphereSpell" type="KinematicBody2D"]
 collision_layer = 0
@@ -23,7 +23,7 @@ shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 material = ExtResource( 3 )
-scale = Vector2( 0.25, 0.25 )
+scale = Vector2( 0.29, 0.29 )
 texture = ExtResource( 1 )
 
 [node name="SpellHitbox" parent="." instance=ExtResource( 2 )]

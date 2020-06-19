@@ -13,7 +13,7 @@ var clock = 0
 
 func _physics_process(delta):
 	clock += delta
-	if clock > 1:
+	if clock > 0.5:
 		queue_free()
 	
 	var look_vector = player.look_vector

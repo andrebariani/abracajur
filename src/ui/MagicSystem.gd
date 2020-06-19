@@ -90,6 +90,7 @@ var shape_scrolls = [
 			"BREAK": 4,
 		},
 		"CHOSEN_EFFECT": "",
+		"INV_FRAMES": 0.1,
 		"COLORS": {
 				"COLOR_BASE": Color("bd3c30"),
 				"COLOR_OUTLINE": Color("bdac2c"),
@@ -108,6 +109,7 @@ var shape_scrolls = [
 			"SHIELD": 2
 		},
 		"CHOSEN_EFFECT": "",
+		"INV_FRAMES": 0.1,
 		"COLORS": {
 			"COLOR_BASE": Color("bd3c30"),
 			"COLOR_OUTLINE": Color("bdac2c"),
@@ -129,6 +131,7 @@ var shape_scrolls = [
 			"SHIELD": 2
 		},
 		"CHOSEN_EFFECT": "",
+		"INV_FRAMES": 0.1,
 		"COLORS": {
 			"COLOR_BASE": Color("bd3c30"),
 			"COLOR_OUTLINE": Color("bdac2c"),
@@ -150,6 +153,7 @@ var shape_scrolls = [
 			"SHIELD": 2
 		},
 		"CHOSEN_EFFECT": "",
+		"INV_FRAMES": 0,
 		"COLORS": {
 			"COLOR_BASE": Color("bd3c30"),
 			"COLOR_OUTLINE": Color("bdac2c"),
@@ -168,6 +172,7 @@ var shape_scrolls = [
 			"BREAK": 2,
 		},
 		"CHOSEN_EFFECT": "",
+		"INV_FRAMES": 0,
 		"COLORS": {
 			"COLOR_BASE": Color("bd3c30"),
 			"COLOR_OUTLINE": Color("bdac2c"),
@@ -182,12 +187,13 @@ var shape_scrolls = [
 			"DAMAGE": 1,
 			"STUN": 1,
 			"KNOCKBACK": 500,
-			"GREASE": 175,
+			"GREASE": 3,
 			"BREAK": 1,
 			"HEAL": 1,
 			"SHIELD": 1
 		},
 		"CHOSEN_EFFECT": "",
+		"INV_FRAMES": 0.5,
 		"COLORS": {
 				"COLOR_BASE": Color("bd3c30"),
 				"COLOR_OUTLINE": Color("bdac2c"),
@@ -198,15 +204,17 @@ var shape_scrolls = [
 		"SCENE":preload("res://src/spells/MissileSpell.tscn"), 
 		"ICON": null,
 		"EFFECTS": {
-			"DAMAGE": 1,
-			"STUN": 1,
+			"DAMAGE": 3,
+			"STUN": 3,
 			"KNOCKBACK": 500,
-			"GREASE": 175,
+			"GREASE": 12,
 			"BREAK": 1,
+			"ILLUSION": 5,
 			"HEAL": 1,
 			"SHIELD": 1
 		},
 		"CHOSEN_EFFECT": "",
+		"INV_FRAMES": 0,
 		"COLORS": {
 				"COLOR_BASE": Color("bd3c30"),
 				"COLOR_OUTLINE": Color("bdac2c"),
@@ -223,6 +231,7 @@ var shape_scrolls = [
 			"BREAK": 2,
 		},
 		"CHOSEN_EFFECT": "",
+		"INV_FRAMES": 0.3,
 		"COLORS": {
 			"COLOR_BASE": Color("bd3c30"),
 			"COLOR_OUTLINE": Color("bdac2c"),

@@ -2,6 +2,8 @@ extends KinematicBody2D
 
 var caster = null
 
+var inv_frames = 0
+
 var effects = {
 	"DAMAGE": 0,
 	"STUN": 0,
@@ -29,6 +31,8 @@ func _spawn(spawnee):
 	spell.colors = colors
 	spell._set_colors()
 	spell.position = self.position
+	spell.caster = caster
+	spell.inv_frames = inv_frames
 	
 	var world = get_tree().current_scene
 	world.add_child(spell)

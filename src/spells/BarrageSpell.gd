@@ -14,6 +14,9 @@ func _on_Timer_timeout():
 	spawn_shot()
 
 func spawn_shot():
+	if !player:
+		return
+	
 	$Timer.start(interval)
 	shots_count -= 1
 	var inst = _spawn(projectile)
