@@ -54,6 +54,8 @@ func _on_Magic_System_cast_spell(spell_data, letter, position):
 	spell.colors = spell_data.COLORS
 	spell._set_colors()
 	
+	var show_behind = false
+	
 	match (spell.name):
 		"SphereSpell":
 			var spell_radius = spell.get_node("Hitbox/CollisionShape2D").get_shape().radius
@@ -69,13 +71,18 @@ func _on_Magic_System_cast_spell(spell_data, letter, position):
 			spell.position = self.position
 		"EruptionSpell":
 			spell.position = get_global_mouse_position()
+			show_behind = true
 		"RuneSpell":
 			spell.position = self.position
+			show_behind = true
 		"RaySpell":
 			spell.player = self
 	
 	var world = get_tree().current_scene
 	world.add_child(spell)
+	if show_behind:
+		world.move_child(spell, world.get_node_position("Camera2D"))
+	
 
 func get_total_radius(spell_radius):
 	var player_radius = hurtbox.get_shape().radius
@@ -138,5 +145,7 @@ func _on_ShieldTimer_timeout():
 
 func die():
 	queue_free()
+
+
 func get_look_vector():
 	return look_vector.normalized()
