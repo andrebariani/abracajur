@@ -60,7 +60,8 @@ func state_machine():
 				rayCast.cast_to = direction
 				rayCast.force_raycast_update()
 				if !rayCast.is_colliding():
-					MoveDirection = MoveDirection.move_toward(direction.normalized() * MAX_SPEED, ACCELERATION)
+					MoveDirection = MoveDirection.move_toward(direction.normalized() * MAX_SPEED, 
+															ACCELERATION)
 				else:
 					set_state(IDLE)
 			else:
@@ -133,9 +134,9 @@ func apply_grease(spell_effects):
 	if spell_effects.GREASE == 0:
 		return
 	
-	ACCELERATION /= spell_effects.GREASE
 	$GreaseTimer.start(spell_effects.GREASE)
-	FRICTION = 20
+	FRICTION = 0
+	ACCELERATION = 0
 	print_debug("Greased for " + str(spell_effects.GREASE) + " seconds")
 	
 	
@@ -166,6 +167,7 @@ func _on_StunTimer_timeout():
 	set_state(IDLE)
 
 func _on_GreaseTimer_timeout():
+	ACCELERATION = 200
 	FRICTION = 200
 
 func _on_BreakTimer_timeout():

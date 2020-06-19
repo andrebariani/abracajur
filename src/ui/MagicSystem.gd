@@ -75,8 +75,8 @@ var shape_scrolls = [
 		"EFFECTS": {
 			"DAMAGE": 2,
 			"STUN": 1,
-			"KNOCKBACK": 500,
-			"GREASE": 4,
+			"KNOCKBACK": 1000,
+			"GREASE": 8,
 			"BREAK": 4,
 		},
 		"CHOSEN_EFFECT": "",
@@ -91,8 +91,8 @@ var shape_scrolls = [
 		"ICON": null,
 		"EFFECTS": {
 			"DAMAGE": 2,
-			"KNOCKBACK": 1000,
-			"GREASE": 5,
+			"KNOCKBACK": 1500,
+			"GREASE": 10,
 			"BREAK": 5,
 			"HEAL": 1,
 			"SHIELD": 2
@@ -111,8 +111,8 @@ var shape_scrolls = [
 		"EFFECTS": {
 			"DAMAGE": 3,
 			"STUN": 2,
-			"KNOCKBACK": 1000,
-			"GREASE": 6,
+			"KNOCKBACK": 1500,
+			"GREASE": 12,
 			"BREAK": 5,
 			"HEAL": 1,
 			"SHIELD": 2
@@ -132,7 +132,7 @@ var shape_scrolls = [
 			"DAMAGE": 3,
 			"STUN": 2,
 			"KNOCKBACK": 1000,
-			"GREASE": 6,
+			"GREASE": 12,
 			"BREAK": 6,
 			"HEAL": 2,
 			"SHIELD": 2
@@ -151,8 +151,8 @@ var shape_scrolls = [
 		"EFFECTS": {
 			"DAMAGE": 1,
 			"STUN": 0.5,
-			"KNOCKBACK": 400,
-			"GREASE": 2,
+			"KNOCKBACK": 500,
+			"GREASE": 4,
 			"BREAK": 2,
 		},
 		"CHOSEN_EFFECT": "",
