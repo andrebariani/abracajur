@@ -12,7 +12,7 @@ var endpoint
 var clock = 0
 
 func _physics_process(delta):
-	#clock += delta
+	clock += delta
 	if clock > 1:
 		queue_free()
 	
@@ -29,24 +29,6 @@ func _physics_process(delta):
 		$Hitbox/CollisionShape2D.get_shape().extents = Vector2(end.position.length()/2, 8)
 	else:
 		end.global_position = uncle_ray.cast_to
-		
+	
 	beam.rotation = uncle_ray.cast_to.angle()
 	beam.region_rect.end.x = end.position.length()
-
-
-#	var look_vector = player.look_vector
-#	var total_radius = player.get_total_radius(8)
-#	self.position = player.global_position + Vector2(total_radius, total_radius) * look_vector.normalized()
-#
-#	rotation = atan2(look_vector.y, look_vector.x)
-#	uncle_ray.cast_to = look_vector
-#	uncle_ray.force_raycast_update()
-#	$Sprite2.global_position = uncle_ray.get_collision_point()
-#	endpoint = uncle_ray.get_collision_point() - self.position
-#
-#	if uncle_ray.is_colliding():
-#		$Sprite.region_rect.end.x = $Sprite2.position.length()
-#		$Hitbox/CollisionShape2D.position = -($Sprite2.position - self.position)/2
-#		$Hitbox/CollisionShape2D.get_shape().extents = Vector2($Sprite2.position.length(), 8)
-#	else:
-#		$Sprite.region_rect.end.x = 0
