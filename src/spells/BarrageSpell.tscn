@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://src/spells/BarrageSpell.gd" type="Script" id=1]
+[ext_resource path="res://color-code.png" type="Texture" id=2]
+[ext_resource path="res://src/spells/ProjectileSpell.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/spells/ColorSpellMaterial.tres" type="Material" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8, 8 )
+
+[node name="BarrageSpell" type="KinematicBody2D"]
+scale = Vector2( 0.5, 0.5 )
+collision_layer = 0
+script = ExtResource( 1 )
+projectile = ExtResource( 3 )
+interval = 0.1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+material = ExtResource( 4 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 2 )
+
+[node name="Timer" type="Timer" parent="."]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

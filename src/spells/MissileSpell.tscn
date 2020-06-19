@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://color-code.png" type="Texture" id=1]
+[ext_resource path="res://src/engine/SpellHitbox.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/spells/MissileSpell.gd" type="Script" id=3]
+[ext_resource path="res://src/spells/ColorSpellMaterial.tres" type="Material" id=4]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 7.0
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 7.0
+
+[node name="MissileSpell" type="KinematicBody2D"]
+collision_layer = 0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+material = ExtResource( 4 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 1 )
+region_rect = Rect2( 2, 5, 60, 54 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="SpellHitbox" parent="." instance=ExtResource( 2 )]
+collision_mask = 16
+
+[node name="CollisionShape2D" parent="SpellHitbox" index="0"]
+shape = SubResource( 2 )
+[connection signal="area_entered" from="SpellHitbox" to="." method="_on_SpellHitbox_area_entered"]
+
+[editable path="SpellHitbox"]

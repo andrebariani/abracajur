@@ -13,19 +13,19 @@ export(Dictionary) var effects_scrolls = {
 	], 
 	"disabler": [
 		{ 
-			"NAME":" DE RAIO",
+			"NAME":" DE CHOQUE",
 			"TYPE": "STUN",
 			"COLORS": {
-				"COLOR_BASE": Color("bd3c30"),
-				"COLOR_OUTLINE": Color("bdac2c"),
+				"COLOR_BASE": Color("00ffff"),
+				"COLOR_OUTLINE": Color("0000ff"),
 			},
 		}, 
 		{ 
 			"NAME":" DE VENTO",
 			 "TYPE": "KNOCKBACK",
 			 "COLORS": {
-				"COLOR_BASE": Color("bd3c30"),
-				"COLOR_OUTLINE": Color("bdac2c"),
+				"COLOR_BASE": Color("ffffff"),
+				"COLOR_OUTLINE": Color("5f5f5f"),
 			},
 		},
 	], 
@@ -34,16 +34,25 @@ export(Dictionary) var effects_scrolls = {
 			"NAME":" DE GELO",
 			"TYPE":"GREASE",
 			"COLORS": {
-				"COLOR_BASE": Color("bd3c30"),
-				"COLOR_OUTLINE": Color("bdac2c"),
+				"COLOR_BASE": Color("85c9ff"),
+				"COLOR_OUTLINE": Color("00ffff"),
 			},
 		},
 		{ 
 			"NAME":" DA CORRUPÇÃO",
 			"TYPE":"BREAK",
 			"COLORS": {
-				"COLOR_BASE": Color("bd3c30"),
-				"COLOR_OUTLINE": Color("bdac2c"),
+				"COLOR_BASE": Color("4e00ac"),
+				"COLOR_OUTLINE": Color("1c003e"),
+			},
+		},
+		
+		{ 
+			"NAME":" DA ILUSÃO",
+			"TYPE":"ILLUSION",
+			"COLORS": {
+				"COLOR_BASE": Color("dc03bf"),
+				"COLOR_OUTLINE": Color("44173e"),
 			},
 		},
 	], 
@@ -52,16 +61,16 @@ export(Dictionary) var effects_scrolls = {
 			"NAME":" DE CURA",
 			"TYPE":"HEAL",
 			"COLORS": {
-				"COLOR_BASE": Color("bd3c30"),
-				"COLOR_OUTLINE": Color("bdac2c"),
+				"COLOR_BASE": Color("42d042"),
+				"COLOR_OUTLINE": Color("00ff00"),
 			},
 		},
 		{ 
 			"NAME": " DE PEDRA",
 			"TYPE":"SHIELD",
 			"COLORS": {
-				"COLOR_BASE": Color("bd3c30"),
-				"COLOR_OUTLINE": Color("bdac2c"),
+				"COLOR_BASE": Color("1e1a12"),
+				"COLOR_OUTLINE": Color("0f0f0f"),
 			},
 		},
 	],
@@ -69,17 +78,16 @@ export(Dictionary) var effects_scrolls = {
 
 var shape_scrolls = [
 	{ 
-		"NAME":"MÍSSEIS", 
-		"SCENE":preload("res://src/spells/SparkSpell.tscn"), 
+		"NAME":"ESFERA", 
+		"SCENE":preload("res://src/spells/SphereSpell.tscn"), 
 		"ICON": null,
 		"EFFECTS": {
 			"DAMAGE": 2,
-			"STUN": 1,
-			"KNOCKBACK": 500,
-			"GREASE": 175,
-			"BREAK": 1,
-			"HEAL": 1,
-			"SHIELD": 2
+			"STUN": 3,
+			"KNOCKBACK": 1000,
+			"GREASE": 8,
+			"ILLUSION": 4,
+			"BREAK": 4,
 		},
 		"CHOSEN_EFFECT": "",
 		"COLORS": {
@@ -92,13 +100,126 @@ var shape_scrolls = [
 		"SCENE":preload("res://src/spells/AOESpell.tscn"), 
 		"ICON": null,
 		"EFFECTS": {
+			"DAMAGE": 2,
+			"KNOCKBACK": 1500,
+			"GREASE": 10,
+			"BREAK": 5,
+			"HEAL": 1,
+			"SHIELD": 2
+		},
+		"CHOSEN_EFFECT": "",
+		"COLORS": {
+			"COLOR_BASE": Color("bd3c30"),
+			"COLOR_OUTLINE": Color("bdac2c"),
+		},
+	},
+	
+	{ 
+		"NAME":"ERUPÇÃO", 
+		"SCENE":preload("res://src/spells/EruptionSpell.tscn"), 
+		"ICON": null,
+		"EFFECTS": {
 			"DAMAGE": 3,
-			"STUN": 1,
+			"STUN": 4,
+			"KNOCKBACK": 1500,
+			"GREASE": 12,
+			"BREAK": 5,
+			"ILLUSION": 3,
+			"HEAL": 1,
+			"SHIELD": 2
+		},
+		"CHOSEN_EFFECT": "",
+		"COLORS": {
+			"COLOR_BASE": Color("bd3c30"),
+			"COLOR_OUTLINE": Color("bdac2c"),
+		},
+	},
+	
+	{ 
+		"NAME":"RUNA", 
+		"SCENE":preload("res://src/spells/RuneSpell.tscn"), 
+		"ICON": null,
+		"EFFECTS": {
+			"DAMAGE": 3,
+			"STUN": 4,
 			"KNOCKBACK": 1000,
-			"GREASE": 175,
-			"BREAK": 2,
+			"GREASE": 12,
+			"BREAK": 6,
+			"ILLUSION": 5,
 			"HEAL": 2,
 			"SHIELD": 2
+		},
+		"CHOSEN_EFFECT": "",
+		"COLORS": {
+			"COLOR_BASE": Color("bd3c30"),
+			"COLOR_OUTLINE": Color("bdac2c"),
+		},
+	},
+	
+	{ 
+		"NAME":"RAJADA", 
+		"SCENE":preload("res://src/spells/BarrageSpell.tscn"), 
+		"ICON": null,
+		"EFFECTS": {
+			"DAMAGE": 1,
+			"STUN": 1,
+			"KNOCKBACK": 500,
+			"GREASE": 4,
+			"BREAK": 2,
+		},
+		"CHOSEN_EFFECT": "",
+		"COLORS": {
+			"COLOR_BASE": Color("bd3c30"),
+			"COLOR_OUTLINE": Color("bdac2c"),
+		},
+	},
+	{ 
+		"NAME":"CAMPO", 
+		"SCENE":preload("res://src/spells/FieldSpell.tscn"), 
+		"ICON": null,
+		"EFFECTS": {
+			"DAMAGE": 1,
+			"STUN": 1,
+			"KNOCKBACK": 500,
+			"GREASE": 175,
+			"BREAK": 1,
+			"HEAL": 1,
+			"SHIELD": 1
+		},
+		"CHOSEN_EFFECT": "",
+		"COLORS": {
+				"COLOR_BASE": Color("bd3c30"),
+				"COLOR_OUTLINE": Color("bdac2c"),
+		},
+	},
+	{ 
+		"NAME":"MÍSSIL", 
+		"SCENE":preload("res://src/spells/MissileSpell.tscn"), 
+		"ICON": null,
+		"EFFECTS": {
+			"DAMAGE": 1,
+			"STUN": 1,
+			"KNOCKBACK": 500,
+			"GREASE": 175,
+			"BREAK": 1,
+			"HEAL": 1,
+			"SHIELD": 1
+		},
+		"CHOSEN_EFFECT": "",
+		"COLORS": {
+				"COLOR_BASE": Color("bd3c30"),
+				"COLOR_OUTLINE": Color("bdac2c"),
+		},
+	},
+	{ 
+		"NAME":"RAIO", 
+		"SCENE":preload("res://src/spells/RaySpell.tscn"), 
+		"ICON": null,
+		"EFFECTS": {
+			"DAMAGE": 1,
+			"STUN": 1,
+			"GREASE": 3,
+			"BREAK": 2,
 		},
 		"CHOSEN_EFFECT": "",
 		"COLORS": {

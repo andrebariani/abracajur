@@ -13,4 +13,3 @@ func _on_Magic_System_reset_spells():
 	for label in $HBoxContainer.get_children():
 		label.text = "?"
 		label.visible = false
-	
