@@ -7,6 +7,7 @@ var velocity = Vector2.ZERO
 
 func init(direction: Vector2, speed: int = self.speed):
 	self.direction = direction
+	self.rotation = atan2(direction.y, direction.x)
 	self.speed = speed
 
 

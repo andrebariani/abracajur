@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://src/player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/Tile-set.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://src/ui/UI.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/world/World.gd" type="Script" id=6]
 [ext_resource path="res://src/enemies/TurretEnemy.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/engine/SoftCollision.tscn" type="PackedScene" id=8]
 
 [sub_resource type="TileSet" id=1]
 0/name = "Tile-set.png 0"
@@ -43,6 +44,15 @@ collision_mask = 0
 format = 1
 tile_data = PoolIntArray( -196606, 0, 0, -196605, 0, 0, -196604, 0, 0, -131070, 0, 196612, -131068, 0, 196612, -131067, 0, 0, -131066, 0, 0, -131065, 0, 0, -131062, 0, 0, -131061, 0, 0, -65536, 0, 65536, -65535, 0, 65537, -65534, 0, 196612, -65533, 0, 65541, -65529, 0, 196612, -65528, 0, 0, -65527, 0, 0, -65526, 0, 0, 0, 0, 131072, 1, 0, 196609, 2, 0, 196612, 3, 0, 196612, 4, 0, 196612, 5, 0, 65539, 6, 0, 65541, 65536, 0, 131072, 65537, 0, 196612, 65538, 0, 262149, 65540, 0, 262144, 65541, 0, 131073, 65542, 0, 262149, 131072, 0, 262144, 131073, 0, 262149 )
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" parent="CanvasLayer" instance=ExtResource( 5 )]
+anchor_top = 0.0
+margin_left = -9.15509
+margin_top = -11.7816
+margin_right = 30.8449
+margin_bottom = 28.2025
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 95, 56 )
 current = true
@@ -63,28 +73,74 @@ remote_path = NodePath("../../../Camera2D")
 
 [node name="TurretEnemy2" parent="YSort/Enemies" instance=ExtResource( 3 )]
 position = Vector2( 131, 128 )
+blink_material = ExtResource( 8 )
 
 [node name="TurretEnemy3" parent="YSort/Enemies" instance=ExtResource( 3 )]
 position = Vector2( 136, 163 )
+blink_material = ExtResource( 8 )
 
 [node name="TurretEnemy4" parent="YSort/Enemies" instance=ExtResource( 3 )]
 position = Vector2( 92, 145 )
+blink_material = ExtResource( 8 )
 
 [node name="TurretEnemy5" parent="YSort/Enemies" instance=ExtResource( 3 )]
 position = Vector2( 77, 151 )
+blink_material = ExtResource( 8 )
 
 [node name="TurretEnemy" parent="YSort/Enemies" instance=ExtResource( 7 )]
 position = Vector2( 319, -75 )
+blink_material = ExtResource( 8 )
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="Geladeira4" parent="YSort/Enemies" groups=[
+"Enemy",
+] instance=ExtResource( 3 )]
+position = Vector2( 319.529, 86.7458 )
+blink_material = ExtResource( 8 )
 
-[node name="UI" parent="CanvasLayer" instance=ExtResource( 5 )]
-visible = false
-anchor_top = -0.009
-anchor_right = 1.0
-margin_top = 0.0159998
-margin_right = 2.0
+[node name="Geladeira5" parent="YSort/Enemies" groups=[
+"Enemy",
+] instance=ExtResource( 3 )]
+position = Vector2( 299.172, 80.7584 )
+blink_material = ExtResource( 8 )
+
+[node name="Geladeira6" parent="YSort/Enemies" groups=[
+"Enemy",
+] instance=ExtResource( 3 )]
+position = Vector2( 308.153, 47.229 )
+blink_material = ExtResource( 8 )
+
+[node name="Geladeira7" parent="YSort/Enemies" groups=[
+"Enemy",
+] instance=ExtResource( 3 )]
+position = Vector2( 341.683, 68.7836 )
+blink_material = ExtResource( 8 )
+
+[node name="Geladeira8" parent="YSort/Enemies" groups=[
+"Enemy",
+] instance=ExtResource( 3 )]
+position = Vector2( 262.649, 47.8277 )
+blink_material = ExtResource( 8 )
+
+[node name="Geladeira9" parent="YSort/Enemies" groups=[
+"Enemy",
+] instance=ExtResource( 3 )]
+position = Vector2( 300.37, 102.912 )
+blink_material = ExtResource( 8 )
+
+[node name="Geladeira10" parent="YSort/Enemies" groups=[
+"Enemy",
+] instance=ExtResource( 3 )]
+position = Vector2( 326.576, 44.999 )
+blink_material = ExtResource( 8 )
+
+[node name="Geladeira2" parent="YSort/Enemies" groups=[
+"Enemy",
+] instance=ExtResource( 3 )]
+position = Vector2( 130.311, 197.347 )
+blink_material = ExtResource( 8 )
 
 [node name="MagicSystem" type="Node" parent="."]
 script = ExtResource( 4 )
-[connection signal="cast_spell" from="MagicSystem" to="YSort/Player" method="_on_Magic_System_cast_spell"]
+[connection signal="cast_spell" from="MagicSystem" to="CanvasLayer/UI" method="_on_MagicSystem_cast_spell"]
+[connection signal="cast_spell" from="MagicSystem" to="YSort/Player" method="_on_MagicSystem_cast_spell"]
+[connection signal="reset_spells" from="MagicSystem" to="CanvasLayer/UI" method="_on_MagicSystem_reset_spells"]

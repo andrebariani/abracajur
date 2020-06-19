@@ -9,7 +9,7 @@ onready var stunTimer = $StunTimer
 onready var shieldTimer = $ShieldTimer
 
 export (int) var cooldownTeleport = 0.1
-export var max_hp = 3
+export var max_hp = 8
 
 onready var hp = max_hp
 var can_teleport = true
@@ -49,15 +49,14 @@ func teleport_to_nearest_wall():
 	global_position = rayCast.get_collision_point() + rayCast.get_collision_normal() * player_radius
 	
 	
-func _on_Magic_System_cast_spell(spell_data, letter, position):
+func _on_MagicSystem_cast_spell(spell_data, letter, position):
 	var spell = spell_data.SCENE.instance()
 	spell.effects = spell_data.EFFECTS
 	spell.chosen_effect = spell_data.CHOSEN_EFFECT
 	spell.colors = spell_data.COLORS
 	spell._set_colors()
 	spell.caster = self
-	
-	print_debug("MIAU")
+	spell.inv_frames = spell_data.INV_FRAMES
 	
 	var show_behind = false
 	
@@ -164,3 +163,4 @@ func die():
 	
 func get_look_vector():
 	return look_vector.normalized()
+

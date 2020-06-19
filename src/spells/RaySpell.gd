@@ -15,6 +15,7 @@ var clock = 0
 
 func _physics_process(delta):
 	clock += delta
+	
 	if clock > duration:
 		queue_free()
 	print_debug(player)
@@ -43,6 +44,7 @@ func launch():
 		
 		beam.rotation = uncle_ray.cast_to.angle()
 		beam.region_rect.end.x = end.position.length()
+
 	else:
 		var look_vector = global_position.direction_to(player.global_position)
 		var max_cast_to = look_vector.normalized() * MAX_LENGTH

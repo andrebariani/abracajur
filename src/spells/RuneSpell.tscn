@@ -29,6 +29,7 @@ tracks/0/keys = {
 radius = 29.0104
 
 [node name="RuneSpell" type="KinematicBody2D"]
+show_behind_parent = true
 collision_layer = 0
 collision_mask = 4
 script = ExtResource( 2 )
@@ -41,7 +42,6 @@ shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 material = ExtResource( 4 )
-scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

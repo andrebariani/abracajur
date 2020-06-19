@@ -41,6 +41,9 @@ var vulnerable = false
 var targeted = false
 var has_shield = false setget set_shield
 
+var color = Color(1, 1, 1, 1)
+export(Material) var blink_material
+
 var original_target
 
 func set_shield(value):
@@ -66,7 +69,7 @@ func state_machine():
 			MoveDirection = MoveDirection.move_toward(Vector2.ZERO,FRICTION)
 		CHASE:
 			var player = AggroBox.target
-			if player != null:
+			if is_instance_valid(player):
 				var direction = player.global_position - global_position
 				rayCast.cast_to = direction
 				rayCast.force_raycast_update()
@@ -89,12 +92,15 @@ func seek_player():
 	if AggroBox.can_see():
 		set_state(CHASE)
 
+func set_color(_new):
+	color = _new
+	set_modulate(color)
 
 # ---- Handle signals ----------
 
 func _on_Hurtbox_area_entered(area):
+	var spell = area.spell
 	if not has_shield:
-		var spell = area.spell
 		match spell.chosen_effect:
 			"DAMAGE":
 				apply_damage(spell.effects)
@@ -113,7 +119,7 @@ func _on_Hurtbox_area_entered(area):
 			"SHIELD":
 				apply_shield(spell.effects)
 				
-	hurtbox.start_invincibility(0.1)
+	hurtbox.start_invincibility(spell.inv_frames)
 	
 # ---- React to stimuli -------------
 
@@ -126,6 +132,9 @@ func apply_damage(spell_effects):
 	if hp == 0:
 		die()
 	print_debug("damage! " + str(hp))
+	
+	self.material = blink_material
+	$BlinkTimer.start(0.2)
 	hurtbox.start_invincibility(0.1)
 
 
@@ -153,6 +162,7 @@ func apply_grease(spell_effects):
 	FRICTION = 0
 	ACCELERATION = 0
 	print_debug("Greased for " + str(spell_effects.GREASE) + " seconds")
+	set_color(Color(0, 1, 1, 1))
 	
 	
 func apply_break(spell_effects):
@@ -200,6 +210,7 @@ func _on_StunTimer_timeout():
 func _on_GreaseTimer_timeout():
 	ACCELERATION = 200
 	FRICTION = 200
+	set_color(Color(1, 1, 1, 1))
 
 func _on_BreakTimer_timeout():
 	set_vulnerable(false)
@@ -218,3 +229,7 @@ func _on_ShieldTimer_timeout():
 
 func die():
 	queue_free()
+
+
+func _on_BlinkTimer_timeout():
+	self.material = null
