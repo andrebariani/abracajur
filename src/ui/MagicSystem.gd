@@ -76,10 +76,8 @@ var shape_scrolls = [
 			"DAMAGE": 2,
 			"STUN": 1,
 			"KNOCKBACK": 500,
-			"GREASE": 175,
-			"BREAK": 1,
-			#"HEAL": 1,
-			#"SHIELD": 2
+			"GREASE": 4,
+			"BREAK": 4,
 		},
 		"CHOSEN_EFFECT": "",
 		"COLORS": {
@@ -92,11 +90,11 @@ var shape_scrolls = [
 		"SCENE":preload("res://src/spells/AOESpell.tscn"), 
 		"ICON": null,
 		"EFFECTS": {
-			"DAMAGE": 3,
+			"DAMAGE": 2,
 			"KNOCKBACK": 1000,
-			"GREASE": 175,
-			"BREAK": 2,
-			"HEAL": 2,
+			"GREASE": 5,
+			"BREAK": 5,
+			"HEAL": 1,
 			"SHIELD": 2
 		},
 		"CHOSEN_EFFECT": "",
@@ -114,9 +112,9 @@ var shape_scrolls = [
 			"DAMAGE": 3,
 			"STUN": 2,
 			"KNOCKBACK": 1000,
-			"GREASE": 175,
-			"BREAK": 2,
-			"HEAL": 2,
+			"GREASE": 6,
+			"BREAK": 5,
+			"HEAL": 1,
 			"SHIELD": 2
 		},
 		"CHOSEN_EFFECT": "",
@@ -134,8 +132,8 @@ var shape_scrolls = [
 			"DAMAGE": 3,
 			"STUN": 2,
 			"KNOCKBACK": 1000,
-			"GREASE": 175,
-			"BREAK": 2,
+			"GREASE": 6,
+			"BREAK": 6,
 			"HEAL": 2,
 			"SHIELD": 2
 		},
@@ -154,8 +152,8 @@ var shape_scrolls = [
 			"DAMAGE": 1,
 			"STUN": 0.5,
 			"KNOCKBACK": 400,
-			"GREASE": 100,
-			"BREAK": 1,
+			"GREASE": 2,
+			"BREAK": 2,
 		},
 		"CHOSEN_EFFECT": "",
 		"COLORS": {
@@ -171,8 +169,8 @@ var shape_scrolls = [
 		"EFFECTS": {
 			"DAMAGE": 1,
 			"STUN": 0.5,
-			"GREASE": 100,
-			"BREAK": 1,
+			"GREASE": 3,
+			"BREAK": 2,
 		},
 		"CHOSEN_EFFECT": "",
 		"COLORS": {
