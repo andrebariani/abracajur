@@ -8,7 +8,6 @@ func can_see():
 func _on_AggroBox_body_entered(body):
 	if can_see():
 		return
-
 	target = body
 	target.connect("activated_illusion", get_parent(), "get_diverted")
 	$CollisionShape2D.self_modulate = Color(1, 1, 1, 0.5)

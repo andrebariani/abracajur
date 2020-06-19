@@ -49,7 +49,7 @@ func teleport_to_nearest_wall():
 	global_position = rayCast.get_collision_point() + rayCast.get_collision_normal() * player_radius
 	
 	
-func _on_Magic_System_cast_spell(spell_data, letter, position):
+func _on_MagicSystem_cast_spell(spell_data, letter, position):
 	var spell = spell_data.SCENE.instance()
 	spell.effects = spell_data.EFFECTS
 	spell.chosen_effect = spell_data.CHOSEN_EFFECT
@@ -100,6 +100,7 @@ func _on_Hurtbox_area_entered(area):
 		match area.name:
 			"SpellHitbox":
 				var spell = area.spell
+				print_debug(spell.effects)
 				match spell.chosen_effect:
 					"DAMAGE":
 						apply_damage(spell.effects.DAMAGE)
@@ -126,7 +127,6 @@ func apply_damage(value):
 	hp = clamp(hp - value, 0, max_hp)
 	if hp == 0:
 		die()
-	print_debug("damage! " + str(hp))
 
 
 func apply_heal(value):
@@ -159,6 +159,8 @@ func _on_ShieldTimer_timeout():
 
 func die():
 	queue_free()
-
+	
+	
 func get_look_vector():
 	return look_vector.normalized()
+

@@ -6,5 +6,5 @@ func get_node_position(name):
 	if target_node:
 		return get_node(name).get_index()
 	else:
-		print_debug("ERROR: node doesn't ecziste!")
+		print_debug(":D ERROR: node doesn't ecziste!")
 		return null

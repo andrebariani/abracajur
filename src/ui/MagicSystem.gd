@@ -178,7 +178,6 @@ var shape_scrolls = [
 			"COLOR_OUTLINE": Color("bdac2c"),
 		},
 	},
-	
 	{ 
 		"NAME":"CAMPO", 
 		"SCENE":preload("res://src/spells/FieldSpell.tscn"), 
