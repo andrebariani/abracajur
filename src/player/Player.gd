@@ -54,16 +54,30 @@ func _on_Magic_System_cast_spell(spell_data, letter, position):
 	spell.colors = spell_data.COLORS
 	spell._set_colors()
 	
-	if spell.name == "SparkSpell":
-		var player_radius = hurtbox.get_shape().radius
-		var spell_radius = spell.get_node("Hitbox/CollisionShape2D").get_shape().radius
-		var total_radius = player_radius + spell_radius
-		spell.position = global_position + Vector2(total_radius, total_radius) * look_vector.normalized()
-		spell.init(look_vector.normalized())
+	match (spell.name):
+		"SphereSpell":
+			var spell_radius = spell.get_node("Hitbox/CollisionShape2D").get_shape().radius
+			var total_radius = get_total_radius(spell_radius)
+			spell.position = global_position + Vector2(total_radius, total_radius) * look_vector.normalized()
+			spell.init(look_vector.normalized())
+		"BarrageSpell":
+			var spell_radius = spell.get_radius()
+			var total_radius = get_total_radius(spell_radius)
+			spell.position = global_position + Vector2(total_radius, total_radius) * look_vector.normalized()
+			spell.player = self
+		"AOESpell":
+			spell.position = self.position
+		"EruptionSpell":
+			spell.position = get_global_mouse_position()
+		"RuneSpell":
+			spell.position = self.position
 	
 	var world = get_tree().current_scene
 	world.add_child(spell)
 
+func get_total_radius(spell_radius):
+	var player_radius = hurtbox.get_shape().radius
+	return player_radius + spell_radius
 
 func _on_Hurtbox_area_entered(area):
 	if not has_shield:
@@ -122,3 +136,5 @@ func _on_ShieldTimer_timeout():
 
 func die():
 	queue_free()
+func get_look_vector():
+	return look_vector.normalized()

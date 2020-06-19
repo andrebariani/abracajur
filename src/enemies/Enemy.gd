@@ -96,7 +96,7 @@ func _on_Hurtbox_area_entered(area):
 			"HEAL":
 				apply_heal(spell.effects)
 			"SHIELD":
-					apply_shield(spell.effects)
+				apply_shield(spell.effects)
 	
 	
 # ---- React to stimuli -------------
