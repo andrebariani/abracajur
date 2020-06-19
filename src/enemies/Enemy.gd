@@ -12,14 +12,19 @@ var effects_types = [
 
 export var FRICTION = 200
 export var ACCELERATION = 200
-export var max_hp = 3
 export var MAX_SPEED = 50
+
+export var max_hp = 3
 onready var hp = max_hp
+
+export var damage = 1
+
 
 onready var AggroBox = $AggroBox
 onready var rayCast = $RayCast2D
 onready var moveDebug = $MoveDebug
 onready var shieldTimer = $ShieldTimer
+onready var hurtbox = $Hurtbox
 
 enum {
 	IDLE
@@ -104,7 +109,8 @@ func _on_Hurtbox_area_entered(area):
 				apply_heal(spell.effects)
 			"SHIELD":
 				apply_shield(spell.effects)
-	
+				
+	hurtbox.start_invincibility(0.1)
 	
 # ---- React to stimuli -------------
 
@@ -117,6 +123,7 @@ func apply_damage(spell_effects):
 	if hp == 0:
 		die()
 	print_debug("damage! " + str(hp))
+	hurtbox.start_invincibility(0.1)
 
 
 func apply_heal(spell_effects):

@@ -2,7 +2,7 @@
 
 [ext_resource path="res://src/spells/BarrageSpell.gd" type="Script" id=1]
 [ext_resource path="res://color-code.png" type="Texture" id=2]
-[ext_resource path="res://src/spells/SparkSpell.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/spells/ProjectileSpell.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/spells/ColorSpellMaterial.tres" type="Material" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
