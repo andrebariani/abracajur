@@ -181,11 +181,10 @@ var shape_scrolls = [
 				"COLOR_BASE": Color("bd3c30"),
 				"COLOR_OUTLINE": Color("bdac2c"),
 		},
-	}
-	
+	},
 	{ 
 		"NAME":"RAIO", 
-		"SCENE":preload("res://src/spells/RaySpell.tscn"), 
+		"SCENE":preload("res://src/spells/FieldSpell.tscn"), 
 		"ICON": null,
 		"EFFECTS": {
 			"DAMAGE": 1,
