@@ -99,6 +99,7 @@ func _on_Hurtbox_area_entered(area):
 		match area.name:
 			"SpellHitbox":
 				var spell = area.spell
+				print_debug(spell.effects)
 				match spell.chosen_effect:
 					"DAMAGE":
 						apply_damage(spell.effects.DAMAGE)
@@ -125,7 +126,6 @@ func apply_damage(value):
 	hp = clamp(hp - value, 0, max_hp)
 	if hp == 0:
 		die()
-	print_debug("damage! " + str(hp))
 
 
 func apply_heal(value):

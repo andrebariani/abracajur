@@ -13,3 +13,7 @@ color = Color( 0, 1, 0.952941, 1 )
 [editable path="EnemyHitbox"]
 
 [editable path="Hurtbox"]
+
+[editable path="AggroBox"]
+
+[editable path="SoftCollision"]
