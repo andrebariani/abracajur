@@ -1,45 +1,171 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/ui/UI.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://src/spells/ColorSpellMaterial.tres" type="Material" id=3]
 
 [node name="UI" type="Control"]
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_top = -40.0
-margin_right = 40.0
+margin_top = -226.0
+margin_right = 402.0
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = 118.283
+margin_top = 173.733
+margin_right = 270.283
+margin_bottom = 237.733
+alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="SpellQ" type="Label" parent="HBoxContainer"]
-margin_top = 13.0
-margin_bottom = 27.0
+margin_top = 25.0
+margin_right = 35.0
+margin_bottom = 39.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+text = "Teste"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icon" type="TextureRect" parent="HBoxContainer/SpellQ"]
+modulate = Color( 0.117647, 0.101961, 0.0705882, 1 )
+material = ExtResource( 3 )
+margin_left = 1.86282
+margin_top = -36.094
+margin_right = 65.8628
+margin_bottom = 27.906
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Letter" type="Label" parent="HBoxContainer/SpellQ"]
+margin_left = 21.4813
+margin_top = -34.7135
+margin_right = 34.4813
+margin_bottom = -20.7135
+text = "Q"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="SpellW" type="Label" parent="HBoxContainer"]
-margin_left = 4.0
-margin_top = 13.0
-margin_right = 4.0
-margin_bottom = 27.0
+margin_left = 39.0
+margin_top = 25.0
+margin_right = 74.0
+margin_bottom = 39.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+text = "Teste"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icon" type="TextureRect" parent="HBoxContainer/SpellW"]
+material = ExtResource( 3 )
+margin_left = 1.86282
+margin_top = -36.094
+margin_right = 65.8628
+margin_bottom = 27.906
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Letter" type="Label" parent="HBoxContainer/SpellW"]
+margin_left = 17.9669
+margin_top = -34.7135
+margin_right = 30.9669
+margin_bottom = -20.7135
+text = "W"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="SpellE" type="Label" parent="HBoxContainer"]
-margin_left = 8.0
-margin_top = 13.0
-margin_right = 8.0
-margin_bottom = 27.0
+margin_left = 78.0
+margin_top = 25.0
+margin_right = 113.0
+margin_bottom = 39.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+text = "Teste"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icon" type="TextureRect" parent="HBoxContainer/SpellE"]
+material = ExtResource( 3 )
+margin_left = 1.86282
+margin_top = -36.094
+margin_right = 65.8628
+margin_bottom = 27.906
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Letter" type="Label" parent="HBoxContainer/SpellE"]
+margin_left = 23.7498
+margin_top = -35.1857
+margin_right = 36.7498
+margin_bottom = -21.1857
+text = "E"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="SpellR" type="Label" parent="HBoxContainer"]
-margin_left = 12.0
-margin_top = 13.0
-margin_right = 12.0
-margin_bottom = 27.0
+margin_left = 117.0
+margin_top = 25.0
+margin_right = 152.0
+margin_bottom = 39.0
+size_flags_horizontal = 3
+text = "Teste"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icon" type="TextureRect" parent="HBoxContainer/SpellR"]
+material = ExtResource( 3 )
+margin_left = 1.86285
+margin_top = -36.094
+margin_right = 65.8629
+margin_bottom = 27.906
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Letter" type="Label" parent="HBoxContainer/SpellR"]
+margin_left = 23.2779
+margin_top = -34.71
+margin_right = 36.2779
+margin_bottom = -20.71
+text = "R"
+__meta__ = {
+"_edit_use_anchors_": false
+}

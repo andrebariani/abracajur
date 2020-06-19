@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 [ext_resource path="res://src/enemies/Geladeira.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/ui/MagicSystem.gd" type="Script" id=4]
+[ext_resource path="res://src/ui/UI.tscn" type="PackedScene" id=5]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -59,3 +61,15 @@ remote_path = NodePath("../../../Camera2D")
 position = Vector2( 286, 61 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" parent="CanvasLayer" instance=ExtResource( 5 )]
+anchor_top = -0.009
+anchor_right = 1.0
+margin_top = 0.0159998
+margin_right = 2.0
+
+[node name="Magic System" type="Node" parent="."]
+script = ExtResource( 4 )
+[connection signal="cast_spell" from="Magic System" to="YSort/Player" method="_on_Magic_System_cast_spell"]
+[connection signal="cast_spell" from="Magic System" to="CanvasLayer/UI" method="_on_Magic_System_cast_spell"]
+[connection signal="reset_spells" from="Magic System" to="CanvasLayer/UI" method="_on_Magic_System_reset_spells"]
