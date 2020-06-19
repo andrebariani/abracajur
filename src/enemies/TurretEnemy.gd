@@ -5,11 +5,11 @@ onready var launchCooldown = $LaunchCooldown
 export var cooldown = 1
 
 var setted_effect = {
-	"NAME":" DE FOGO", 
-	"TYPE": "DAMAGE",
+	"NAME":" DE CHOQUE",
+	"TYPE": "STUN",
 	"COLORS": {
-		"COLOR_BASE": Color("bd3c30"),
-		"COLOR_OUTLINE": Color("bdac2c"),
+		"COLOR_BASE": Color("00ffff"),
+		"COLOR_OUTLINE": Color("0000ff"),
 	},
 }
 
@@ -21,6 +21,7 @@ var setted_spell = {
 		"DAMAGE": 2,
 		"KNOCKBACK": 1500,
 		"GREASE": 10,
+		"STUN": 1,
 		"BREAK": 5,
 		"HEAL": 1,
 		"SHIELD": 2
