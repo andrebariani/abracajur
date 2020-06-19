@@ -8,6 +8,7 @@ extents = Vector2( 105, 70 )
 
 [node name="TurretEnemy" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
+cooldown = 3
 
 [node name="CollisionShape2D" parent="." index="0"]
 disabled = true

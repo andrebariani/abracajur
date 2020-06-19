@@ -57,6 +57,8 @@ func _on_Magic_System_cast_spell(spell_data, letter, position):
 	spell._set_colors()
 	spell.caster = self
 	
+	print_debug("MIAU")
+	
 	var show_behind = false
 	
 	match (spell.name):
