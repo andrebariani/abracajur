@@ -183,6 +183,25 @@ var shape_scrolls = [
 		},
 	},
 	{ 
+		"NAME":"MÍSSIL", 
+		"SCENE":preload("res://src/spells/MissileSpell.tscn"), 
+		"ICON": null,
+		"EFFECTS": {
+			"DAMAGE": 1,
+			"STUN": 1,
+			"KNOCKBACK": 500,
+			"GREASE": 175,
+			"BREAK": 1,
+			"HEAL": 1,
+			"SHIELD": 1
+		},
+		"CHOSEN_EFFECT": "",
+		"COLORS": {
+				"COLOR_BASE": Color("bd3c30"),
+				"COLOR_OUTLINE": Color("bdac2c"),
+		},
+	},
+	{ 
 		"NAME":"RAIO", 
 		"SCENE":preload("res://src/spells/FieldSpell.tscn"), 
 		"ICON": null,

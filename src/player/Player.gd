@@ -56,15 +56,15 @@ func _on_Magic_System_cast_spell(spell_data, letter, position):
 	spell._set_colors()
 	
 	match (spell.name):
-		"SphereSpell":
+		"SphereSpell", "MissileSpell":
 			var spell_radius = spell.get_node("SpellHitbox/CollisionShape2D").get_shape().radius
 			var total_radius = get_total_radius(spell_radius)
-			spell.position = global_position + Vector2(total_radius, total_radius) * look_vector.normalized()
+			spell.global_position = global_position + Vector2(total_radius, total_radius) * look_vector.normalized()
 			spell.init(look_vector.normalized())
 		"BarrageSpell":
 			var spell_radius = spell.radius
 			var total_radius = get_total_radius(spell_radius)
-			spell.position = global_position + Vector2(total_radius, total_radius) * look_vector.normalized()
+			spell.global_position = global_position + Vector2(total_radius, total_radius) * look_vector.normalized()
 			spell.player = self
 		"AOESpell", "RuneSpell":
 			spell.position = self.position
