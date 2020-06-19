@@ -77,4 +77,6 @@ collision_mask = 0
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 shape = SubResource( 4 )
 
+[node name="RepeatTimer" type="Timer" parent="."]
+
 [editable path="Hurtbox"]

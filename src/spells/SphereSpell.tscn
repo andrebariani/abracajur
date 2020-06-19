@@ -13,7 +13,6 @@ extents = Vector2( 8, 8 )
 radius = 8.0
 
 [node name="SphereSpell" type="KinematicBody2D"]
-scale = Vector2( 0.5, 0.5 )
 collision_layer = 0
 script = ExtResource( 4 )
 explosion = ExtResource( 5 )

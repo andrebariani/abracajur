@@ -1,16 +1,22 @@
-extends Node
+extends "res://src/spells/Spell.gd"
 
+export(PackedScene) var projectile
+export var interval = 0.2
+export var shots_count = 4
+var player
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	spawn_shot()
 
+func _on_Timer_timeout():
+	spawn_shot()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func spawn_shot():
+	$Timer.start(interval)
+	shots_count -= 1
+	var inst = _spawn(projectile)
+	inst.init(player.get_look_vector())
+	
+	if shots_count <= 0:
+		queue_free()
+

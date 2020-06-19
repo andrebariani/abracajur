@@ -40,7 +40,9 @@ func teleport_to_nearest_wall():
 	var player_radius = hurtbox.get_shape().radius
 	global_position = rayCast.get_collision_point() + rayCast.get_collision_normal() * player_radius
 	
-	
+
+
+
 func _on_Magic_System_cast_spell(spell_data, letter, position):
 	var spell = spell_data.SCENE.instance()
 	spell.effects = spell_data.EFFECTS
@@ -58,6 +60,7 @@ func _on_Magic_System_cast_spell(spell_data, letter, position):
 			var spell_radius = spell.get_radius()
 			var total_radius = get_total_radius(spell_radius)
 			spell.position = global_position + Vector2(total_radius, total_radius) * look_vector.normalized()
+			spell.player = self
 		"AOESpell":
 			spell.position = self.position
 		"EruptionSpell":
@@ -71,3 +74,6 @@ func _on_Magic_System_cast_spell(spell_data, letter, position):
 func get_total_radius(spell_radius):
 	var player_radius = hurtbox.get_shape().radius
 	return player_radius + spell_radius
+
+func get_look_vector():
+	return look_vector.normalized()
