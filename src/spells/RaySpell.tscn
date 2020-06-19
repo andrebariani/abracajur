@@ -4,7 +4,11 @@
 [ext_resource path="res://src/engine/SpellHitbox.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/spells/ColorSpellMaterial.tres" type="Material" id=3]
 [ext_resource path="res://src/spells/RaySpell.gd" type="Script" id=4]
+<<<<<<< HEAD
 [ext_resource path="res://assets/Spells/Laser.png" type="Texture" id=5]
+=======
+[ext_resource path="res://lasier.png" type="Texture" id=5]
+>>>>>>> master
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 8 )

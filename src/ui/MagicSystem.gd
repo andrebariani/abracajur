@@ -6,8 +6,8 @@ export(Dictionary) var effects_scrolls = {
 			"NAME":" DE FOGO", 
 			"TYPE": "DAMAGE",
 			"COLORS": {
-				"COLOR_BASE": Color("bdac2c"),
-				"COLOR_OUTLINE": Color("bd3c30"),
+				"COLOR_BASE": Color("bd3c30"),
+				"COLOR_OUTLINE": Color("bdac2c"),
 			},
 		}
 	], 

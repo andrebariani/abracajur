@@ -1,6 +1,9 @@
 extends Area2D
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
 var invincibility_active = false setget set_invincibility
 
 signal invincibility_started
