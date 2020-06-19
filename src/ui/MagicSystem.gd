@@ -213,7 +213,7 @@ var shape_scrolls = [
 	},
 	{ 
 		"NAME":"RAIO", 
-		"SCENE":preload("res://src/spells/FieldSpell.tscn"), 
+		"SCENE":preload("res://src/spells/RaySpell.tscn"), 
 		"ICON": null,
 		"EFFECTS": {
 			"DAMAGE": 1,
