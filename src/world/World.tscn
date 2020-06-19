@@ -65,7 +65,7 @@ position = Vector2( 286, 61 )
 [node name="UI" parent="CanvasLayer" instance=ExtResource( 5 )]
 anchor_top = -0.009
 anchor_right = 1.0
-margin_top = 0.016
+margin_top = 0.0159998
 margin_right = 2.0
 
 [node name="Magic System" type="Node" parent="."]

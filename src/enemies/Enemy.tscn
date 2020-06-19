@@ -44,12 +44,17 @@ one_shot = true
 one_shot = true
 
 [node name="AggroBox" parent="." instance=ExtResource( 3 )]
+collision_mask = 2
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 
 [node name="MoveDebug" type="Label" parent="."]
-margin_right = 40.0
-margin_bottom = 14.0
+visible = false
+margin_left = -20.0
+margin_top = -24.0
+margin_right = 20.0
+margin_bottom = -8.0
+custom_fonts/font = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
