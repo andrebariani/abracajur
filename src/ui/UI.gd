@@ -10,6 +10,5 @@ func _on_Magic_System_cast_spell(spell, letter, position):
 
 
 func _on_Magic_System_reset_spells():
-	for label in $HBoxContainer.get_children():
-		label.text = "?"
-		label.visible = false
+	for spell in $HBoxContainer.get_children():
+		spell.text = "?"

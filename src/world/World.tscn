@@ -115,12 +115,13 @@ position = Vector2( 130.311, 197.347 )
 script = ExtResource( 4 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 0
+follow_viewport_enable = true
 
 [node name="UI" parent="CanvasLayer" instance=ExtResource( 5 )]
-anchor_top = -0.009
-anchor_right = 1.0
-margin_top = 0.0159998
-margin_right = 2.0
+anchor_top = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
 [connection signal="cast_spell" from="Magic System" to="YSort/Player" method="_on_Magic_System_cast_spell"]
 [connection signal="cast_spell" from="Magic System" to="CanvasLayer/UI" method="_on_Magic_System_cast_spell"]
 [connection signal="reset_spells" from="Magic System" to="CanvasLayer/UI" method="_on_Magic_System_reset_spells"]

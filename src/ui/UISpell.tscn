@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/spells/ColorSpellMaterial.tres" type="Material" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+
+[node name="SpellQ" type="VBoxContainer"]
+margin_right = 64.0
+margin_bottom = 100.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Letter" type="Label" parent="."]
+margin_right = 64.0
+margin_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Q"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icon" type="TextureRect" parent="."]
+material = ExtResource( 1 )
+margin_top = 18.0
+margin_right = 64.0
+margin_bottom = 82.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource( 2 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_top = 86.0
+margin_right = 64.0
+margin_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+text = "Teste"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

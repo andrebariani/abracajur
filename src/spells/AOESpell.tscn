@@ -8,11 +8,24 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 16.0
 
-[sub_resource type="CircleShape2D" id=4]
+[sub_resource type="CircleShape2D" id=2]
 radius = 27.2118
 
 [sub_resource type="Animation" id=3]
 resource_name = "explode"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.5 ), Vector2( 1.25, 1.25 ) ]
+}
 
 [node name="AOESpell" type="KinematicBody2D"]
 scale = Vector2( 1.25, 1.25 )
@@ -31,7 +44,7 @@ texture = ExtResource( 3 )
 collision_mask = 16
 
 [node name="CollisionShape2D" parent="SpellHitbox" index="0"]
-shape = SubResource( 4 )
+shape = SubResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "explode"

@@ -1,0 +1,4 @@
+extends Label
+
+
+func setup
