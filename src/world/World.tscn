@@ -60,9 +60,22 @@ remote_path = NodePath("../../../Camera2D")
 [node name="Geladeira" parent="YSort/Enemies" instance=ExtResource( 3 )]
 position = Vector2( 286, 61 )
 
+[node name="Geladeira2" parent="YSort/Enemies" instance=ExtResource( 3 )]
+position = Vector2( 291, 172 )
+
+[node name="Geladeira3" parent="YSort/Enemies" instance=ExtResource( 3 )]
+position = Vector2( 196, 187 )
+
+[node name="Geladeira4" parent="YSort/Enemies" instance=ExtResource( 3 )]
+position = Vector2( 85, 196 )
+
+[node name="Geladeira5" parent="YSort/Enemies" instance=ExtResource( 3 )]
+position = Vector2( 177, 68 )
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="UI" parent="CanvasLayer" instance=ExtResource( 5 )]
+visible = false
 anchor_top = -0.009
 anchor_right = 1.0
 margin_top = 0.0159998

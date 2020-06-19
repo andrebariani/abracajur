@@ -56,6 +56,7 @@ texture = ExtResource( 3 )
 offset = Vector2( 32.0523, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource( 1 )
 
 [node name="PointerAnim" type="AnimationPlayer" parent="."]
@@ -63,6 +64,7 @@ autoplay = "pointer"
 anims/pointer = SubResource( 2 )
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
+visible = false
 enabled = true
 cast_to = Vector2( 0, 0 )
 collide_with_areas = true

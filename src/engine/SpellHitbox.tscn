@@ -2,7 +2,7 @@
 
 [ext_resource path="res://src/engine/Hitbox.gd" type="Script" id=1]
 
-[node name="Hitbox" type="Area2D"]
+[node name="SpellHitbox" type="Area2D"]
 collision_layer = 0
 collision_mask = 0
 script = ExtResource( 1 )
