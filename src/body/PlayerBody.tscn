@@ -27,7 +27,6 @@ tracks/0/keys = {
 script = ExtResource( 3 )
 
 [node name="Body" type="Sprite" parent="."]
-position = Vector2( 176, 60 )
 texture = ExtResource( 4 )
 
 [node name="Light2D" type="Light2D" parent="Body"]
@@ -35,7 +34,7 @@ position = Vector2( 0, -4 )
 texture = ExtResource( 5 )
 texture_scale = 0.9664
 color = Color( 0.894118, 0.862745, 0.658824, 1 )
-energy = 1.024
+energy = 1.02471
 shadow_enabled = true
 
 [node name="Head" type="Sprite" parent="Body"]
