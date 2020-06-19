@@ -77,4 +77,13 @@ collision_mask = 0
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 shape = SubResource( 4 )
 
+[node name="StunTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="ShieldTimer" type="Timer" parent="."]
+one_shot = true
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
+[connection signal="timeout" from="StunTimer" to="." method="_on_StunTimer_timeout"]
+[connection signal="timeout" from="ShieldTimer" to="." method="_on_ShieldTimer_timeout"]
+
 [editable path="Hurtbox"]

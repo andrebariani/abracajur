@@ -13,7 +13,7 @@ extents = Vector2( 8, 8 )
 
 [node name="Enemy" type="KinematicBody2D"]
 collision_layer = 4
-collision_mask = 0
+collision_mask = 4
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -38,24 +38,26 @@ shape = SubResource( 2 )
 
 [node name="StunTimer" type="Timer" parent="."]
 process_mode = 0
+one_shot = true
+
+[node name="ShieldTimer" type="Timer" parent="."]
+one_shot = true
 
 [node name="AggroBox" parent="." instance=ExtResource( 3 )]
-collision_layer = 0
+collision_mask = 2
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 
 [node name="MoveDebug" type="Label" parent="."]
-margin_left = -38.0
-margin_top = -16.0
-margin_right = 38.0
+visible = false
+margin_left = -20.0
+margin_top = -24.0
+margin_right = 20.0
 margin_bottom = -8.0
 custom_fonts/font = ExtResource( 4 )
-text = "(0, 0)"
-align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
-[connection signal="timeout" from="StunTimer" to="." method="_on_StunTimer_timeout"]
 
 [editable path="Hurtbox"]

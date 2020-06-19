@@ -16,16 +16,16 @@ export(Dictionary) var effects_scrolls = {
 			"NAME":" DE RAIO",
 			"TYPE": "STUN",
 			"COLORS": {
-				"COLOR_BASE": Color("bd3c30"),
-				"COLOR_OUTLINE": Color("bdac2c"),
+				"COLOR_BASE": Color("00ffff"),
+				"COLOR_OUTLINE": Color("0000ff"),
 			},
 		}, 
 		{ 
 			"NAME":" DE VENTO",
 			 "TYPE": "KNOCKBACK",
 			 "COLORS": {
-				"COLOR_BASE": Color("bd3c30"),
-				"COLOR_OUTLINE": Color("bdac2c"),
+				"COLOR_BASE": Color("ffffff"),
+				"COLOR_OUTLINE": Color("5f5f5f"),
 			},
 		},
 	], 
@@ -34,16 +34,16 @@ export(Dictionary) var effects_scrolls = {
 			"NAME":" DE GELO",
 			"TYPE":"GREASE",
 			"COLORS": {
-				"COLOR_BASE": Color("bd3c30"),
-				"COLOR_OUTLINE": Color("bdac2c"),
+				"COLOR_BASE": Color("85c9ff"),
+				"COLOR_OUTLINE": Color("00ffff"),
 			},
 		},
 		{ 
 			"NAME":" DA CORRUPÇÃO",
 			"TYPE":"BREAK",
 			"COLORS": {
-				"COLOR_BASE": Color("bd3c30"),
-				"COLOR_OUTLINE": Color("bdac2c"),
+				"COLOR_BASE": Color("4e00ac"),
+				"COLOR_OUTLINE": Color("1c003e"),
 			},
 		},
 	], 
@@ -52,16 +52,16 @@ export(Dictionary) var effects_scrolls = {
 			"NAME":" DE CURA",
 			"TYPE":"HEAL",
 			"COLORS": {
-				"COLOR_BASE": Color("bd3c30"),
-				"COLOR_OUTLINE": Color("bdac2c"),
+				"COLOR_BASE": Color("42d042"),
+				"COLOR_OUTLINE": Color("00ff00"),
 			},
 		},
 		{ 
 			"NAME": " DE PEDRA",
 			"TYPE":"SHIELD",
 			"COLORS": {
-				"COLOR_BASE": Color("bd3c30"),
-				"COLOR_OUTLINE": Color("bdac2c"),
+				"COLOR_BASE": Color("1e1a12"),
+				"COLOR_OUTLINE": Color("0f0f0f"),
 			},
 		},
 	],
@@ -69,8 +69,8 @@ export(Dictionary) var effects_scrolls = {
 
 var shape_scrolls = [
 	{ 
-		"NAME":"MÍSSEIS", 
-		"SCENE":preload("res://src/spells/SparkSpell.tscn"), 
+		"NAME":"ESFERA", 
+		"SCENE":preload("res://src/spells/SphereSpell.tscn"), 
 		"ICON": null,
 		"EFFECTS": {
 			"DAMAGE": 2,
@@ -78,8 +78,8 @@ var shape_scrolls = [
 			"KNOCKBACK": 500,
 			"GREASE": 175,
 			"BREAK": 1,
-			"HEAL": 1,
-			"SHIELD": 2
+			#"HEAL": 1,
+			#"SHIELD": 2
 		},
 		"CHOSEN_EFFECT": "",
 		"COLORS": {
@@ -93,12 +93,69 @@ var shape_scrolls = [
 		"ICON": null,
 		"EFFECTS": {
 			"DAMAGE": 3,
-			"STUN": 1,
 			"KNOCKBACK": 1000,
 			"GREASE": 175,
 			"BREAK": 2,
 			"HEAL": 2,
 			"SHIELD": 2
+		},
+		"CHOSEN_EFFECT": "",
+		"COLORS": {
+			"COLOR_BASE": Color("bd3c30"),
+			"COLOR_OUTLINE": Color("bdac2c"),
+		},
+	},
+	
+	{ 
+		"NAME":"ERUPÇÃO", 
+		"SCENE":preload("res://src/spells/EruptionSpell.tscn"), 
+		"ICON": null,
+		"EFFECTS": {
+			"DAMAGE": 3,
+			"STUN": 2,
+			"KNOCKBACK": 1000,
+			"GREASE": 175,
+			"BREAK": 2,
+			"HEAL": 2,
+			"SHIELD": 2
+		},
+		"CHOSEN_EFFECT": "",
+		"COLORS": {
+			"COLOR_BASE": Color("bd3c30"),
+			"COLOR_OUTLINE": Color("bdac2c"),
+		},
+	},
+	
+	{ 
+		"NAME":"RUNA", 
+		"SCENE":preload("res://src/spells/RuneSpell.tscn"), 
+		"ICON": null,
+		"EFFECTS": {
+			"DAMAGE": 3,
+			"STUN": 2,
+			"KNOCKBACK": 1000,
+			"GREASE": 175,
+			"BREAK": 2,
+			"HEAL": 2,
+			"SHIELD": 2
+		},
+		"CHOSEN_EFFECT": "",
+		"COLORS": {
+			"COLOR_BASE": Color("bd3c30"),
+			"COLOR_OUTLINE": Color("bdac2c"),
+		},
+	},
+	
+	{ 
+		"NAME":"RAJADA", 
+		"SCENE":preload("res://src/spells/BarrageSpell.tscn"), 
+		"ICON": null,
+		"EFFECTS": {
+			"DAMAGE": 1,
+			"STUN": 0.5,
+			"KNOCKBACK": 400,
+			"GREASE": 100,
+			"BREAK": 1,
 		},
 		"CHOSEN_EFFECT": "",
 		"COLORS": {
