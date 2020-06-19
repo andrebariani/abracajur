@@ -80,7 +80,7 @@ var shape_scrolls = [
 	{ 
 		"NAME":"BOMBA", 
 		"SCENE":preload("res://src/spells/SphereSpell.tscn"), 
-		"ICON": null,
+		"ICON": preload("res://icon.png"),
 		"EFFECTS": {
 			"DAMAGE": 2,
 			"STUN": 3,
@@ -99,7 +99,7 @@ var shape_scrolls = [
 	{ 
 		"NAME":"EXPLOSÃO", 
 		"SCENE":preload("res://src/spells/AOESpell.tscn"), 
-		"ICON": null,
+		"ICON": preload("res://icon.png"),
 		"EFFECTS": {
 			"DAMAGE": 2,
 			"KNOCKBACK": 1500,
@@ -119,7 +119,7 @@ var shape_scrolls = [
 	{ 
 		"NAME":"ERUPÇÃO", 
 		"SCENE":preload("res://src/spells/EruptionSpell.tscn"), 
-		"ICON": null,
+		"ICON": preload("res://icon.png"),
 		"EFFECTS": {
 			"DAMAGE": 3,
 			"STUN": 4,
@@ -141,7 +141,7 @@ var shape_scrolls = [
 	{ 
 		"NAME":"RUNA", 
 		"SCENE":preload("res://src/spells/RuneSpell.tscn"), 
-		"ICON": null,
+		"ICON": preload("res://icon.png"),
 		"EFFECTS": {
 			"DAMAGE": 3,
 			"STUN": 4,
@@ -163,7 +163,7 @@ var shape_scrolls = [
 	{ 
 		"NAME":"RAJADA", 
 		"SCENE":preload("res://src/spells/BarrageSpell.tscn"), 
-		"ICON": null,
+		"ICON": preload("res://icon.png"),
 		"EFFECTS": {
 			"DAMAGE": 1,
 			"STUN": 1,
@@ -182,7 +182,7 @@ var shape_scrolls = [
 	{ 
 		"NAME":"CAMPO", 
 		"SCENE":preload("res://src/spells/FieldSpell.tscn"), 
-		"ICON": null,
+		"ICON": preload("res://icon.png"),
 		"EFFECTS": {
 			"DAMAGE": 1,
 			"STUN": 1,
@@ -202,7 +202,7 @@ var shape_scrolls = [
 	{ 
 		"NAME":"MÍSSIL", 
 		"SCENE":preload("res://src/spells/MissileSpell.tscn"), 
-		"ICON": null,
+		"ICON": preload("res://icon.png"),
 		"EFFECTS": {
 			"DAMAGE": 3,
 			"STUN": 3,
@@ -223,7 +223,7 @@ var shape_scrolls = [
 	{ 
 		"NAME":"RAIO", 
 		"SCENE":preload("res://src/spells/RaySpell.tscn"), 
-		"ICON": null,
+		"ICON": preload("res://icon.png"),
 		"EFFECTS": {
 			"DAMAGE": 1,
 			"STUN": 1,

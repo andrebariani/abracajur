@@ -66,7 +66,7 @@ func state_machine():
 			MoveDirection = MoveDirection.move_toward(Vector2.ZERO,FRICTION)
 		CHASE:
 			var player = AggroBox.target
-			if player:
+			if is_instance_valid(player):
 				var direction = player.global_position - global_position
 				rayCast.cast_to = direction
 				rayCast.force_raycast_update()

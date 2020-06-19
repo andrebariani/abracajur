@@ -24,7 +24,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ) ]
+"values": [ Vector2( 0.9, 0.9 ), Vector2( 1, 1 ) ]
 }
 
 [node name="EruptionSpell" type="KinematicBody2D"]
@@ -45,10 +45,11 @@ texture = ExtResource( 3 )
 collision_mask = 16
 
 [node name="CollisionShape2D" parent="SpellHitbox" index="0"]
+scale = Vector2( 0.9, 0.9 )
 shape = SubResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "explode"
+autoplay = "erupt"
 anims/erupt = SubResource( 3 )
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 

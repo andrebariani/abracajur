@@ -14,8 +14,9 @@ shader_param/color_outline = Plane( 0, 0, 0, 1 )
 anchor_top = -0.009
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = -0.598755
 margin_top = 0.016
-margin_right = 2.0
+margin_right = 1.40125
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -24,40 +25,119 @@ __meta__ = {
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 64.9274
-margin_top = 130.147
-margin_right = -69.0726
-margin_bottom = 4.14679
+margin_left = 65.0
+margin_top = 143.0
+margin_right = -65.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_constants/separation = 0
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="SpellQ" parent="HBoxContainer" instance=ExtResource( 2 )]
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 68.0
+margin_bottom = 83.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Letter" parent="HBoxContainer/SpellQ" index="0"]
+margin_top = 8.0
+margin_right = 68.0
+margin_bottom = 16.0
 
 [node name="Icon" parent="HBoxContainer/SpellQ" index="1"]
 material = SubResource( 1 )
+margin_left = 18.0
+margin_top = 20.0
+margin_right = 50.0
+margin_bottom = 52.0
+
+[node name="Label" parent="HBoxContainer/SpellQ" index="2"]
+margin_top = 56.0
+margin_right = 68.0
+margin_bottom = 75.0
 
 [node name="SpellW" parent="HBoxContainer" instance=ExtResource( 2 )]
 margin_left = 68.0
-margin_right = 132.0
+margin_top = 0.0
+margin_right = 136.0
+margin_bottom = 83.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Letter" parent="HBoxContainer/SpellW" index="0"]
+margin_top = 8.0
+margin_right = 68.0
+margin_bottom = 16.0
+text = "W"
 
 [node name="Icon" parent="HBoxContainer/SpellW" index="1"]
 material = SubResource( 1 )
+margin_left = 18.0
+margin_top = 20.0
+margin_right = 50.0
+margin_bottom = 52.0
+
+[node name="Label" parent="HBoxContainer/SpellW" index="2"]
+margin_top = 56.0
+margin_right = 68.0
+margin_bottom = 75.0
 
 [node name="SpellE" parent="HBoxContainer" instance=ExtResource( 2 )]
 margin_left = 136.0
-margin_right = 200.0
+margin_top = 0.0
+margin_right = 204.0
+margin_bottom = 83.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Letter" parent="HBoxContainer/SpellE" index="0"]
+margin_top = 8.0
+margin_right = 68.0
+margin_bottom = 16.0
+text = "E"
 
 [node name="Icon" parent="HBoxContainer/SpellE" index="1"]
 material = SubResource( 1 )
+margin_left = 18.0
+margin_top = 20.0
+margin_right = 50.0
+margin_bottom = 52.0
+
+[node name="Label" parent="HBoxContainer/SpellE" index="2"]
+margin_top = 56.0
+margin_right = 68.0
+margin_bottom = 75.0
 
 [node name="SpellR" parent="HBoxContainer" instance=ExtResource( 2 )]
 margin_left = 204.0
-margin_right = 268.0
+margin_top = 0.0
+margin_right = 272.0
+margin_bottom = 83.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Letter" parent="HBoxContainer/SpellR" index="0"]
+margin_top = 8.0
+margin_right = 68.0
+margin_bottom = 16.0
+text = "R"
 
 [node name="Icon" parent="HBoxContainer/SpellR" index="1"]
 material = SubResource( 1 )
+margin_left = 18.0
+margin_top = 20.0
+margin_right = 50.0
+margin_bottom = 52.0
+
+[node name="Label" parent="HBoxContainer/SpellR" index="2"]
+margin_top = 56.0
+margin_right = 68.0
+margin_bottom = 75.0
 
 [editable path="HBoxContainer/SpellQ"]
 
