@@ -47,7 +47,7 @@ shader_param/color_blink = Plane( 1, 0, 0, 1 )
 [sub_resource type="ShaderMaterial" id=3]
 resource_local_to_scene = true
 shader = ExtResource( 7 )
-shader_param/color_blink = Plane( 0, 0, 0, 1 )
+shader_param/color_blink = Plane( 1, 0, 0, 1 )
 
 [sub_resource type="ShaderMaterial" id=4]
 resource_local_to_scene = true
@@ -57,7 +57,7 @@ shader_param/color_blink = Plane( 1, 0, 0, 1 )
 [sub_resource type="ShaderMaterial" id=5]
 resource_local_to_scene = true
 shader = ExtResource( 7 )
-shader_param/color_blink = Plane( 0, 0, 0, 1 )
+shader_param/color_blink = Plane( 1, 0, 0, 1 )
 
 [sub_resource type="ShaderMaterial" id=6]
 resource_local_to_scene = true
@@ -119,35 +119,41 @@ remote_path = NodePath("../../../Camera2D")
 
 [node name="Clock" parent="YSort/Enemies" instance=ExtResource( 3 )]
 position = Vector2( 411, -17 )
+collision_layer = 4
+collision_mask = 4
 blink_material = SubResource( 3 )
 cooldown = 5
 
-[node name="MagicSystem" type="Node" parent="."]
-script = ExtResource( 4 )
-
-[node name="Chandelier" parent="." instance=ExtResource( 9 )]
+[node name="Chandelier" parent="YSort/Enemies" instance=ExtResource( 9 )]
 position = Vector2( 326.642, -17.1835 )
+collision_layer = 4
+collision_mask = 4
 blink_material = SubResource( 4 )
 
-[node name="Door" parent="." instance=ExtResource( 8 )]
+[node name="Door" parent="YSort/Enemies" instance=ExtResource( 8 )]
 position = Vector2( 515.266, -9.96341 )
+collision_layer = 4
+collision_mask = 4
 blink_material = SubResource( 5 )
 
-[node name="Candelabrum" parent="." instance=ExtResource( 11 )]
+[node name="Candelabrum" parent="YSort/Enemies" instance=ExtResource( 11 )]
 position = Vector2( 402.166, 120.972 )
 blink_material = SubResource( 6 )
 
-[node name="Table" parent="." instance=ExtResource( 12 )]
+[node name="Table" parent="YSort/Enemies" instance=ExtResource( 12 )]
 position = Vector2( -35.027, 189.537 )
 blink_material = SubResource( 7 )
 
-[node name="Chair" parent="." instance=ExtResource( 10 )]
+[node name="Chair" parent="YSort/Enemies" instance=ExtResource( 10 )]
 position = Vector2( 350.942, 62.2377 )
 blink_material = SubResource( 8 )
 
-[node name="Frame" parent="." instance=ExtResource( 13 )]
+[node name="Frame" parent="YSort/Enemies" instance=ExtResource( 13 )]
 position = Vector2( 164.527, 248.686 )
 blink_material = SubResource( 9 )
+
+[node name="MagicSystem" type="Node" parent="."]
+script = ExtResource( 4 )
 [connection signal="cast_spell" from="MagicSystem" to="CanvasLayer/UI" method="_on_MagicSystem_cast_spell"]
 [connection signal="cast_spell" from="MagicSystem" to="YSort/Player" method="_on_MagicSystem_cast_spell"]
 [connection signal="reset_spells" from="MagicSystem" to="CanvasLayer/UI" method="_on_MagicSystem_reset_spells"]
