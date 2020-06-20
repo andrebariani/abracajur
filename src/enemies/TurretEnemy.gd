@@ -69,17 +69,22 @@ func launch_spell(player):
 	spell._set_colors()
 	spell.caster = self
 
-	spell.get_node("SpellHitbox").set_collision_mask(8)
 
 	match (spell.name):
 		"SphereSpell":
 			spell.global_position = spellExit.global_position
 			spell.init(spellExit.global_position.direction_to(player.global_position))
+			spell.get_node("SpellHitbox").set_collision_mask(8)
 		"RaySpell":
 			spell.global_position = spellExit.global_position
-			spell.from_player = false
 			spell.player = player
 			spell.duration = 0.5
+			spell.get_node("SpellHitbox").set_collision_mask(8)
+		"BarrageSpell":
+			spell.global_position = (spellExit.global_position + 
+			Vector2(spell.radius, spell.radius) * global_position.direction_to(player.global_position).normalized())
+			spell.player = player
+			spell.set_masker(8)
 	
 	var world = get_tree().current_scene
 	world.add_child(spell)
