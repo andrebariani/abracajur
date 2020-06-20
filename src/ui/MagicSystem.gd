@@ -256,12 +256,18 @@ export var spells_at_a_time = 4
 export var max_scroll_count = 10
 onready var scroll_count = max_scroll_count
 
+var categories_used = [0, 0, 0, 0]
+var time_passed = 0.0
+
 signal reset_spells
 signal cast_spell
 
 func _ready():
 	randomize()
 	reset_spells()
+
+func _process(delta):
+	time_passed += delta
 
 func _input(event):
 	if event is InputEventKey and event.pressed:
@@ -274,6 +280,8 @@ func _input(event):
 func cast_spell(keycode):
 	emit_signal("cast_spell", active_spells[keycode], OS.get_scancode_string(keycode), 
 				keys.find(keycode))
+
+	categories_used[active_spells[keycode].CATEGORY] += 1
 	
 	# Desce a quantidade de casts disponiveis
 	scroll_count -= 1
@@ -310,6 +318,7 @@ func reset_spells():
 		rand_shape.COLORS = rand_effect.COLORS
 		
 		rand_shape["NAME"] += rand_effect["NAME"]
+		rand_shape["CATEGORY"] = k
 		active_spells[keys[k]] = rand_shape
 		
 		print_debug(str(k) + ": " + OS.get_scancode_string(keys[k]) + ", " + rand_shape["NAME"])

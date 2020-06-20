@@ -11,7 +11,7 @@ onready var shieldTimer = $ShieldTimer
 var healParticles = preload("res://src/engine/HealParticles.tscn")
 var corruptionParticles = preload("res://src/engine/CorruptionParticles.tscn")
 
-export (int) var cooldownTeleport = 0.1
+export (int) var cooldownTeleport = 2
 export var max_hp = 8
 
 onready var hp = max_hp
