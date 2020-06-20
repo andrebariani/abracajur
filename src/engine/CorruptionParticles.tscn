@@ -11,3 +11,5 @@ color = Color( 0.639216, 0, 1, 1 )
 script = ExtResource( 1 )
 
 [node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true

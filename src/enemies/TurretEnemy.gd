@@ -100,11 +100,11 @@ func _on_Hurtbox_area_entered(area):
 			"STUN":
 				apply_stun(spell.effects)
 			"BREAK":
-				apply_break(spell.effects)
+				apply_break(spell)
 			"ILLUSION":
 				apply_illusion(spell.effects, spell.caster)
 			"HEAL":
-				apply_heal(spell.effects)
+				apply_heal(spell)
 			"SHIELD":
 				apply_shield(spell.effects)
 				

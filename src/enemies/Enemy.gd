@@ -113,19 +113,20 @@ func _on_Hurtbox_area_entered(area):
 			"GREASE":
 				apply_grease(spell.effects)
 			"BREAK":
-				apply_break(spell.effects)
+				apply_break(spell)
 			"ILLUSION":
 				apply_illusion(spell.effects, spell.caster)
 			"HEAL":
-				apply_heal(spell.effects)
+				apply_heal(spell)
 			"SHIELD":
 				apply_shield(spell.effects)
 				
 	hurtbox.start_invincibility(spell.inv_frames)
 	
 	
-func create_effect(scene):
+func create_effect(scene, spell_colors):
 	var s = scene.instance()
+	s.color = spell_colors.COLOR_BASE
 	add_child(s)
 	
 	
@@ -146,10 +147,10 @@ func apply_damage(spell_effects):
 	hurtbox.start_invincibility(0.1)
 
 
-func apply_heal(spell_effects):
-	hp = clamp(hp + spell_effects.HEAL, 0, max_hp)
+func apply_heal(spell):
+	hp = clamp(hp + spell.effects.HEAL, 0, max_hp)
 	print_debug("heal! " + str(hp))
-	create_effect(healParticles)
+	create_effect(healParticles, spell.colors)
 
 
 func apply_stun(spell_effects):
@@ -174,11 +175,11 @@ func apply_grease(spell_effects):
 	set_color(Color(0, 1, 1, 1))
 	
 	
-func apply_break(spell_effects):
+func apply_break(spell):
 	set_vulnerable(true)
-	$BreakTimer.start(spell_effects.BREAK)
-	print_debug("Vulnerable for " + str(spell_effects.BREAK) + " seconds")
-	create_effect(corruptionParticles)
+	$BreakTimer.start(spell.effects.BREAK)
+	print_debug("Vulnerable for " + str(spell.effects.BREAK) + " seconds")
+	create_effect(corruptionParticles, spell.colors)
 
 func set_vulnerable(_new):
 	if vulnerable == _new:
