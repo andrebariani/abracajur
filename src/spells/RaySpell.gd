@@ -18,7 +18,6 @@ func _physics_process(delta):
 	
 	if clock > duration:
 		queue_free()
-	print_debug(player)
 	if is_instance_valid(player):
 		self.call_deferred("launch")
 	else:

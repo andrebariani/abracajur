@@ -67,6 +67,7 @@ func _on_MagicSystem_cast_spell(spell_data, letter, position):
 	
 	var show_behind = false
 	
+	
 	match (spell.name):
 		"SphereSpell", "MissileSpell":
 			var spell_radius = spell.get_node("SpellHitbox/CollisionShape2D").get_shape().radius
@@ -78,7 +79,7 @@ func _on_MagicSystem_cast_spell(spell_data, letter, position):
 			var total_radius = get_total_radius(spell_radius)
 			spell.global_position = global_position + Vector2(total_radius, total_radius) * look_vector.normalized()
 			spell.player = self
-		"AOESpell", "RuneSpell":
+		"AOESpell":
 			spell.position = self.position
 		"EruptionSpell", "FieldSpell":
 			spell.position = get_global_mouse_position()
