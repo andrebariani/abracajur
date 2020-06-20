@@ -7,6 +7,7 @@ onready var hurtbox = $Hurtbox
 onready var hurtboxCollision = $Hurtbox/CollisionShape2D
 onready var stunTimer = $StunTimer
 onready var shieldTimer = $ShieldTimer
+onready var playerBody = $PlayerBody
 
 var healParticles = preload("res://src/engine/HealParticles.tscn")
 var corruptionParticles = preload("res://src/engine/CorruptionParticles.tscn")
@@ -168,9 +169,9 @@ func set_vulnerable(_new):
 	
 	vulnerable = _new
 	if _new == true:
-		scale *= 0.5
+		playerBody.scale *= 0.5
 	else:
-		scale *= 2
+		playerBody.scale *= 2
 
 func apply_shield(spell_effects):
 	has_shield = true
