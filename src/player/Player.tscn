@@ -35,6 +35,7 @@ radius = 8.0
 [node name="Player" type="KinematicBody2D"]
 collision_layer = 2
 script = ExtResource( 2 )
+cooldownTeleport = 1
 
 [node name="PlayerBody" parent="." instance=ExtResource( 1 )]
 
