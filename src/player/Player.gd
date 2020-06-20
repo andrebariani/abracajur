@@ -196,10 +196,8 @@ func _on_ShieldTimer_timeout():
 	has_shield = false
 	print_debug("Shield is out")
 
-
 func die():
 	queue_free()
-	
 	
 func get_look_vector():
 	return look_vector.normalized()
