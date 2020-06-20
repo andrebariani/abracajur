@@ -7,7 +7,7 @@
 [sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
 shader = ExtResource( 3 )
-shader_param/color_blink = Plane( 0, 0, 0, 1 )
+shader_param/color_blink = Plane( 1, 0, 0, 1 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 105, 70 )

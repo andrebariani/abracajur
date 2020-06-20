@@ -7,11 +7,12 @@ onready var hurtbox = $Hurtbox
 onready var hurtboxCollision = $Hurtbox/CollisionShape2D
 onready var stunTimer = $StunTimer
 onready var shieldTimer = $ShieldTimer
+onready var playerBody = $PlayerBody
 
 var healParticles = preload("res://src/engine/HealParticles.tscn")
 var corruptionParticles = preload("res://src/engine/CorruptionParticles.tscn")
 
-export (int) var cooldownTeleport = 0.1
+export (int) var cooldownTeleport = 2
 export var max_hp = 8
 
 onready var hp = max_hp
@@ -19,6 +20,9 @@ var can_teleport = true
 var look_vector = Vector2.ZERO
 var is_active = true
 var has_shield = false
+var vulnerable = false
+
+export(Material) var blink_material
 
 signal player_stunned
 signal activated_illusion
@@ -103,16 +107,15 @@ func _on_Hurtbox_area_entered(area):
 		match area.name:
 			"SpellHitbox":
 				var spell = area.spell
-				print_debug(spell.effects)
 				match spell.chosen_effect:
 					"DAMAGE":
 						apply_damage(spell.effects.DAMAGE)
 					"STUN":
 						apply_stun(spell.effects)
 					"BREAK":
-						apply_break(spell.effects)
+						apply_break(spell)
 					"HEAL":
-						apply_heal(spell.effects.HEAL)
+						apply_heal(spell)
 					"SHIELD":
 						apply_shield(spell.effects)
 						
@@ -123,22 +126,30 @@ func _on_Hurtbox_area_entered(area):
 				hurtbox.start_invincibility(1)
 
 
-func create_effect(scene):
+func create_effect(scene, spell_colors):
 	var s = scene.instance()
+	s.color = spell_colors.COLOR_BASE
 	add_child(s)
 	
 	
 # ---- React to stimuli -------------
 
 func apply_damage(value):
-	hp = clamp(hp - value, 0, max_hp)
+	var damage = value
+	if vulnerable:
+		damage *= 10
+	
+	hp = clamp(hp - damage, 0, max_hp)
 	if hp == 0:
 		die()
+	
+	self.material = blink_material
+	$BlinkTimer.start(0.2)
 
 
-func apply_heal(value):
-	hp = clamp(hp + value, 0, max_hp)
-	create_effect(healParticles)
+func apply_heal(spell):
+	hp = clamp(hp + spell.effects.HEAL, 0, max_hp)
+	create_effect(healParticles, spell.colors)
 
 
 func apply_stun(spell_effects):
@@ -147,19 +158,34 @@ func apply_stun(spell_effects):
 	stunTimer.start(spell_effects.STUN)
 
 
-func apply_break(spell_effects):
-	max_hp = max(max_hp - spell_effects.BREAK, 1)
-	create_effect(corruptionParticles)
+func apply_break(spell):
+	set_vulnerable(true)
+	$BreakTimer.start(spell.effects.BREAK)
+	create_effect(corruptionParticles, spell.colors)
 
+func set_vulnerable(_new):
+	if vulnerable == _new:
+		return
+	
+	vulnerable = _new
+	if _new == true:
+		playerBody.scale *= 0.5
+	else:
+		playerBody.scale *= 2
 
 func apply_shield(spell_effects):
 	has_shield = true
 
+func _on_BlinkTimer_timeout():
+	self.material = null
 
 func _on_StunTimer_timeout():
 	is_active = true
 	emit_signal("player_stunned", is_active)
 
+
+func _on_BreakTimer_timeout():
+	set_vulnerable(false)
 
 func _on_ShieldTimer_timeout():
 	has_shield = false

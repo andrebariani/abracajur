@@ -80,7 +80,7 @@ var shape_scrolls = [
 	{ 
 		"NAME":"BOMBA", 
 		"SCENE":preload("res://src/spells/SphereSpell.tscn"), 
-		"ICON": preload("res://icon.png"),
+		"ICON": preload("res://assets/Spells/Botão-Null.png"),
 		"EFFECTS": {
 			"DAMAGE": 2,
 			"STUN": 3,
@@ -99,7 +99,7 @@ var shape_scrolls = [
 	{ 
 		"NAME":"EXPLOSÃO", 
 		"SCENE":preload("res://src/spells/AOESpell.tscn"), 
-		"ICON": preload("res://icon.png"),
+		"ICON": preload("res://assets/Spells/Botão-Explosion.png"),
 		"EFFECTS": {
 			"DAMAGE": 2,
 			"KNOCKBACK": 1500,
@@ -119,7 +119,7 @@ var shape_scrolls = [
 	{ 
 		"NAME":"ERUPÇÃO", 
 		"SCENE":preload("res://src/spells/EruptionSpell.tscn"), 
-		"ICON": preload("res://icon.png"),
+		"ICON": preload("res://assets/Spells/Botão-Erupção.Png"),
 		"EFFECTS": {
 			"DAMAGE": 3,
 			"STUN": 4,
@@ -141,7 +141,7 @@ var shape_scrolls = [
 	{ 
 		"NAME":"RUNA", 
 		"SCENE":preload("res://src/spells/RuneSpell.tscn"), 
-		"ICON": preload("res://icon.png"),
+		"ICON": preload("res://assets/Spells/Botão-Runa.png"),
 		"EFFECTS": {
 			"DAMAGE": 3,
 			"STUN": 4,
@@ -163,7 +163,7 @@ var shape_scrolls = [
 	{ 
 		"NAME":"RAJADA", 
 		"SCENE":preload("res://src/spells/BarrageSpell.tscn"), 
-		"ICON": preload("res://icon.png"),
+		"ICON": preload("res://assets/Spells/Botão-Null.png"),
 		"EFFECTS": {
 			"DAMAGE": 1,
 			"STUN": 1,
@@ -181,7 +181,7 @@ var shape_scrolls = [
 	{ 
 		"NAME":"CAMPO", 
 		"SCENE":preload("res://src/spells/FieldSpell.tscn"), 
-		"ICON": preload("res://icon.png"),
+		"ICON": preload("res://assets/Spells/Botão-Campo.png"),
 		"EFFECTS": {
 			"DAMAGE": 1,
 			"STUN": 1,
@@ -201,7 +201,7 @@ var shape_scrolls = [
 	{ 
 		"NAME":"MÍSSIL", 
 		"SCENE":preload("res://src/spells/MissileSpell.tscn"), 
-		"ICON": preload("res://icon.png"),
+		"ICON": preload("res://assets/Spells/Botão-Null.png"),
 		"EFFECTS": {
 			"DAMAGE": 3,
 			"STUN": 3,
@@ -220,7 +220,7 @@ var shape_scrolls = [
 	{ 
 		"NAME":"RAIO", 
 		"SCENE":preload("res://src/spells/RaySpell.tscn"), 
-		"ICON": preload("res://icon.png"),
+		"ICON": preload("res://assets/Spells/Botão-Null.png"),
 		"EFFECTS": {
 			"DAMAGE": 1,
 			"STUN": 1,
@@ -256,12 +256,18 @@ export var spells_at_a_time = 4
 export var max_scroll_count = 10
 onready var scroll_count = max_scroll_count
 
+var categories_used = [0, 0, 0, 0]
+var time_passed = 0.0
+
 signal reset_spells
 signal cast_spell
 
 func _ready():
 	randomize()
 	reset_spells()
+
+func _process(delta):
+	time_passed += delta
 
 func _input(event):
 	if event is InputEventKey and event.pressed:
@@ -274,6 +280,8 @@ func _input(event):
 func cast_spell(keycode):
 	emit_signal("cast_spell", active_spells[keycode], OS.get_scancode_string(keycode), 
 				keys.find(keycode))
+
+	categories_used[active_spells[keycode].CATEGORY] += 1
 	
 	# Desce a quantidade de casts disponiveis
 	scroll_count -= 1
@@ -310,6 +318,7 @@ func reset_spells():
 		rand_shape.COLORS = rand_effect.COLORS
 		
 		rand_shape["NAME"] += rand_effect["NAME"]
+		rand_shape["CATEGORY"] = k
 		active_spells[keys[k]] = rand_shape
 		
 		print_debug(str(k) + ": " + OS.get_scancode_string(keys[k]) + ", " + rand_shape["NAME"])

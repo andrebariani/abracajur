@@ -33,9 +33,11 @@ tracks/1/keys = {
 }
 
 [node name="EnemyBodyChand" type="Node2D"]
+use_parent_material = true
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
+use_parent_material = true
 position = Vector2( 0, 0.302321 )
 texture = ExtResource( 1 )
 flip_h = true

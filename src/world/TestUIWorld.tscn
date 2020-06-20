@@ -2,8 +2,9 @@
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://src/player/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://src/enemies/Geladeira.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/enemies/Chair.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/ui/MainUI.tscn" type="PackedScene" id=4]
+
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )

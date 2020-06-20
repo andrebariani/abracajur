@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://src/body/EnemyBodyChair.gd" type="Script" id=1]
+[ext_resource path="res://src/body/AnimatedEnemyBody.gd" type="Script" id=1]
 [ext_resource path="res://assets/enemies/cadeira.png" type="Texture" id=2]
 
 [sub_resource type="Animation" id=1]
@@ -20,9 +20,11 @@ tracks/0/keys = {
 }
 
 [node name="EnemyBodyChair" type="Node2D"]
+use_parent_material = true
 script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
+use_parent_material = true
 texture = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
