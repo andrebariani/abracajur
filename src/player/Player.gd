@@ -11,7 +11,7 @@ onready var shieldTimer = $ShieldTimer
 var healParticles = preload("res://src/engine/HealParticles.tscn")
 var corruptionParticles = preload("res://src/engine/CorruptionParticles.tscn")
 
-export (int) var cooldownTeleport = 0.1
+export (int) var cooldownTeleport = 2
 export var max_hp = 8
 
 onready var hp = max_hp
@@ -103,9 +103,10 @@ func _on_Hurtbox_area_entered(area):
 		match area.name:
 			"SpellHitbox":
 				var spell = area.spell
+				print_debug(spell)
 				match spell.chosen_effect:
 					"DAMAGE":
-						apply_damage(spell)
+						apply_damage(spell.effects.DAMAGE)
 					"STUN":
 						apply_stun(spell.effects)
 					"BREAK":
@@ -130,8 +131,8 @@ func create_effect(scene, spell_colors):
 	
 # ---- React to stimuli -------------
 
-func apply_damage(spell):
-	hp = clamp(hp - spell.effects.DAMAGE, 0, max_hp)
+func apply_damage(value):
+	hp = clamp(hp - value, 0, max_hp)
 	if hp == 0:
 		die()
 

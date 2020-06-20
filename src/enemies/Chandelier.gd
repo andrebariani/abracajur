@@ -1,21 +1,21 @@
 extends "res://src/enemies/TurretEnemy.gd"
 
 func _ready():
-	setted_effect = { 
-			"NAME":" DA CORRUPÇÃO",
-			"TYPE":"BREAK",
-			"COLORS": {
-				"COLOR_BASE": Color("4e00ac"),
-				"COLOR_OUTLINE": Color("1c003e"),
-			},
-		}
+	setted_effect = {
+		"NAME":" DE FOGO",
+		"TYPE": "DAMAGE",
+		"COLORS": {
+				"COLOR_BASE": Color("bd3c30"),
+				"COLOR_OUTLINE": Color("bdac2c"),
+		},
+	}
 
 	setted_spell = { 
-		"NAME":"RAIO", 
-		"SCENE":preload("res://src/spells/RaySpell.tscn"),
+		"NAME":"RAJADA", 
+		"SCENE":preload("res://src/spells/BarrageSpell.tscn"), 
 		"ICON": null,
 		"EFFECTS": {
-			"DAMAGE": 2,
+			"DAMAGE": 1,
 			"KNOCKBACK": 1500,
 			"GREASE": 10,
 			"STUN": 1,

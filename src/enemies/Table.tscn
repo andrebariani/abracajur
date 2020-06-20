@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/enemies/MeleeEnemy.gd" type="Script" id=1]
+[ext_resource path="res://src/body/EnemyBodyTable.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/enemies/Enemy.tscn" type="PackedScene" id=3]
+
+[node name="Table" instance=ExtResource( 3 )]
+collision_mask = 1
+script = ExtResource( 1 )
+max_hp = 6
+blink_material = null
+enemy_body = "EnemyBodyTable"
+
+[node name="EnemyBodyTable" parent="." index="0" instance=ExtResource( 2 )]
+
+[node name="ColorRect" parent="." index="2"]
+color = Color( 0.384314, 0, 1, 1 )
+
+[node name="CollisionShape2D" parent="SoftCollision" index="0"]
+position = Vector2( 0.149162, 2.00547 )
+
+[editable path="EnemyHitbox"]
+
+[editable path="Hurtbox"]
+
+[editable path="AggroBox"]
+
+[editable path="SoftCollision"]

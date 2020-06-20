@@ -135,7 +135,7 @@ func create_effect(scene, spell_colors):
 func apply_damage(spell_effects):
 	var damage = spell_effects.DAMAGE
 	if vulnerable:
-		damage *= 5
+		damage *= 10
 	
 	hp = clamp(hp - spell_effects.DAMAGE, 0, max_hp)
 	if hp == 0:

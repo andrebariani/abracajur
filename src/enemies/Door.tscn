@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/enemies/Door.gd" type="Script" id=1]
+[ext_resource path="res://src/enemies/TurretEnemy.tscn" type="PackedScene" id=2]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 117.068
+
+[node name="Door" instance=ExtResource( 2 )]
+script = ExtResource( 1 )
+blink_material = null
+cooldown = 1
+
+[node name="EnemyHitbox" parent="." index="2"]
+visible = true
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+visible = true
+position = Vector2( 0, 0 )
+
+[node name="CollisionShape2D" parent="AggroBox" index="0"]
+visible = false
+position = Vector2( 0, 0 )
+shape = SubResource( 2 )
+
+[node name="RayCast2D" parent="." index="13"]
+position = Vector2( 0, 0 )
+
+[node name="SpellExit" parent="." index="15"]
+position = Vector2( 0, 0 )
+
+[editable path="EnemyHitbox"]
+
+[editable path="Hurtbox"]
+
+[editable path="AggroBox"]
+
+[editable path="SoftCollision"]
