@@ -103,16 +103,15 @@ func _on_Hurtbox_area_entered(area):
 		match area.name:
 			"SpellHitbox":
 				var spell = area.spell
-				print_debug(spell.effects)
 				match spell.chosen_effect:
 					"DAMAGE":
-						apply_damage(spell.effects.DAMAGE)
+						apply_damage(spell)
 					"STUN":
 						apply_stun(spell.effects)
 					"BREAK":
-						apply_break(spell.effects)
+						apply_break(spell)
 					"HEAL":
-						apply_heal(spell.effects.HEAL)
+						apply_heal(spell)
 					"SHIELD":
 						apply_shield(spell.effects)
 						
@@ -123,22 +122,24 @@ func _on_Hurtbox_area_entered(area):
 				hurtbox.start_invincibility(1)
 
 
-func create_effect(scene):
+func create_effect(scene, spell_colors):
 	var s = scene.instance()
+	s.color = spell_colors.COLOR_BASE
 	add_child(s)
 	
 	
 # ---- React to stimuli -------------
 
-func apply_damage(value):
-	hp = clamp(hp - value, 0, max_hp)
+func apply_damage(spell):
+	hp = clamp(hp - spell.effects.DAMAGE, 0, max_hp)
 	if hp == 0:
 		die()
 
 
-func apply_heal(value):
-	hp = clamp(hp + value, 0, max_hp)
-	create_effect(healParticles)
+func apply_heal(spell):
+	hp = clamp(hp + spell.effects.HEAL, 0, max_hp)
+	create_effect(healParticles, spell.colors)
+	print_debug("Miau")
 
 
 func apply_stun(spell_effects):
@@ -147,9 +148,9 @@ func apply_stun(spell_effects):
 	stunTimer.start(spell_effects.STUN)
 
 
-func apply_break(spell_effects):
-	max_hp = max(max_hp - spell_effects.BREAK, 1)
-	create_effect(corruptionParticles)
+func apply_break(spell):
+	max_hp = max(max_hp - spell.effects.BREAK, 1)
+	create_effect(corruptionParticles, spell.colors)
 
 
 func apply_shield(spell_effects):
