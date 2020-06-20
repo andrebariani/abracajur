@@ -80,7 +80,7 @@ var shape_scrolls = [
 	{ 
 		"NAME":"BOMBA", 
 		"SCENE":preload("res://src/spells/SphereSpell.tscn"), 
-		"ICON": preload("res://assets/Spells/Bola.Png"),
+		"ICON": preload("res://assets/Spells/BolaOficial.png"),
 		"EFFECTS": {
 			"DAMAGE": 2,
 			"STUN": 3,
