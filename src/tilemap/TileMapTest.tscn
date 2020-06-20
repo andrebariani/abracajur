@@ -29,14 +29,17 @@ shape = SubResource( 26 )
 [node name="Light2D" type="Light2D" parent="."]
 position = Vector2( 96, 89 )
 texture = ExtResource( 3 )
+energy = 0.6
 shadow_enabled = true
 
 [node name="Light2D2" type="Light2D" parent="."]
 position = Vector2( 176, 209 )
 texture = ExtResource( 3 )
+energy = 0.6
 shadow_enabled = true
 
 [node name="Light2D3" type="Light2D" parent="."]
 position = Vector2( 232, 41 )
 texture = ExtResource( 3 )
+energy = 0.6
 shadow_enabled = true
