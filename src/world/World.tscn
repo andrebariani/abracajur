@@ -77,8 +77,6 @@ remote_path = NodePath("../../../Camera2D")
 
 [node name="Clock" parent="YSort/Enemies" instance=ExtResource( 3 )]
 position = Vector2( 411, -17 )
-collision_layer = 4
-collision_mask = 4
 blink_material = SubResource( 2 )
 
 [node name="MagicSystem" type="Node" parent="."]
