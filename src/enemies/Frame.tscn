@@ -7,7 +7,6 @@
 [node name="Frame" instance=ExtResource( 2 )]
 collision_mask = 1
 script = ExtResource( 1 )
-blink_material = null
 enemy_body = "EnemyBodyFrame"
 
 [node name="EnemyBodyFrame" parent="." index="0" instance=ExtResource( 3 )]

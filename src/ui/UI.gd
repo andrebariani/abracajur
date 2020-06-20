@@ -11,4 +11,4 @@ func _on_MagicSystem_cast_spell(spell, letter, position):
 
 func _on_MagicSystem_reset_spells():
 	for spell in $HBoxContainer.get_children():
-		spell.set_text("?")
+		spell.reset()

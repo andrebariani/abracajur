@@ -16,4 +16,4 @@ func turn_down():
 	pass
 
 func walk():
-	
+	pass
