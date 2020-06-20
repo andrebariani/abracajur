@@ -1,0 +1,111 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/abracajour/abracajour.png" type="Texture" id=1]
+[ext_resource path="res://assets/font/Credits.tres" type="DynamicFont" id=2]
+[ext_resource path="res://assets/enemies/cadeira.png" type="Texture" id=3]
+[ext_resource path="res://assets/Wall.png" type="Texture" id=4]
+[ext_resource path="res://src/ui/StartAnimation.gd" type="Script" id=5]
+
+[sub_resource type="Animation" id=1]
+resource_name = "show_text"
+length = 85.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Label:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 15, 85 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 20, 40 ), Vector2( 20, 40 ), Vector2( 20, -740 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Label:percent_visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 70 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("TextureRect:texture")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 20, 40, 57.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 1 ), ExtResource( 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("TextureRect:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1, 19, 20, 21, 39, 40, 41, 85 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="StartAnimation" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 20.0
+margin_top = 40.0
+margin_right = 220.0
+margin_bottom = 774.0
+grow_vertical = 0
+custom_fonts/font = ExtResource( 2 )
+text = "Por 50 anos, o Grão-Bruxo Abraão Cadabro subjugou e aterrorizou o Reino de Jur, atacando suas fazendas e amaldiçoando suas plantações. Sob a sombra pairante de terror, heróis se ergueram para combater o malevolente bruxo, utilizando-se de magia para neutralizar seus feitiços. 
+
+Depois de longos anos de lutas e investigações, uma equipe de quatro magos encontrou a cripta final do sinistro Cadabro, invadindo-a em uma última, épica batalha. 
+
+Em resposta, o Grão-Bruxo levantou mortos-vivos e chamou monstros para combater o ataque, causando grandes perdas para ambos os lados. No ápice do confronto, o último mago restante usou sua cartada final e invocou antigas palavras proibidas, lançando um incrível poder e vencendo a batalha de uma vez por todas.
+
+Porém, os antigos não são tão lenientes com suas palavras sendo proferidas, e sua retribuição foi severa: todos na cripta, tanto magos quanto monstros, tiveram a maioria de suas memórias retiradas e foram transformados em meros objetos.
+
+Você, Abracajur, é o último mago na cripta, que agora procura por uma forma de recuperar sua forma e mente. Você terá de atravessar o esconderijo apenas com sua memória falha e pergaminhos velhos, lutando contra os monstros-objeto que ainda querem te destruir."
+autowrap = true
+percent_visible = 0.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 261.0
+margin_top = 66.0
+margin_right = 361.0
+margin_bottom = 166.0
+rect_min_size = Vector2( 100, 100 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "show_text"
+anims/show_text = SubResource( 1 )
