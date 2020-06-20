@@ -135,11 +135,12 @@ func apply_damage(spell_effects):
 	var damage = spell_effects.DAMAGE
 	if vulnerable:
 		damage *= 10
+		print_debug("SO MUCH DAMAGE")
 	
 	hp = clamp(hp - spell_effects.DAMAGE, 0, max_hp)
 	if hp == 0:
 		die()
-	print_debug("damage! " + str(hp))
+	print_debug("damage: " + str(damage) + ", HP:  " + str(hp))
 	
 	self.material = blink_material
 	$BlinkTimer.start(0.2)
@@ -148,7 +149,6 @@ func apply_damage(spell_effects):
 
 func apply_heal(spell):
 	hp = clamp(hp + spell.effects.HEAL, 0, max_hp)
-	print_debug("heal! " + str(hp))
 	create_effect(healParticles, spell.colors)
 
 

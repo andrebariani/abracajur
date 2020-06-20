@@ -152,7 +152,7 @@ var shape_scrolls = [
 			"SHIELD": 2
 		},
 		"CHOSEN_EFFECT": "",
-		"INV_FRAMES": 0.1,
+		"INV_FRAMES": 0.5,
 		"COLORS": {
 			"COLOR_BASE": Color("bd3c30"),
 			"COLOR_OUTLINE": Color("bdac2c"),

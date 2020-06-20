@@ -9,6 +9,8 @@ func update_hp(_new):
 	for i in len(notches):
 		if i >= _new:
 			notches[i].visible = false
+		else:
+			notches[i].visible = true
 
 func _on_MagicSystem_cast_spell(spell, letter, position):
 	get_node("Box/Spells/Spell" + letter).setup(spell)
