@@ -6,8 +6,8 @@ export(Dictionary) var effects_scrolls = {
 			"NAME":" DE FOGO", 
 			"TYPE": "DAMAGE",
 			"COLORS": {
-				"COLOR_BASE": Color("bd3c30"),
-				"COLOR_OUTLINE": Color("bdac2c"),
+				"COLOR_BASE": Color("bdac2c"),
+				"COLOR_OUTLINE": Color("bd3c30"),
 			},
 		}
 	], 
@@ -80,7 +80,7 @@ var shape_scrolls = [
 	{ 
 		"NAME":"BOMBA", 
 		"SCENE":preload("res://src/spells/SphereSpell.tscn"), 
-		"ICON": preload("res://assets/Spells/Botão-Null.png"),
+		"ICON": preload("res://assets/Spells/Bola.Png"),
 		"EFFECTS": {
 			"DAMAGE": 2,
 			"STUN": 3,
@@ -163,7 +163,7 @@ var shape_scrolls = [
 	{ 
 		"NAME":"RAJADA", 
 		"SCENE":preload("res://src/spells/BarrageSpell.tscn"), 
-		"ICON": preload("res://assets/Spells/Botão-Null.png"),
+		"ICON": preload("res://assets/Spells/Botão-Rajada.png"),
 		"EFFECTS": {
 			"DAMAGE": 1,
 			"STUN": 1,
@@ -220,7 +220,7 @@ var shape_scrolls = [
 	{ 
 		"NAME":"RAIO", 
 		"SCENE":preload("res://src/spells/RaySpell.tscn"), 
-		"ICON": preload("res://assets/Spells/Botão-Null.png"),
+		"ICON": preload("res://assets/Spells/Laser.png"),
 		"EFFECTS": {
 			"DAMAGE": 1,
 			"STUN": 1,
