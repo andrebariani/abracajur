@@ -99,7 +99,7 @@ var shape_scrolls = [
 	{ 
 		"NAME":"EXPLOSÃO", 
 		"SCENE":preload("res://src/spells/AOESpell.tscn"), 
-		"ICON": preload("res://icon.png"),
+		"ICON": preload("res://assets/Spells/Botão-Explosion.png"),
 		"EFFECTS": {
 			"DAMAGE": 2,
 			"KNOCKBACK": 1500,
@@ -119,7 +119,7 @@ var shape_scrolls = [
 	{ 
 		"NAME":"ERUPÇÃO", 
 		"SCENE":preload("res://src/spells/EruptionSpell.tscn"), 
-		"ICON": preload("res://icon.png"),
+		"ICON": preload("res://assets/Spells/Botão-Erupção.Png"),
 		"EFFECTS": {
 			"DAMAGE": 3,
 			"STUN": 4,
@@ -141,7 +141,7 @@ var shape_scrolls = [
 	{ 
 		"NAME":"RUNA", 
 		"SCENE":preload("res://src/spells/RuneSpell.tscn"), 
-		"ICON": preload("res://icon.png"),
+		"ICON": preload("res://assets/Spells/Botão-Runa.png"),
 		"EFFECTS": {
 			"DAMAGE": 3,
 			"STUN": 4,
@@ -181,7 +181,7 @@ var shape_scrolls = [
 	{ 
 		"NAME":"CAMPO", 
 		"SCENE":preload("res://src/spells/FieldSpell.tscn"), 
-		"ICON": preload("res://icon.png"),
+		"ICON": preload("res://assets/Spells/Botão-Campo.png"),
 		"EFFECTS": {
 			"DAMAGE": 1,
 			"STUN": 1,
