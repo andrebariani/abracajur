@@ -86,7 +86,6 @@ smoothing_speed = 2.0
 "Player",
 ] instance=ExtResource( 1 )]
 position = Vector2( 95, 56 )
-cooldownTeleport = 0
 blink_material = SubResource( 1 )
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/Player"]
@@ -127,7 +126,8 @@ position = Vector2( 164.527, 248.686 )
 blink_material = SubResource( 8 )
 
 [node name="Endgame" parent="." instance=ExtResource( 14 )]
-position = Vector2( 22.2929, 34.1708 )
+position = Vector2( 283.387, -237.784 )
+[connection signal="updated_health" from="YSort/Player" to="CanvasLayer/UI" method="_on_Player_updated_health"]
 [connection signal="cast_spell" from="MagicSystem" to="YSort/Player" method="_on_MagicSystem_cast_spell"]
 [connection signal="cast_spell" from="MagicSystem" to="CanvasLayer/UI" method="_on_MagicSystem_cast_spell"]
 [connection signal="reset_spells" from="MagicSystem" to="CanvasLayer/UI" method="_on_MagicSystem_reset_spells"]

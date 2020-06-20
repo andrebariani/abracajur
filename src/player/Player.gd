@@ -13,7 +13,7 @@ var healParticles = preload("res://src/engine/HealParticles.tscn")
 var corruptionParticles = preload("res://src/engine/CorruptionParticles.tscn")
 
 export (int) var cooldownTeleport = 2
-export var max_hp = 8
+export var max_hp = 10
 
 onready var hp = max_hp
 var can_teleport = true
@@ -27,6 +27,10 @@ export(Material) var blink_material
 
 signal player_stunned
 signal activated_illusion
+signal updated_health
+
+func _ready():
+	set_hp(max_hp)
 
 func _process(_delta):
 	look_vector = get_global_mouse_position() - global_position
@@ -123,8 +127,9 @@ func _on_Hurtbox_area_entered(area):
 						apply_heal(spell)
 					"SHIELD":
 						apply_shield(spell.effects)
-						
-				hurtbox.start_invincibility(0.1)
+				
+				print(spell.inv_frames*2)
+				hurtbox.start_invincibility(spell.inv_frames)
 			"EnemyHitbox":
 				var enemy = area.enemy
 				apply_damage(enemy.damage)
@@ -135,25 +140,29 @@ func create_effect(scene, spell_colors):
 	var s = scene.instance()
 	s.color = spell_colors.COLOR_BASE
 	add_child(s)
-	
-	
+
 # ---- React to stimuli -------------
+
+func set_hp(_new):
+	hp = clamp(_new, 0, max_hp)
+	if hp <= 0:
+		die()
+	
+	emit_signal("updated_health", hp)
 
 func apply_damage(value):
 	var damage = value
 	if vulnerable:
 		damage *= 10
 	
-	hp = clamp(hp - damage, 0, max_hp)
-	if hp == 0:
-		die()
+	set_hp(hp - damage)
 	
 	self.material = blink_material
 	$BlinkTimer.start(0.2)
 
 
 func apply_heal(spell):
-	hp = clamp(hp + spell.effects.HEAL, 0, max_hp)
+	set_hp(hp + spell.effects.HEAL)
 	create_effect(healParticles, spell.colors)
 
 

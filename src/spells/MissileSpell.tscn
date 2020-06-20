@@ -29,6 +29,7 @@ tracks/0/keys = {
 }
 
 [node name="MissileSpell" type="KinematicBody2D"]
+scale = Vector2( 2, 2 )
 collision_layer = 0
 script = ExtResource( 3 )
 __meta__ = {

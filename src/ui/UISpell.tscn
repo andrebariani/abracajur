@@ -18,25 +18,12 @@ __meta__ = {
 }
 nullspell = ExtResource( 5 )
 
-[node name="Letter" type="Label" parent="."]
-margin_top = 28.0
-margin_right = 116.0
-margin_bottom = 36.0
-grow_horizontal = 2
-grow_vertical = 2
-custom_fonts/font = ExtResource( 4 )
-text = "Q"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Icon" type="TextureRect" parent="."]
 material = ExtResource( 1 )
 margin_left = 42.0
-margin_top = 40.0
+margin_top = 34.0
 margin_right = 74.0
-margin_bottom = 72.0
+margin_bottom = 66.0
 grow_horizontal = 2
 grow_vertical = 2
 rect_min_size = Vector2( 32, 32 )
@@ -44,6 +31,20 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource( 2 )
 expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Letter" type="Label" parent="Icon"]
+margin_left = -0.00563812
+margin_top = 1.71348
+margin_right = 14.9944
+margin_bottom = 9.71348
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = ExtResource( 4 )
+text = "Q"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }

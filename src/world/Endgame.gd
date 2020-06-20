@@ -35,10 +35,12 @@ func update_text(_new):
 	$CanvasLayer/Control/Label.text = _new
 
 func _on_Endgame_body_entered(body):
+	visible = true
+	$CanvasLayer/Control.visible = true
+	
 	body.is_active = false
 	active = true
 	update_text(textos[current_text])
-	$CanvasLayer/Control/Prosseguir.visible = true
 	$AnimationPlayer.play("pulse")
 	emit_signal("started_cutscene")
 	
