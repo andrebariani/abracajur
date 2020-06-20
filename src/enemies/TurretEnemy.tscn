@@ -4,17 +4,17 @@
 [ext_resource path="res://src/enemies/Enemy.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/enemies/EnemyBlink.shader" type="Shader" id=3]
 
-[sub_resource type="ShaderMaterial" id=2]
+[sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
 shader = ExtResource( 3 )
 shader_param/color_blink = Plane( 0, 0, 0, 1 )
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 105, 70 )
 
 [node name="TurretEnemy" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
-blink_material = SubResource( 2 )
+blink_material = SubResource( 1 )
 cooldown = 3
 
 [node name="CollisionShape2D" parent="." index="0"]
@@ -37,7 +37,7 @@ one_shot = true
 
 [node name="CollisionShape2D" parent="AggroBox" index="0"]
 position = Vector2( 0, 70 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="RayCast2D" parent="." index="13"]
 visible = true

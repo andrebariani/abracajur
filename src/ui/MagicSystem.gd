@@ -205,12 +205,10 @@ var shape_scrolls = [
 		"EFFECTS": {
 			"DAMAGE": 3,
 			"STUN": 3,
-			"KNOCKBACK": 500,
+			"KNOCKBACK": 1500,
 			"GREASE": 12,
 			"BREAK": 1,
 			"ILLUSION": 5,
-			"HEAL": 1,
-			"SHIELD": 1
 		},
 		"CHOSEN_EFFECT": "",
 		"INV_FRAMES": 0,

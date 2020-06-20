@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/engine/SpellHitbox.tscn" type="PackedScene" id=1]
-[ext_resource path="res://color-code.png" type="Texture" id=2]
+[ext_resource path="res://assets/Spells/Campo.png" type="Texture" id=2]
 [ext_resource path="res://src/spells/FieldSpell.gd" type="Script" id=3]
 [ext_resource path="res://src/spells/ColorSpellMaterial.tres" type="Material" id=4]
 
@@ -19,7 +19,6 @@ script = ExtResource( 3 )
 [node name="Sprite" type="Sprite" parent="."]
 self_modulate = Color( 1, 1, 1, 0.321569 )
 material = ExtResource( 4 )
-scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
