@@ -1,20 +1,15 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://src/enemies/Clock.gd" type="Script" id=1]
+[ext_resource path="res://src/enemies/Door.gd" type="Script" id=1]
 [ext_resource path="res://src/enemies/TurretEnemy.tscn" type="PackedScene" id=2]
-[ext_resource path="res://src/enemies/EnemyBlink.shader" type="Shader" id=3]
+[ext_resource path="res://src/enemies/EnemyBlinkMaterial.tres" type="Material" id=3]
 
-[sub_resource type="ShaderMaterial" id=1]
-resource_local_to_scene = true
-shader = ExtResource( 3 )
-shader_param/color_blink = Plane( 1, 0, 0, 1 )
-
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="CircleShape2D" id=1]
 radius = 117.068
 
-[node name="Clock" instance=ExtResource( 2 )]
+[node name="Door" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
-blink_material = SubResource( 1 )
+blink_material = ExtResource( 3 )
 cooldown = 4
 
 [node name="EnemyHitbox" parent="." index="2"]
@@ -27,7 +22,7 @@ position = Vector2( 0, 0 )
 [node name="CollisionShape2D" parent="AggroBox" index="0"]
 visible = false
 position = Vector2( 0, 0 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="RayCast2D" parent="." index="13"]
 position = Vector2( 0, 0 )

@@ -61,9 +61,9 @@ __meta__ = {
 }
 
 [node name="Abracajur" type="Label" parent="StartScreen/VBoxContainer"]
-margin_top = 5.0
+margin_top = 13.0
 margin_right = 400.0
-margin_bottom = 85.0
+margin_bottom = 93.0
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 0.99098, 0.989412, 0.982941, 1 )
 custom_colors/font_color_shadow = Color( 0.208431, 0.190196, 0.0496079, 0.0500001 )
@@ -74,9 +74,9 @@ align = 1
 valign = 1
 
 [node name="Player" type="TextureRect" parent="StartScreen/VBoxContainer"]
-margin_top = 95.0
+margin_top = 103.0
 margin_right = 400.0
-margin_bottom = 155.0
+margin_bottom = 163.0
 rect_min_size = Vector2( 400, 60 )
 texture = ExtResource( 2 )
 stretch_mode = 6
@@ -85,9 +85,9 @@ __meta__ = {
 }
 
 [node name="Start" type="Button" parent="StartScreen/VBoxContainer"]
-margin_left = 154.0
-margin_top = 165.0
-margin_right = 246.0
+margin_left = 174.0
+margin_top = 173.0
+margin_right = 226.0
 margin_bottom = 187.0
 size_flags_horizontal = 4
 custom_fonts/font = ExtResource( 5 )
@@ -98,10 +98,10 @@ __meta__ = {
 }
 
 [node name="Credits" type="Button" parent="StartScreen/VBoxContainer"]
-margin_left = 130.0
+margin_left = 162.0
 margin_top = 197.0
-margin_right = 270.0
-margin_bottom = 219.0
+margin_right = 238.0
+margin_bottom = 211.0
 size_flags_horizontal = 4
 custom_fonts/font = ExtResource( 5 )
 text = "CRÉDITOS"

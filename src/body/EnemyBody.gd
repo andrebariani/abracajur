@@ -1,5 +1,11 @@
 extends Node2D
 
+func resume():
+	pass
+
+func stop():
+	pass
+
 func turn_left():
 	pass
 
