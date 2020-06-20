@@ -19,6 +19,7 @@ var can_teleport = true
 var look_vector = Vector2.ZERO
 var is_active = true
 var has_shield = false
+var vulnerable = false
 
 signal player_stunned
 signal activated_illusion
@@ -131,7 +132,13 @@ func create_effect(scene):
 # ---- React to stimuli -------------
 
 func apply_damage(value):
-	hp = clamp(hp - value, 0, max_hp)
+	var damage = value
+	
+	if vulnerable:
+		damage *= 10
+	
+	hp = clamp(hp - damage, 0, max_hp)
+	
 	if hp == 0:
 		die()
 
@@ -148,9 +155,19 @@ func apply_stun(spell_effects):
 
 
 func apply_break(spell_effects):
-	max_hp = max(max_hp - spell_effects.BREAK, 1)
+	set_vulnerable(true)
+	$BreakTimer.start(spell_effects.BREAK)
 	create_effect(corruptionParticles)
 
+func set_vulnerable(_new):
+	if vulnerable == _new:
+		return
+	
+	vulnerable = _new
+	if _new == true:
+		scale *= 0.5
+	else:
+		scale *= 2
 
 func apply_shield(spell_effects):
 	has_shield = true
@@ -160,6 +177,9 @@ func _on_StunTimer_timeout():
 	is_active = true
 	emit_signal("player_stunned", is_active)
 
+
+func _on_BreakTimer_timeout():
+	set_vulnerable(false)
 
 func _on_ShieldTimer_timeout():
 	has_shield = false

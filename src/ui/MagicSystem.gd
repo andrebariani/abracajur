@@ -80,7 +80,7 @@ var shape_scrolls = [
 	{ 
 		"NAME":"BOMBA", 
 		"SCENE":preload("res://src/spells/SphereSpell.tscn"), 
-		"ICON": preload("res://icon.png"),
+		"ICON": preload("res://assets/Spells/Botão-Null.png"),
 		"EFFECTS": {
 			"DAMAGE": 2,
 			"STUN": 3,
@@ -163,7 +163,7 @@ var shape_scrolls = [
 	{ 
 		"NAME":"RAJADA", 
 		"SCENE":preload("res://src/spells/BarrageSpell.tscn"), 
-		"ICON": preload("res://icon.png"),
+		"ICON": preload("res://assets/Spells/Botão-Null.png"),
 		"EFFECTS": {
 			"DAMAGE": 1,
 			"STUN": 1,
@@ -201,7 +201,7 @@ var shape_scrolls = [
 	{ 
 		"NAME":"MÍSSIL", 
 		"SCENE":preload("res://src/spells/MissileSpell.tscn"), 
-		"ICON": preload("res://icon.png"),
+		"ICON": preload("res://assets/Spells/Botão-Null.png"),
 		"EFFECTS": {
 			"DAMAGE": 3,
 			"STUN": 3,
@@ -220,7 +220,7 @@ var shape_scrolls = [
 	{ 
 		"NAME":"RAIO", 
 		"SCENE":preload("res://src/spells/RaySpell.tscn"), 
-		"ICON": preload("res://icon.png"),
+		"ICON": preload("res://assets/Spells/Botão-Null.png"),
 		"EFFECTS": {
 			"DAMAGE": 1,
 			"STUN": 1,
