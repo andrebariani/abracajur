@@ -2,12 +2,11 @@
 
 [ext_resource path="res://src/player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/Tile-set.png" type="Texture" id=2]
-[ext_resource path="res://src/enemies/Geladeira.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/enemies/Clock.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/ui/MagicSystem.gd" type="Script" id=4]
 [ext_resource path="res://src/ui/UI.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/world/World.gd" type="Script" id=6]
-[ext_resource path="res://src/enemies/TurretEnemy.tscn" type="PackedScene" id=7]
-[ext_resource path="res://src/engine/SoftCollision.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/enemies/EnemyBlink.shader" type="Shader" id=7]
 
 [sub_resource type="TileSet" id=1]
 0/name = "Tile-set.png 0"
@@ -33,6 +32,11 @@
 0/shape_one_way_margin = 0.0
 0/shapes = [  ]
 0/z_index = 0
+
+[sub_resource type="ShaderMaterial" id=2]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/color_blink = Plane( 0, 0, 0, 1 )
 
 [node name="World" type="Node2D"]
 script = ExtResource( 6 )
@@ -71,73 +75,11 @@ remote_path = NodePath("../../../Camera2D")
 
 [node name="Enemies" type="Node2D" parent="YSort"]
 
-[node name="TurretEnemy2" parent="YSort/Enemies" instance=ExtResource( 3 )]
-position = Vector2( 131, 128 )
-blink_material = ExtResource( 8 )
-
-[node name="TurretEnemy3" parent="YSort/Enemies" instance=ExtResource( 3 )]
-position = Vector2( 136, 163 )
-blink_material = ExtResource( 8 )
-
-[node name="TurretEnemy4" parent="YSort/Enemies" instance=ExtResource( 3 )]
-position = Vector2( 92, 145 )
-blink_material = ExtResource( 8 )
-
-[node name="TurretEnemy5" parent="YSort/Enemies" instance=ExtResource( 3 )]
-position = Vector2( 77, 151 )
-blink_material = ExtResource( 8 )
-
-[node name="TurretEnemy" parent="YSort/Enemies" instance=ExtResource( 7 )]
-position = Vector2( 319, -75 )
-blink_material = ExtResource( 8 )
-
-[node name="Geladeira4" parent="YSort/Enemies" groups=[
-"Enemy",
-] instance=ExtResource( 3 )]
-position = Vector2( 319.529, 86.7458 )
-blink_material = ExtResource( 8 )
-
-[node name="Geladeira5" parent="YSort/Enemies" groups=[
-"Enemy",
-] instance=ExtResource( 3 )]
-position = Vector2( 299.172, 80.7584 )
-blink_material = ExtResource( 8 )
-
-[node name="Geladeira6" parent="YSort/Enemies" groups=[
-"Enemy",
-] instance=ExtResource( 3 )]
-position = Vector2( 308.153, 47.229 )
-blink_material = ExtResource( 8 )
-
-[node name="Geladeira7" parent="YSort/Enemies" groups=[
-"Enemy",
-] instance=ExtResource( 3 )]
-position = Vector2( 341.683, 68.7836 )
-blink_material = ExtResource( 8 )
-
-[node name="Geladeira8" parent="YSort/Enemies" groups=[
-"Enemy",
-] instance=ExtResource( 3 )]
-position = Vector2( 262.649, 47.8277 )
-blink_material = ExtResource( 8 )
-
-[node name="Geladeira9" parent="YSort/Enemies" groups=[
-"Enemy",
-] instance=ExtResource( 3 )]
-position = Vector2( 300.37, 102.912 )
-blink_material = ExtResource( 8 )
-
-[node name="Geladeira10" parent="YSort/Enemies" groups=[
-"Enemy",
-] instance=ExtResource( 3 )]
-position = Vector2( 326.576, 44.999 )
-blink_material = ExtResource( 8 )
-
-[node name="Geladeira2" parent="YSort/Enemies" groups=[
-"Enemy",
-] instance=ExtResource( 3 )]
-position = Vector2( 130.311, 197.347 )
-blink_material = ExtResource( 8 )
+[node name="Clock" parent="YSort/Enemies" instance=ExtResource( 3 )]
+position = Vector2( 411, -17 )
+collision_layer = 4
+collision_mask = 4
+blink_material = SubResource( 2 )
 
 [node name="MagicSystem" type="Node" parent="."]
 script = ExtResource( 4 )

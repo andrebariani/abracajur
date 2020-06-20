@@ -15,7 +15,7 @@ var setted_effect = {
 
 var setted_spell = { 
 	"NAME":"ESFERA", 
-	"SCENE":preload("res://src/spells/SphereSpell.tscn"), 
+	"SCENE":preload("res://src/spells/RaySpell.tscn"), 
 	"ICON": null,
 	"EFFECTS": {
 		"DAMAGE": 2,
