@@ -7,11 +7,9 @@
 [node name="Chair" instance=ExtResource( 2 )]
 collision_mask = 1
 script = ExtResource( 1 )
-blink_material = null
 enemy_body = "EnemyBodyChair"
 
 [node name="EnemyBodyChair" parent="." index="0" instance=ExtResource( 3 )]
-use_parent_material = true
 
 [node name="ColorRect" parent="." index="2"]
 color = Color( 0.384314, 0, 1, 1 )

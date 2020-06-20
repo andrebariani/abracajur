@@ -21,6 +21,8 @@ var is_active = true
 var has_shield = false
 var vulnerable = false
 
+export(Material) var blink_material
+
 signal player_stunned
 signal activated_illusion
 
@@ -133,14 +135,15 @@ func create_effect(scene):
 
 func apply_damage(value):
 	var damage = value
-	
 	if vulnerable:
 		damage *= 10
 	
 	hp = clamp(hp - damage, 0, max_hp)
-	
 	if hp == 0:
 		die()
+	
+	self.material = blink_material
+	$BlinkTimer.start(0.2)
 
 
 func apply_heal(value):
@@ -172,6 +175,8 @@ func set_vulnerable(_new):
 func apply_shield(spell_effects):
 	has_shield = true
 
+func _on_BlinkTimer_timeout():
+	self.material = null
 
 func _on_StunTimer_timeout():
 	is_active = true

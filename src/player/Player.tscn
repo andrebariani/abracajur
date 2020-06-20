@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://src/body/PlayerBody.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/player/Player.gd" type="Script" id=2]
 [ext_resource path="res://assets/pointer.png" type="Texture" id=3]
 [ext_resource path="res://src/engine/Hurtbox.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/enemies/EnemyBlinkMaterial.tres" type="Material" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 8.06226
@@ -36,6 +37,7 @@ radius = 8.0
 collision_layer = 2
 script = ExtResource( 2 )
 cooldownTeleport = 1
+blink_material = ExtResource( 5 )
 
 [node name="PlayerBody" parent="." instance=ExtResource( 1 )]
 
@@ -66,6 +68,9 @@ collision_mask = 0
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 shape = SubResource( 4 )
 
+[node name="BlinkTimer" type="Timer" parent="."]
+one_shot = true
+
 [node name="StunTimer" type="Timer" parent="."]
 one_shot = true
 
@@ -75,6 +80,7 @@ one_shot = true
 [node name="ShieldTimer" type="Timer" parent="."]
 one_shot = true
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
+[connection signal="timeout" from="BlinkTimer" to="." method="_on_BlinkTimer_timeout"]
 [connection signal="timeout" from="StunTimer" to="." method="_on_StunTimer_timeout"]
 [connection signal="timeout" from="BreakTimer" to="." method="_on_BreakTimer_timeout"]
 [connection signal="timeout" from="ShieldTimer" to="." method="_on_ShieldTimer_timeout"]
