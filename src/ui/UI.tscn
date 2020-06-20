@@ -1,8 +1,24 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/ui/UI.gd" type="Script" id=1]
 [ext_resource path="res://src/ui/UISpell.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/spells/ColorSpell.shader" type="Shader" id=3]
+[ext_resource path="res://assets/font/Text.tres" type="DynamicFont" id=4]
+
+[sub_resource type="Animation" id=2]
+resource_name = "start"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Tooltip:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
@@ -21,6 +37,24 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Tooltip" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -200.0
+margin_top = 23.0
+margin_right = 200.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 4 )
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TooltipAnim" type="AnimationPlayer" parent="."]
+anims/start = SubResource( 2 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 anchor_right = 1.0
