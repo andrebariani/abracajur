@@ -21,6 +21,7 @@ var look_vector = Vector2.ZERO
 var is_active = true
 var has_shield = false
 var vulnerable = false
+var diverting = false
 
 export(Material) var blink_material
 
@@ -30,6 +31,7 @@ signal activated_illusion
 func _process(_delta):
 	look_vector = get_global_mouse_position() - global_position
 	pointer.rotation = atan2(look_vector.y, look_vector.x)
+	diverting = false
 	
 	if is_active:
 		if Input.is_action_just_pressed("ui_select") and can_teleport:
@@ -97,7 +99,9 @@ func _on_MagicSystem_cast_spell(spell_data, letter, position):
 
 
 func activate_illusion(new_target, duration):
-	emit_signal("activated_illusion", new_target, duration)
+	if !diverting:
+		emit_signal("activated_illusion", new_target, duration)
+		diverting = true
 
 func get_total_radius(spell_radius):
 	var player_radius = hurtboxCollision.get_shape().radius

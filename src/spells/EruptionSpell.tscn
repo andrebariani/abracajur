@@ -39,7 +39,7 @@ tracks/1/keys = {
 }
 
 [node name="EruptionSpell" type="KinematicBody2D"]
-scale = Vector2( 0.6, 0.6 )
+scale = Vector2( 0.5, 0.5 )
 collision_layer = 0
 script = ExtResource( 2 )
 

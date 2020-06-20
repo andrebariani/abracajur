@@ -171,7 +171,6 @@ func apply_grease(spell_effects):
 	$GreaseTimer.start(spell_effects.GREASE)
 	FRICTION = 0
 	ACCELERATION = 0
-	print_debug("Greased for " + str(spell_effects.GREASE) + " seconds")
 	set_color(Color(0, 1, 1, 1))
 	
 	
@@ -200,8 +199,6 @@ func apply_illusion(spell_effects, caster):
 		print_debug("Invalid caster!")
 
 func get_diverted(new_target, duration):
-	print("Diverted!")
-	
 	if new_target != self and AggroBox.target != null:
 		if original_target == null:
 			original_target = AggroBox.target
