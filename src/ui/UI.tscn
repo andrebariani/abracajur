@@ -5,7 +5,7 @@
 [ext_resource path="res://src/spells/ColorSpell.shader" type="Shader" id=3]
 [ext_resource path="res://assets/font/Text.tres" type="DynamicFont" id=4]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "start"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Tooltip:visible")
@@ -20,7 +20,7 @@ tracks/0/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="ShaderMaterial" id=1]
+[sub_resource type="ShaderMaterial" id=2]
 resource_local_to_scene = true
 shader = ExtResource( 3 )
 shader_param/color_base = Plane( 1, 1, 1, 1 )
@@ -54,7 +54,7 @@ __meta__ = {
 }
 
 [node name="TooltipAnim" type="AnimationPlayer" parent="."]
-anims/start = SubResource( 2 )
+anims/start = SubResource( 1 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 anchor_right = 1.0
@@ -84,7 +84,7 @@ margin_right = 45.0
 margin_bottom = 27.0
 
 [node name="Icon" parent="HBoxContainer/SpellQ" index="1"]
-material = SubResource( 1 )
+material = SubResource( 2 )
 margin_left = 6.0
 margin_top = 31.0
 margin_right = 38.0
@@ -108,7 +108,7 @@ margin_bottom = 27.0
 text = "W"
 
 [node name="Icon" parent="HBoxContainer/SpellW" index="1"]
-material = SubResource( 1 )
+material = SubResource( 2 )
 margin_left = 6.0
 margin_top = 31.0
 margin_right = 38.0
@@ -132,7 +132,7 @@ margin_bottom = 27.0
 text = "E"
 
 [node name="Icon" parent="HBoxContainer/SpellE" index="1"]
-material = SubResource( 1 )
+material = SubResource( 2 )
 margin_left = 6.0
 margin_top = 31.0
 margin_right = 38.0
@@ -156,7 +156,7 @@ margin_bottom = 27.0
 text = "R"
 
 [node name="Icon" parent="HBoxContainer/SpellR" index="1"]
-material = SubResource( 1 )
+material = SubResource( 2 )
 margin_left = 7.0
 margin_top = 31.0
 margin_right = 39.0
