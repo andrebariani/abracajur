@@ -8,6 +8,9 @@ onready var hurtboxCollision = $Hurtbox/CollisionShape2D
 onready var stunTimer = $StunTimer
 onready var shieldTimer = $ShieldTimer
 
+var healParticles = preload("res://src/engine/HealParticles.tscn")
+var corruptionParticles = preload("res://src/engine/CorruptionParticles.tscn")
+
 export (int) var cooldownTeleport = 0.1
 export var max_hp = 8
 
@@ -118,7 +121,11 @@ func _on_Hurtbox_area_entered(area):
 				var enemy = area.enemy
 				apply_damage(enemy.damage)
 				hurtbox.start_invincibility(1)
-				
+
+
+func create_effect(scene):
+	var s = scene.instance()
+	add_child(s)
 	
 	
 # ---- React to stimuli -------------
@@ -131,7 +138,7 @@ func apply_damage(value):
 
 func apply_heal(value):
 	hp = clamp(hp + value, 0, max_hp)
-	print_debug("heal! " + str(hp))
+	create_effect(healParticles)
 
 
 func apply_stun(spell_effects):
@@ -139,9 +146,11 @@ func apply_stun(spell_effects):
 	emit_signal("player_stunned", is_active)
 	stunTimer.start(spell_effects.STUN)
 
+
 func apply_break(spell_effects):
 	max_hp = max(max_hp - spell_effects.BREAK, 1)
-	print_debug("HP reduced to " + str(max_hp))
+	create_effect(corruptionParticles)
+
 
 func apply_shield(spell_effects):
 	has_shield = true

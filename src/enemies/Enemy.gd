@@ -19,6 +19,8 @@ onready var hp = max_hp
 
 export var damage = 1
 
+var healParticles = preload("res://src/engine/HealParticles.tscn")
+var corruptionParticles = preload("res://src/engine/CorruptionParticles.tscn")
 
 onready var AggroBox = $AggroBox
 onready var rayCast = $RayCast2D
@@ -121,6 +123,12 @@ func _on_Hurtbox_area_entered(area):
 				
 	hurtbox.start_invincibility(spell.inv_frames)
 	
+	
+func create_effect(scene):
+	var s = scene.instance()
+	add_child(s)
+	
+	
 # ---- React to stimuli -------------
 
 func apply_damage(spell_effects):
@@ -141,6 +149,7 @@ func apply_damage(spell_effects):
 func apply_heal(spell_effects):
 	hp = clamp(hp + spell_effects.HEAL, 0, max_hp)
 	print_debug("heal! " + str(hp))
+	create_effect(healParticles)
 
 
 func apply_stun(spell_effects):
@@ -169,6 +178,7 @@ func apply_break(spell_effects):
 	set_vulnerable(true)
 	$BreakTimer.start(spell_effects.BREAK)
 	print_debug("Vulnerable for " + str(spell_effects.BREAK) + " seconds")
+	create_effect(corruptionParticles)
 
 func set_vulnerable(_new):
 	if vulnerable == _new:
