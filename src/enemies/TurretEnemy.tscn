@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://src/enemies/TurretEnemy.gd" type="Script" id=1]
 [ext_resource path="res://src/enemies/Enemy.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/enemies/EnemyBlink.shader" type="Shader" id=3]
+[ext_resource path="res://src/spells/ColorSpellMaterial.tres" type="Material" id=4]
+[ext_resource path="res://assets/Spells/Explosion-Sheet.png" type="Texture" id=5]
 
 [sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
@@ -11,6 +13,85 @@ shader_param/color_blink = Plane( 1, 0, 0, 1 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 105, 70 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "ready_ray"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/path = NodePath("LaserCharge:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 6, 5, 4, 3, 2, 1, 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("LaserCharge:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "stop_ray"
+tracks/0/type = "value"
+tracks/0/path = NodePath("LaserCharge:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 5 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 5 )
+region = Rect2( 64, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 5 )
+region = Rect2( 96, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 5 )
+region = Rect2( 128, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 5 )
+region = Rect2( 160, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 5 )
+region = Rect2( 192, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=12]
+animations = [ {
+"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [node name="TurretEnemy" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
@@ -52,6 +133,18 @@ visible = false
 [node name="CollisionShape2D" parent="SoftCollision" index="0"]
 position = Vector2( 0, 2 )
 disabled = true
+
+[node name="LaserChargeAnim" type="AnimationPlayer" parent="." index="17"]
+anims/ready_ray = SubResource( 3 )
+anims/stop_ray = SubResource( 4 )
+
+[node name="LaserCharge" type="AnimatedSprite" parent="." index="18"]
+visible = false
+material = ExtResource( 4 )
+position = Vector2( 0, 12 )
+frames = SubResource( 12 )
+frame = 4
+[connection signal="animation_finished" from="LaserChargeAnim" to="." method="_on_LaserChargeAnim_animation_finished"]
 
 [editable path="EnemyHitbox"]
 
