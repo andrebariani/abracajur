@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://src/player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/Tile-set.png" type="Texture" id=2]
@@ -7,6 +7,11 @@
 [ext_resource path="res://src/ui/UI.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/world/World.gd" type="Script" id=6]
 [ext_resource path="res://src/enemies/EnemyBlink.shader" type="Shader" id=7]
+[ext_resource path="res://src/enemies/Door.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/enemies/Chandelier.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/enemies/Chair.tscn" type="PackedScene" id=10]
+[ext_resource path="res://src/enemies/Candelabrum.tscn" type="PackedScene" id=11]
+[ext_resource path="res://src/enemies/Table.tscn" type="PackedScene" id=12]
 
 [sub_resource type="TileSet" id=1]
 0/name = "Tile-set.png 0"
@@ -34,6 +39,21 @@
 0/z_index = 0
 
 [sub_resource type="ShaderMaterial" id=2]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/color_blink = Plane( 0, 0, 0, 1 )
+
+[sub_resource type="ShaderMaterial" id=3]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/color_blink = Plane( 0, 0, 0, 1 )
+
+[sub_resource type="ShaderMaterial" id=4]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/color_blink = Plane( 0, 0, 0, 1 )
+
+[sub_resource type="ShaderMaterial" id=5]
 resource_local_to_scene = true
 shader = ExtResource( 7 )
 shader_param/color_blink = Plane( 0, 0, 0, 1 )
@@ -82,6 +102,24 @@ cooldown = 5
 
 [node name="MagicSystem" type="Node" parent="."]
 script = ExtResource( 4 )
-[connection signal="cast_spell" from="MagicSystem" to="CanvasLayer/UI" method="_on_MagicSystem_cast_spell"]
+
+[node name="Chandelier" parent="." instance=ExtResource( 9 )]
+position = Vector2( 326.642, -17.1835 )
+blink_material = SubResource( 3 )
+
+[node name="Door" parent="." instance=ExtResource( 8 )]
+position = Vector2( 515.266, -9.96341 )
+blink_material = SubResource( 4 )
+
+[node name="Chair" parent="." instance=ExtResource( 10 )]
+position = Vector2( 350.942, 62.2377 )
+blink_material = SubResource( 5 )
+
+[node name="Candelabrum" parent="Chair" instance=ExtResource( 11 )]
+position = Vector2( 51.2236, 58.7347 )
+
+[node name="Table" parent="Chair" instance=ExtResource( 12 )]
+position = Vector2( -385.969, 127.299 )
 [connection signal="cast_spell" from="MagicSystem" to="YSort/Player" method="_on_MagicSystem_cast_spell"]
+[connection signal="cast_spell" from="MagicSystem" to="CanvasLayer/UI" method="_on_MagicSystem_cast_spell"]
 [connection signal="reset_spells" from="MagicSystem" to="CanvasLayer/UI" method="_on_MagicSystem_reset_spells"]
