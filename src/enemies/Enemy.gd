@@ -129,7 +129,6 @@ func create_effect(scene, spell_colors):
 	s.color = spell_colors.COLOR_BASE
 	add_child(s)
 	
-	
 # ---- React to stimuli -------------
 
 func apply_damage(spell_effects):
@@ -171,7 +170,6 @@ func apply_grease(spell_effects):
 	$GreaseTimer.start(spell_effects.GREASE)
 	FRICTION = 0
 	ACCELERATION = 0
-	print_debug("Greased for " + str(spell_effects.GREASE) + " seconds")
 	set_color(Color(0, 1, 1, 1))
 	
 	
@@ -192,7 +190,7 @@ func set_vulnerable(_new):
 		scale *= 2
 
 func apply_illusion(spell_effects, caster):
-	if caster and caster.has_method("activate_illusion"):
+	if is_instance_valid(caster) and caster.has_method("activate_illusion"):
 		caster.activate_illusion(self, spell_effects.ILLUSION)
 		$IllusionTimer.start(spell_effects.ILLUSION)
 		print_debug("Target for " + str(spell_effects.ILLUSION) + " seconds")
@@ -200,8 +198,6 @@ func apply_illusion(spell_effects, caster):
 		print_debug("Invalid caster!")
 
 func get_diverted(new_target, duration):
-	print("Diverted!")
-	
 	if new_target != self and AggroBox.target != null:
 		if original_target == null:
 			original_target = AggroBox.target

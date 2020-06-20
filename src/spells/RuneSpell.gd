@@ -15,7 +15,5 @@ func _on_Hurtbox_body_entered(body):
 	if !active:
 		return
 	
-	print_debug("Rune detected enemy!")
-	
 	_spawn(explosion)
 	queue_free()

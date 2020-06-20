@@ -21,6 +21,7 @@ var look_vector = Vector2.ZERO
 var is_active = true
 var has_shield = false
 var vulnerable = false
+var diverting = false
 
 export(Material) var blink_material
 
@@ -30,6 +31,7 @@ signal activated_illusion
 func _process(_delta):
 	look_vector = get_global_mouse_position() - global_position
 	pointer.rotation = atan2(look_vector.y, look_vector.x)
+	diverting = false
 	
 	if is_active:
 		if Input.is_action_just_pressed("ui_select") and can_teleport:
@@ -67,6 +69,7 @@ func _on_MagicSystem_cast_spell(spell_data, letter, position):
 	
 	var show_behind = false
 	
+	
 	match (spell.name):
 		"SphereSpell", "MissileSpell":
 			var spell_radius = spell.get_node("SpellHitbox/CollisionShape2D").get_shape().radius
@@ -78,7 +81,7 @@ func _on_MagicSystem_cast_spell(spell_data, letter, position):
 			var total_radius = get_total_radius(spell_radius)
 			spell.global_position = global_position + Vector2(total_radius, total_radius) * look_vector.normalized()
 			spell.player = self
-		"AOESpell", "RuneSpell":
+		"AOESpell":
 			spell.position = self.position
 		"EruptionSpell", "FieldSpell":
 			spell.position = get_global_mouse_position()
@@ -96,7 +99,9 @@ func _on_MagicSystem_cast_spell(spell_data, letter, position):
 
 
 func activate_illusion(new_target, duration):
-	emit_signal("activated_illusion", new_target, duration)
+	if !diverting:
+		emit_signal("activated_illusion", new_target, duration)
+		diverting = true
 
 func get_total_radius(spell_radius):
 	var player_radius = hurtboxCollision.get_shape().radius
@@ -191,10 +196,8 @@ func _on_ShieldTimer_timeout():
 	has_shield = false
 	print_debug("Shield is out")
 
-
 func die():
 	queue_free()
-	
 	
 func get_look_vector():
 	return look_vector.normalized()
