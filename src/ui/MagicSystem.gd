@@ -6,8 +6,8 @@ export(Dictionary) var effects_scrolls = {
 			"NAME":" DE FOGO", 
 			"TYPE": "DAMAGE",
 			"COLORS": {
-				"COLOR_BASE": Color("bdac2c"),
-				"COLOR_OUTLINE": Color("bd3c30"),
+				"COLOR_BASE": Color("BDAC2C"),
+				"COLOR_OUTLINE": Color("BD3C30"),
 			},
 		}
 	], 
@@ -16,16 +16,16 @@ export(Dictionary) var effects_scrolls = {
 			"NAME":" DE CHOQUE",
 			"TYPE": "STUN",
 			"COLORS": {
-				"COLOR_BASE": Color("00ffff"),
-				"COLOR_OUTLINE": Color("0000ff"),
+				"COLOR_BASE": Color("3EC2CD"),
+				"COLOR_OUTLINE": Color("002D69"),
 			},
 		}, 
 		{ 
 			"NAME":" DE VENTO",
 			 "TYPE": "KNOCKBACK",
 			 "COLORS": {
-				"COLOR_BASE": Color("ffffff"),
-				"COLOR_OUTLINE": Color("5f5f5f"),
+				"COLOR_BASE": Color("FEFEFF"),
+				"COLOR_OUTLINE": Color("AEAEAE"),
 			},
 		},
 	], 
@@ -34,16 +34,16 @@ export(Dictionary) var effects_scrolls = {
 			"NAME":" DE GELO",
 			"TYPE":"GREASE",
 			"COLORS": {
-				"COLOR_BASE": Color("85c9ff"),
-				"COLOR_OUTLINE": Color("00ffff"),
+				"COLOR_BASE": Color("3EC2CD"),
+				"COLOR_OUTLINE": Color("FEFEFF"),
 			},
 		},
 		{ 
 			"NAME":" DA CORRUPÇÃO",
 			"TYPE":"BREAK",
 			"COLORS": {
-				"COLOR_BASE": Color("4e00ac"),
-				"COLOR_OUTLINE": Color("1c003e"),
+				"COLOR_BASE": Color("3C137C"),
+				"COLOR_OUTLINE": Color("000000"),
 			},
 		},
 		
@@ -51,8 +51,8 @@ export(Dictionary) var effects_scrolls = {
 			"NAME":" DA ILUSÃO",
 			"TYPE":"ILLUSION",
 			"COLORS": {
-				"COLOR_BASE": Color("dc03bf"),
-				"COLOR_OUTLINE": Color("44173e"),
+				"COLOR_BASE": Color("C03470"),
+				"COLOR_OUTLINE": Color("600B62"),
 			},
 		},
 	], 
@@ -61,16 +61,16 @@ export(Dictionary) var effects_scrolls = {
 			"NAME":" DE CURA",
 			"TYPE":"HEAL",
 			"COLORS": {
-				"COLOR_BASE": Color("42d042"),
-				"COLOR_OUTLINE": Color("00ff00"),
+				"COLOR_BASE": Color("55C753"),
+				"COLOR_OUTLINE": Color("366D00"),
 			},
 		},
 		{ 
 			"NAME": " DE PEDRA",
 			"TYPE":"SHIELD",
 			"COLORS": {
-				"COLOR_BASE": Color("1e1a12"),
-				"COLOR_OUTLINE": Color("0f0f0f"),
+				"COLOR_BASE": Color("342800"),
+				"COLOR_OUTLINE": Color("000000"),
 			},
 		},
 	],
@@ -80,7 +80,7 @@ var shape_scrolls = [
 	{ 
 		"NAME":"BOMBA", 
 		"SCENE":preload("res://src/spells/SphereSpell.tscn"), 
-		"ICON": preload("res://assets/Spells/Bola.Png"),
+		"ICON": preload("res://assets/Spells/BolaOficial.png"),
 		"EFFECTS": {
 			"DAMAGE": 2,
 			"STUN": 3,
