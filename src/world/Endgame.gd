@@ -40,12 +40,11 @@ var revelation = 0
 var player = null
 
 signal started_cutscene
-signal play_credits
 
 func set_revelation(categories_used, time):
 	print_debug(str(time))
 	
-	if time < 130:
+	if time < 145:
 		revelation = 4
 	else:
 		var maxer = 0.0
@@ -60,7 +59,7 @@ func set_revelation(categories_used, time):
 	
 	print_debug("Revelation: " + str(revelation))
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("ui_select") and active:
 		match current_scene:
 			0:

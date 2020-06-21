@@ -5,10 +5,10 @@ var speed = 100
 var direction = Vector2.ZERO
 var velocity = Vector2.ZERO
 
-func init(direction: Vector2, speed: int = self.speed):
-	self.direction = direction
+func init(directioner: Vector2, speeder: int = self.speed):
+	self.direction = directioner
 	self.rotation = atan2(direction.y, direction.x)
-	self.speed = speed
+	self.speed = speeder
 
 
 func _physics_process(delta):

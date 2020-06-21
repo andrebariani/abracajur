@@ -23,7 +23,7 @@ func _on_MagicSystem_reset_spells():
 		spell.reset()
 
 
-func _on_Endgame_started_cutscene(end):
+func _on_Endgame_started_cutscene(_end):
 	visible = false
 
 

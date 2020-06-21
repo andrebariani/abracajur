@@ -9,7 +9,7 @@ func _ready():
 	$StartScreen.show()
 	DJ.play_after_fade_out("LevelTheme")
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("ui_select") and !started_game:
 		_on_Start_pressed()
 

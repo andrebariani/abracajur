@@ -16,7 +16,7 @@ func _on_AggroBox_body_entered(body):
 
 
 func _on_AggroBox_body_exited(_body):
-	if is_instance_valid(target) and target.is_connected("activated_illusion", get_parent(), "get_diverted"):
+	if is_instance_valid(target) and target.has_user_signal("activated_illusion") and target.is_connected("activated_illusion", get_parent(), "get_diverted"):
 		target.disconnect("activated_illusion", get_parent(), "get_diverted")
 		target = null
 	$CollisionShape2D.self_modulate = Color(1, 1, 1, 0.1)
