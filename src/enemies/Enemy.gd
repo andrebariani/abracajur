@@ -199,6 +199,7 @@ func apply_illusion(spell_effects, caster):
 	if is_instance_valid(caster) and caster.has_method("activate_illusion"):
 		caster.activate_illusion(self, spell_effects.ILLUSION)
 		$IllusionTimer.start(spell_effects.ILLUSION)
+		$IllusionIcon.visible = true
 		print_debug("Target for " + str(spell_effects.ILLUSION) + " seconds")
 	else:
 		print_debug("Invalid caster!")
@@ -225,7 +226,7 @@ func _on_BreakTimer_timeout():
 	set_vulnerable(false)
 
 func _on_IllusionTimer_timeout():
-	pass
+	$IllusionIcon.visible = false
 
 func _on_DivertedTimer_timeout():
 	AggroBox.target = original_target
