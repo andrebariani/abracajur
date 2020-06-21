@@ -30,6 +30,7 @@ func _on_Restart_pressed():
 
 
 func _on_MainMenu_pressed():
+	$StartScreen/AnimationPlayer.play("Nova Animação")
 	$EndScreen.hide()
 	$CreditsScreen.hide()
 	$StartScreen.show()
