@@ -24,6 +24,9 @@ var diverting = false
 var stun_interval = 0.0
 var stun_clock = 0.0
 
+onready var hg_interval = float(cooldownTeleport)/float($Hourglass.hframes-1)
+var hg_clock = 0.0
+
 export(Material) var blink_material
 
 signal player_stunned
@@ -38,6 +41,8 @@ func _process(_delta):
 	pointer.rotation = atan2(look_vector.y, look_vector.x)
 	diverting = false
 	
+	$Hourglass.global_position = get_global_mouse_position()
+	
 	if is_active:
 		if Input.is_action_just_pressed("ui_select") and can_teleport:
 			rayCast.cast_to = look_vector
@@ -50,8 +55,11 @@ func _process(_delta):
 				teleport_to_nearest_wall()
 				
 			can_teleport = false
+			$Hourglass.visible = true
+			$Hourglass.frame = 0
 			yield(get_tree().create_timer(cooldownTeleport),"timeout")
 			can_teleport = true
+			$Hourglass.visible = false
 	
 	if !$StunTimer.paused:
 		stun_clock += _delta
@@ -61,6 +69,15 @@ func _process(_delta):
 				$StunIcon.frame = 0
 			else:
 				$StunIcon.frame += 1
+	
+	if $Hourglass.visible:
+		hg_clock += _delta
+		if hg_clock > hg_interval:
+			hg_clock = 0
+			if $Hourglass.frame >= $Hourglass.hframes-1:
+				$Hourglass.frame = 0
+			else:
+				$Hourglass.frame += 1
 
 
 func teleport_to_mouse():
@@ -230,3 +247,7 @@ func die():
 	
 func get_look_vector():
 	return look_vector.normalized()
+
+
+func _on_Endgame_started_cutscene():
+	hurtbox.start_invincibility(2000)

@@ -18,6 +18,7 @@ export var max_hp = 3
 onready var hp = max_hp
 
 export var damage = 1
+onready var or_damage = damage
 
 var healParticles = preload("res://src/engine/HealParticles.tscn")
 var corruptionParticles = preload("res://src/engine/CorruptionParticles.tscn")
@@ -182,6 +183,8 @@ func apply_grease(spell_effects):
 func apply_break(spell):
 	set_vulnerable(true)
 	$BreakTimer.start(spell.effects.BREAK)
+	damage = clamp(damage - 1, 0, damage)
+	
 	print_debug("Vulnerable for " + str(spell.effects.BREAK) + " seconds")
 	create_effect(corruptionParticles, spell.colors)
 
@@ -225,6 +228,7 @@ func _on_GreaseTimer_timeout():
 
 func _on_BreakTimer_timeout():
 	set_vulnerable(false)
+	damage = or_damage
 
 func _on_IllusionTimer_timeout():
 	$IllusionIcon.visible = false
