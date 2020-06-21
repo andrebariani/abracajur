@@ -13,6 +13,7 @@ shader_param/color_blink = Plane( 1, 0, 0, 1 )
 [node name="Candelabrum" instance=ExtResource( 3 )]
 collision_mask = 1
 script = ExtResource( 1 )
+damage = 2
 blink_material = SubResource( 1 )
 enemy_body = "EnemyBodyCand"
 

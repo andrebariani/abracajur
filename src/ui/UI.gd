@@ -9,8 +9,10 @@ func update_hp(_new):
 	for i in len(notches):
 		if i >= _new:
 			notches[i].visible = false
+		else:
+			notches[i].visible = true
 
-func _on_MagicSystem_cast_spell(spell, letter, position):
+func _on_MagicSystem_cast_spell(spell, letter, _position):
 	get_node("Box/Spells/Spell" + letter).setup(spell)
 	tooltip.set_text(spell["NAME"])
 	tooltipAnim.play("start")
@@ -21,7 +23,7 @@ func _on_MagicSystem_reset_spells():
 		spell.reset()
 
 
-func _on_Endgame_started_cutscene():
+func _on_Endgame_started_cutscene(end):
 	visible = false
 
 

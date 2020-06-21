@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends "res://src/Entity.gd"
 
 onready var pointer = $Pointer
 onready var rayCast = $RayCast2D
@@ -19,9 +19,10 @@ onready var hp = max_hp
 var can_teleport = true
 var look_vector = Vector2.ZERO
 var is_active = true
-var has_shield = false
 var vulnerable = false
 var diverting = false
+var stun_interval = 0.0
+var stun_clock = 0.0
 
 export(Material) var blink_material
 
@@ -51,6 +52,15 @@ func _process(_delta):
 			can_teleport = false
 			yield(get_tree().create_timer(cooldownTeleport),"timeout")
 			can_teleport = true
+	
+	if !$StunTimer.paused:
+		stun_clock += _delta
+		if stun_clock > stun_interval:
+			stun_clock = 0
+			if $StunIcon.frame >= $StunIcon.hframes-1:
+				$StunIcon.frame = 0
+			else:
+				$StunIcon.frame += 1
 
 
 func teleport_to_mouse():
@@ -62,7 +72,7 @@ func teleport_to_nearest_wall():
 	global_position = rayCast.get_collision_point() + rayCast.get_collision_normal() * player_radius
 	
 	
-func _on_MagicSystem_cast_spell(spell_data, letter, position):
+func _on_MagicSystem_cast_spell(spell_data, _letter, _position):
 	var spell = spell_data.SCENE.instance()
 	spell.effects = spell_data.EFFECTS
 	spell.chosen_effect = spell_data.CHOSEN_EFFECT
@@ -169,6 +179,8 @@ func apply_heal(spell):
 func apply_stun(spell_effects):
 	is_active = false
 	emit_signal("player_stunned", is_active)
+	$StunIcon.visible = true
+	stun_interval = float(spell_effects.STUN)/float($StunIcon.hframes)
 	stunTimer.start(spell_effects.STUN)
 
 
@@ -189,12 +201,15 @@ func set_vulnerable(_new):
 
 func apply_shield(spell_effects):
 	has_shield = true
+	$ShieldTimer.start(spell_effects.SHIELD)
+	$ShieldIcon.visible = true
 
 func _on_BlinkTimer_timeout():
 	self.material = null
 
 func _on_StunTimer_timeout():
 	is_active = true
+	$StunIcon.visible = false
 	emit_signal("player_stunned", is_active)
 
 
@@ -202,12 +217,16 @@ func _on_BreakTimer_timeout():
 	set_vulnerable(false)
 
 func _on_ShieldTimer_timeout():
+	$ShieldIcon.visible = false
 	has_shield = false
 	print_debug("Shield is out")
+	
+func _on_ReviveTimer_timeout():
+	get_tree().reload_current_scene()
 
 func die():
-	queue_free()
+	$ReviveTimer.start(1)
+	visible = false
 	
 func get_look_vector():
 	return look_vector.normalized()
-

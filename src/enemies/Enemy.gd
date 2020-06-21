@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends "res://src/Entity.gd"
 
 var effects_types = [
 	"DAMAGE",
@@ -25,7 +25,6 @@ var corruptionParticles = preload("res://src/engine/CorruptionParticles.tscn")
 onready var AggroBox = $AggroBox
 onready var rayCast = $RayCast2D
 onready var moveDebug = $MoveDebug
-onready var shieldTimer = $ShieldTimer
 onready var hurtbox = $Hurtbox
 onready var softCollision = $SoftCollision
 
@@ -41,16 +40,13 @@ var MoveDirection = Vector2.ZERO
 var knockback = Vector2.ZERO
 var vulnerable = false
 var targeted = false
-var has_shield = false setget set_shield
+var stun_interval = 0.0
+var stun_clock = 0.0
 
 var color = Color(1, 1, 1, 1)
 export(Material) var blink_material
 
 var original_target
-
-func set_shield(value):
-	has_shield = value
-
 
 func _physics_process(delta):
 	state_machine()
@@ -62,7 +58,15 @@ func _physics_process(delta):
 			MoveDirection += softCollision.get_push_vector() * delta * 800
 		MoveDirection = move_and_slide(MoveDirection)
 	moveDebug.set_text(str(MoveDirection) + str(state))
-
+	
+	if !$StunTimer.paused:
+		stun_clock += delta
+		if stun_clock > stun_interval:
+			stun_clock = 0
+			if $StunIcon.frame >= $StunIcon.hframes-1:
+				$StunIcon.frame = 0
+			else:
+				$StunIcon.frame += 1
 
 func state_machine():
 	match state:
@@ -135,11 +139,12 @@ func apply_damage(spell_effects):
 	var damage = spell_effects.DAMAGE
 	if vulnerable:
 		damage *= 10
+		print_debug("SO MUCH DAMAGE")
 	
-	hp = clamp(hp - spell_effects.DAMAGE, 0, max_hp)
+	hp = clamp(hp - damage, 0, max_hp)
 	if hp == 0:
 		die()
-	print_debug("damage! " + str(hp))
+	print_debug("damage: " + str(damage) + ", HP:  " + str(hp))
 	
 	self.material = blink_material
 	$BlinkTimer.start(0.2)
@@ -148,13 +153,14 @@ func apply_damage(spell_effects):
 
 func apply_heal(spell):
 	hp = clamp(hp + spell.effects.HEAL, 0, max_hp)
-	print_debug("heal! " + str(hp))
 	create_effect(healParticles, spell.colors)
 
 
 func apply_stun(spell_effects):
 	set_state(STUN)
 	$StunTimer.start(spell_effects.STUN)
+	$StunIcon.visible = true
+	stun_interval = float(spell_effects.STUN)/float($StunIcon.hframes)
 	print_debug("Stunned for " + str(spell_effects.STUN) + " seconds!")
 	
 
@@ -193,6 +199,7 @@ func apply_illusion(spell_effects, caster):
 	if is_instance_valid(caster) and caster.has_method("activate_illusion"):
 		caster.activate_illusion(self, spell_effects.ILLUSION)
 		$IllusionTimer.start(spell_effects.ILLUSION)
+		$IllusionIcon.visible = true
 		print_debug("Target for " + str(spell_effects.ILLUSION) + " seconds")
 	else:
 		print_debug("Invalid caster!")
@@ -204,15 +211,11 @@ func get_diverted(new_target, duration):
 		$DivertedTimer.start(duration)
 		AggroBox.target = new_target
 
-func apply_shield(spell_effects):
-	has_shield = true
-	shieldTimer.start(spell_effects.SHIELD)
-	print_debug("Shield is on!")
-
 # ------ Timer durations ----------------
 
 func _on_StunTimer_timeout():
 	set_state(IDLE)
+	$StunIcon.visible = false
 
 func _on_GreaseTimer_timeout():
 	ACCELERATION = 200
@@ -223,15 +226,10 @@ func _on_BreakTimer_timeout():
 	set_vulnerable(false)
 
 func _on_IllusionTimer_timeout():
-	pass
-
+	$IllusionIcon.visible = false
 
 func _on_DivertedTimer_timeout():
 	AggroBox.target = original_target
-
-func _on_ShieldTimer_timeout():
-	has_shield = false
-	print_debug("Shield is out")
 
 
 func die():

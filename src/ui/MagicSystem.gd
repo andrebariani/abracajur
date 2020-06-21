@@ -88,7 +88,7 @@ var shape_scrolls = [
 			"GREASE": 6,
 			"ILLUSION": 4,
 			"BREAK": 5,
-			"HEAL": 1,
+			"HEAL": 3,
 		},
 		"CHOSEN_EFFECT": "",
 		"INV_FRAMES": 0.5,
@@ -127,7 +127,7 @@ var shape_scrolls = [
 			"BREAK": 6,
 			"ILLUSION": 3,
 			"HEAL": 1,
-			"SHIELD": 2
+			"SHIELD": 4
 		},
 		"CHOSEN_EFFECT": "",
 		"INV_FRAMES": 0.5,
@@ -149,10 +149,10 @@ var shape_scrolls = [
 			"BREAK": 8,
 			"ILLUSION": 5,
 			"HEAL": 2,
-			"SHIELD": 2
+			"SHIELD": 6
 		},
 		"CHOSEN_EFFECT": "",
-		"INV_FRAMES": 0.1,
+		"INV_FRAMES": 0.5,
 		"COLORS": {
 			"COLOR_BASE": Color("bd3c30"),
 			"COLOR_OUTLINE": Color("bdac2c"),
@@ -166,7 +166,7 @@ var shape_scrolls = [
 		"EFFECTS": {
 			"DAMAGE": 1,
 			"STUN": 1,
-			"KNOCKBACK": 500,
+			"KNOCKBACK": 750,
 			"GREASE": 4,
 			"BREAK": 3,
 		},
@@ -184,14 +184,14 @@ var shape_scrolls = [
 		"EFFECTS": {
 			"DAMAGE": 1,
 			"STUN": 1,
-			"KNOCKBACK": 500,
+			"KNOCKBACK": 1000,
 			"GREASE": 3,
 			"BREAK": 1,
 			"HEAL": 1,
 			"SHIELD": 1
 		},
 		"CHOSEN_EFFECT": "",
-		"INV_FRAMES": 0.5,
+		"INV_FRAMES": 1,
 		"COLORS": {
 				"COLOR_BASE": Color("bd3c30"),
 				"COLOR_OUTLINE": Color("bdac2c"),
@@ -325,3 +325,6 @@ func reset_spells():
 
 func random_from_dict(dict):
 	return dict[dict.keys()[randi() % len(dict)]]
+
+func _on_Endgame_started_cutscene(end):
+	end.set_revelation(categories_used, time_passed)
