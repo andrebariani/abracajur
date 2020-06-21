@@ -119,10 +119,10 @@ autoplay = "show_text"
 anims/show_text = SubResource( 1 )
 
 [node name="Label2" type="Label" parent="."]
-margin_left = 27.0033
-margin_top = 6.28524
-margin_right = 373.003
-margin_bottom = 29.2852
+margin_left = 23.5738
+margin_top = 210.341
+margin_right = 369.573
+margin_bottom = 233.341
 custom_fonts/font = ExtResource( 3 )
 text = "Segure [Espaço] para acelerar"
 align = 1
