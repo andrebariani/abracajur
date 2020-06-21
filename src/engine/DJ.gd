@@ -3,9 +3,11 @@ extends Node
 signal current_changed(name)
 
 onready var songs_list = $songs
+onready var sfx_list = $sfx
 onready var fadeOutTween = $FadeOutTween
 
 var songs = { }
+var sfx = { }
 
 # Current stream playing
 var current: AudioStreamPlayer
@@ -15,6 +17,8 @@ var next: AudioStreamPlayer
 func _ready():
 	for s in songs_list.get_children():
 		songs[str(s.name)] = s
+	for s in sfx_list.get_children():
+		sfx[str(s.name)] = s
 
 
 func stop():
@@ -62,3 +66,10 @@ func _on_FadeOutTween_tween_completed(object, _key):
 	current = next
 	emit_signal("current_changed", current.name)
 	current.play()
+
+
+func play_sfx(name: String):
+	if sfx[name]:
+		sfx[name].play()
+	else:
+		print_debug("Sfx \'" + name + "\' not found")

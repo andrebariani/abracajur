@@ -62,6 +62,7 @@ func state_machine():
 					if launchCooldown.get_time_left() == 0:
 						if setted_spell.NAME == "RAIO":
 							laserChargeAnim.play("ready_ray", 0)
+							$AudioStreamPlayer2D.play()
 						else:
 							launch_spell()
 							launchCooldown.start(cooldown)

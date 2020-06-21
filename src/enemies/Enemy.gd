@@ -145,6 +145,7 @@ func create_effect(scene, spell_colors):
 # ---- React to stimuli -------------
 
 func apply_damage(spell_effects):
+	DJ.play_sfx("Damage")
 	var damager = spell_effects.DAMAGE
 	if vulnerable:
 		damager *= 10
