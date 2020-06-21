@@ -1,9 +1,11 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://assets/abracajour/abracajour.png" type="Texture" id=1]
+[ext_resource path="res://assets/line_art/evil_mage.png" type="Texture" id=1]
 [ext_resource path="res://assets/font/Credits.tres" type="DynamicFont" id=2]
 [ext_resource path="res://assets/enemies/cadeira.png" type="Texture" id=3]
+[ext_resource path="res://assets/line_art/line_abracajour.png" type="Texture" id=4]
 [ext_resource path="res://src/ui/StartAnimation.gd" type="Script" id=5]
+[ext_resource path="res://assets/line_art/line_battle.png" type="Texture" id=6]
 
 [sub_resource type="Animation" id=1]
 resource_name = "show_text"
@@ -18,7 +20,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 15, 85 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 20, 40 ), Vector2( 20, 40 ), Vector2( 20, -740 ) ]
+"values": [ Vector2( 10, 40 ), Vector2( 10, 40 ), Vector2( 10, -740 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Label:percent_visible")
@@ -34,7 +36,7 @@ tracks/1/keys = {
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("TextureRect:texture")
-tracks/2/interp = 2
+tracks/2/interp = 0
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
@@ -42,16 +44,16 @@ tracks/2/keys = {
 "times": PoolRealArray( 0, 20, 40, 57.6 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ ExtResource( 3 ), null, ExtResource( 1 ), ExtResource( 1 ) ]
+"values": [ ExtResource( 1 ), ExtResource( 6 ), ExtResource( 6 ), ExtResource( 4 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("TextureRect:modulate")
-tracks/3/interp = 1
+tracks/3/interp = 2
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 1, 19, 20, 21, 39, 40, 41, 85 ),
+"times": PoolRealArray( 0, 1, 19, 20, 21, 56.6, 57.6, 58.6, 85 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
@@ -66,10 +68,10 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="."]
-margin_left = 20.0
-margin_top = 40.0
-margin_right = 220.0
-margin_bottom = 774.0
+margin_left = 10.0
+margin_top = 2.11429
+margin_right = 210.0
+margin_bottom = 736.114
 grow_vertical = 0
 custom_fonts/font = ExtResource( 2 )
 text = "Por 50 anos, o Grão-Bruxo Abraão Cadabro subjugou e aterrorizou o Reino de Jur, atacando suas fazendas e amaldiçoando suas plantações. Sob a sombra pairante de terror, heróis se ergueram para combater o malevolente bruxo, utilizando-se de magia para neutralizar seus feitiços. 
@@ -82,26 +84,24 @@ Porém, os antigos não são tão lenientes com suas palavras sendo proferidas, 
 
 Você, Abracajur, é o último mago na cripta, que agora procura por uma forma de recuperar sua forma e mente. Você terá de atravessar o esconderijo apenas com sua memória falha e pergaminhos velhos, lutando contra os monstros-objeto que ainda querem te destruir."
 autowrap = true
-percent_visible = 0.0
+percent_visible = 0.262857
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="TextureRect" type="TextureRect" parent="."]
-modulate = Color( 1, 1, 1, 0 )
-margin_left = 261.0
-margin_top = 66.0
-margin_right = 361.0
-margin_bottom = 166.0
-rect_min_size = Vector2( 100, 100 )
+margin_left = 198.0
+margin_top = 10.0
+margin_right = 398.0
+margin_bottom = 210.0
+rect_min_size = Vector2( 200, 200 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.0
-texture = ExtResource( 3 )
+texture = ExtResource( 1 )
 expand = true
 stretch_mode = 6
 __meta__ = {
-"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
