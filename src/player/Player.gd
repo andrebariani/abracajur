@@ -172,7 +172,7 @@ func _on_Hurtbox_area_entered(area):
 				if enemy.state != enemy.STUN:
 					apply_damage(enemy.damage)
 					hurtbox.start_invincibility(1)
-	elif area.enemy == "SpellHitbox" and area.spell.chosen_effect == "HEAL":
+	elif area.name == "SpellHitbox" and area.spell.chosen_effect == "HEAL":
 		apply_heal(area.spell)
 
 func create_effect(scene, spell_colors):
