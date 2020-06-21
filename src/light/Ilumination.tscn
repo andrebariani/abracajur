@@ -1,0 +1,448 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/effects/light.png" type="Texture" id=1]
+
+[node name="Ilumination" type="Node2D"]
+
+[node name="Light2D" type="Light2D" parent="."]
+texture = ExtResource( 1 )
+texture_scale = 2.0
+energy = 0.6
+shadow_enabled = true
+
+[node name="Light2D2" type="Light2D" parent="."]
+position = Vector2( -872, -741 )
+texture = ExtResource( 1 )
+texture_scale = 1.5
+energy = 0.6
+shadow_enabled = true
+
+[node name="Light2D25" type="Light2D" parent="."]
+position = Vector2( -912, -1453 )
+texture = ExtResource( 1 )
+energy = 0.6
+shadow_enabled = true
+
+[node name="Light2D26" type="Light2D" parent="."]
+position = Vector2( -912, -1629 )
+texture = ExtResource( 1 )
+energy = 0.6
+shadow_enabled = true
+
+[node name="Light2D3" type="Light2D" parent="."]
+position = Vector2( -384, -349 )
+texture = ExtResource( 1 )
+texture_scale = 1.5
+energy = 0.6
+shadow_enabled = true
+
+[node name="Light2D4" type="Light2D" parent="."]
+position = Vector2( -272, -197 )
+texture = ExtResource( 1 )
+texture_scale = 2.0
+energy = 0.6
+shadow_enabled = true
+
+[node name="Light2D5" type="Light2D" parent="."]
+position = Vector2( 0, -189 )
+texture = ExtResource( 1 )
+texture_scale = 2.0
+energy = 0.6
+shadow_enabled = true
+
+[node name="Light2D6" type="Light2D" parent="."]
+position = Vector2( 294, -194 )
+texture = ExtResource( 1 )
+texture_scale = 2.0
+energy = 0.6
+shadow_enabled = true
+
+[node name="Light2D7" type="Light2D" parent="."]
+position = Vector2( 206, -445 )
+texture = ExtResource( 1 )
+texture_scale = 1.5
+energy = 0.6
+shadow_enabled = true
+
+[node name="Light2D8" type="Light2D" parent="."]
+position = Vector2( 350, -445 )
+texture = ExtResource( 1 )
+texture_scale = 1.5
+energy = 0.6
+shadow_enabled = true
+
+[node name="Light2D9" type="Light2D" parent="."]
+position = Vector2( 430, -725 )
+texture = ExtResource( 1 )
+texture_scale = 1.5
+energy = 0.6
+shadow_enabled = true
+
+[node name="Light2D10" type="Light2D" parent="."]
+position = Vector2( 142, -725 )
+texture = ExtResource( 1 )
+texture_scale = 1.5
+energy = 0.6
+shadow_enabled = true
+
+[node name="Light2D11" type="Light2D" parent="."]
+position = Vector2( 14, -605 )
+texture = ExtResource( 1 )
+texture_scale = 2.0
+energy = 0.6
+shadow_enabled = true
+
+[node name="Light2D12" type="Light2D" parent="."]
+position = Vector2( -242, -717 )
+texture = ExtResource( 1 )
+texture_scale = 2.0
+energy = 0.6
+shadow_enabled = true
+
+[node name="Light2D13" type="Light2D" parent="."]
+position = Vector2( -234, -477 )
+texture = ExtResource( 1 )
+texture_scale = 2.0
+energy = 0.6
+shadow_enabled = true
+
+[node name="Light2D14" type="Light2D" parent="."]
+position = Vector2( -210, -925 )
+texture = ExtResource( 1 )
+texture_scale = 2.0
+energy = 0.6
+shadow_enabled = true
+
+[node name="Light2D15" type="Light2D" parent="."]
+position = Vector2( 62, -941 )
+texture = ExtResource( 1 )
+texture_scale = 2.0
+energy = 0.6
+shadow_enabled = true
+
+[node name="Light2D16" type="Light2D" parent="."]
+position = Vector2( 54, -1109 )
+texture = ExtResource( 1 )
+texture_scale = 2.0
+energy = 0.6
+shadow_enabled = true
+
+[node name="Light2D17" type="Light2D" parent="."]
+position = Vector2( 238, -1109 )
+texture = ExtResource( 1 )
+texture_scale = 2.0
+energy = 0.6
+shadow_enabled = true
+
+[node name="Light2D18" type="Light2D" parent="."]
+position = Vector2( 462, -1213 )
+texture = ExtResource( 1 )
+texture_scale = 2.0
+energy = 0.6
+shadow_enabled = true
+
+[node name="Light2D19" type="Light2D" parent="."]
+position = Vector2( 462, -1453 )
+texture = ExtResource( 1 )
+texture_scale = 2.0
+energy = 0.6
+shadow_enabled = true
+
+[node name="Light2D20" type="Light2D" parent="."]
+position = Vector2( -426, -1453 )
+texture = ExtResource( 1 )
+texture_scale = 2.0
+energy = 0.6
+shadow_enabled = true
+
+[node name="Light2D21" type="Light2D" parent="."]
+position = Vector2( 222, -1389 )
+texture = ExtResource( 1 )
+texture_scale = 2.0
+energy = 0.6
+shadow_enabled = true
+
+[node name="Light2D22" type="Light2D" parent="."]
+position = Vector2( -162, -1389 )
+texture = ExtResource( 1 )
+texture_scale = 2.0
+energy = 0.6
+shadow_enabled = true
+
+[node name="Light2D23" type="Light2D" parent="."]
+position = Vector2( 0, -1821 )
+texture = ExtResource( 1 )
+texture_scale = 2.0
+energy = 0.6
+shadow_enabled = true
+
+[node name="Light2D24" type="Light2D" parent="."]
+position = Vector2( -2, -1605 )
+texture = ExtResource( 1 )
+texture_scale = 2.0
+energy = 0.6
+shadow_enabled = true
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2( -544, -1965 )
+
+[node name="Light2D27" type="Light2D" parent="Node2D"]
+texture = ExtResource( 1 )
+energy = 0.6
+shadow_enabled = true
+
+[node name="Light2D28" type="Light2D" parent="Node2D"]
+position = Vector2( 272, 0 )
+texture = ExtResource( 1 )
+energy = 0.6
+shadow_enabled = true
+
+[node name="Light2D29" type="Light2D" parent="Node2D"]
+position = Vector2( 544, 0 )
+texture = ExtResource( 1 )
+energy = 0.6
+shadow_enabled = true
+
+[node name="Light2D30" type="Light2D" parent="Node2D"]
+position = Vector2( 816, 0 )
+texture = ExtResource( 1 )
+energy = 0.6
+shadow_enabled = true
+
+[node name="Light2D31" type="Light2D" parent="Node2D"]
+position = Vector2( 1088, 0 )
+texture = ExtResource( 1 )
+energy = 0.6
+shadow_enabled = true
+
+[node name="Node2D2" type="Node2D" parent="."]
+position = Vector2( -544, -2133 )
+
+[node name="Light2D27" type="Light2D" parent="Node2D2"]
+texture = ExtResource( 1 )
+energy = 0.6
+shadow_enabled = true
+
+[node name="Light2D28" type="Light2D" parent="Node2D2"]
+position = Vector2( 272, 0 )
+texture = ExtResource( 1 )
+energy = 0.6
+shadow_enabled = true
+
+[node name="Light2D29" type="Light2D" parent="Node2D2"]
+position = Vector2( 544, 0 )
+texture = ExtResource( 1 )
+energy = 0.6
+shadow_enabled = true
+
+[node name="Light2D30" type="Light2D" parent="Node2D2"]
+position = Vector2( 816, 0 )
+texture = ExtResource( 1 )
+energy = 0.6
+shadow_enabled = true
+
+[node name="Light2D31" type="Light2D" parent="Node2D2"]
+position = Vector2( 1088, 0 )
+texture = ExtResource( 1 )
+energy = 0.6
+shadow_enabled = true
+
+[node name="Node2D3" type="Node2D" parent="."]
+position = Vector2( -544, -2309 )
+
+[node name="Light2D27" type="Light2D" parent="Node2D3"]
+texture = ExtResource( 1 )
+energy = 0.6
+shadow_enabled = true
+
+[node name="Light2D28" type="Light2D" parent="Node2D3"]
+position = Vector2( 272, 0 )
+texture = ExtResource( 1 )
+energy = 0.6
+shadow_enabled = true
+
+[node name="Light2D29" type="Light2D" parent="Node2D3"]
+position = Vector2( 544, 0 )
+texture = ExtResource( 1 )
+energy = 0.6
+shadow_enabled = true
+
+[node name="Light2D30" type="Light2D" parent="Node2D3"]
+position = Vector2( 816, 0 )
+texture = ExtResource( 1 )
+energy = 0.6
+shadow_enabled = true
+
+[node name="Light2D31" type="Light2D" parent="Node2D3"]
+position = Vector2( 1088, 0 )
+texture = ExtResource( 1 )
+energy = 0.6
+shadow_enabled = true
+
+[node name="Node2D5" type="Node2D" parent="."]
+position = Vector2( -544, -2477 )
+
+[node name="Light2D27" type="Light2D" parent="Node2D5"]
+texture = ExtResource( 1 )
+energy = 0.6
+shadow_enabled = true
+
+[node name="Light2D28" type="Light2D" parent="Node2D5"]
+position = Vector2( 272, 0 )
+texture = ExtResource( 1 )
+energy = 0.6
+shadow_enabled = true
+
+[node name="Light2D29" type="Light2D" parent="Node2D5"]
+position = Vector2( 544, 0 )
+texture = ExtResource( 1 )
+energy = 0.6
+shadow_enabled = true
+
+[node name="Light2D30" type="Light2D" parent="Node2D5"]
+position = Vector2( 816, 0 )
+texture = ExtResource( 1 )
+energy = 0.6
+shadow_enabled = true
+
+[node name="Light2D31" type="Light2D" parent="Node2D5"]
+position = Vector2( 1088, 0 )
+texture = ExtResource( 1 )
+energy = 0.6
+shadow_enabled = true
+
+[node name="Node2D4" type="Node2D" parent="."]
+position = Vector2( -544, -2653 )
+
+[node name="Light2D27" type="Light2D" parent="Node2D4"]
+texture = ExtResource( 1 )
+energy = 0.6
+shadow_enabled = true
+
+[node name="Light2D28" type="Light2D" parent="Node2D4"]
+position = Vector2( 272, 0 )
+texture = ExtResource( 1 )
+energy = 0.6
+shadow_enabled = true
+
+[node name="Light2D29" type="Light2D" parent="Node2D4"]
+position = Vector2( 544, 0 )
+texture = ExtResource( 1 )
+energy = 0.6
+shadow_enabled = true
+
+[node name="Light2D30" type="Light2D" parent="Node2D4"]
+position = Vector2( 816, 0 )
+texture = ExtResource( 1 )
+energy = 0.6
+shadow_enabled = true
+
+[node name="Light2D31" type="Light2D" parent="Node2D4"]
+position = Vector2( 1088, 0 )
+texture = ExtResource( 1 )
+energy = 0.6
+shadow_enabled = true
+
+[node name="Light2D32" type="Light2D" parent="."]
+position = Vector2( 864, -3069 )
+texture = ExtResource( 1 )
+energy = 0.6
+shadow_enabled = true
+
+[node name="Light2D33" type="Light2D" parent="."]
+position = Vector2( 88, -2973 )
+texture = ExtResource( 1 )
+texture_scale = 2.0
+energy = 0.6
+shadow_enabled = true
+
+[node name="Light2D34" type="Light2D" parent="."]
+position = Vector2( -88, -2973 )
+texture = ExtResource( 1 )
+texture_scale = 2.0
+energy = 0.6
+shadow_enabled = true
+
+[node name="Light2D36" type="Light2D" parent="."]
+position = Vector2( 88, -2829 )
+texture = ExtResource( 1 )
+texture_scale = 2.0
+energy = 0.4
+shadow_enabled = true
+
+[node name="Light2D35" type="Light2D" parent="."]
+position = Vector2( -88, -2829 )
+texture = ExtResource( 1 )
+texture_scale = 2.0
+energy = 0.4
+shadow_enabled = true
+
+[node name="Light2D38" type="Light2D" parent="."]
+position = Vector2( 88, -3117 )
+texture = ExtResource( 1 )
+texture_scale = 2.0
+energy = 0.4
+shadow_enabled = true
+
+[node name="Light2D37" type="Light2D" parent="."]
+position = Vector2( -88, -3117 )
+texture = ExtResource( 1 )
+texture_scale = 2.0
+energy = 0.4
+shadow_enabled = true
+
+[node name="Light2D40" type="Light2D" parent="."]
+position = Vector2( 88, -3213 )
+texture = ExtResource( 1 )
+texture_scale = 2.0
+energy = 0.4
+shadow_enabled = true
+
+[node name="Light2D39" type="Light2D" parent="."]
+position = Vector2( -88, -3213 )
+texture = ExtResource( 1 )
+texture_scale = 2.0
+energy = 0.4
+shadow_enabled = true
+
+[node name="Light2D42" type="Light2D" parent="."]
+position = Vector2( 88, -3349 )
+texture = ExtResource( 1 )
+texture_scale = 2.0
+energy = 0.4
+shadow_enabled = true
+
+[node name="Light2D41" type="Light2D" parent="."]
+position = Vector2( -88, -3349 )
+texture = ExtResource( 1 )
+texture_scale = 2.0
+energy = 0.4
+shadow_enabled = true
+
+[node name="Light2D44" type="Light2D" parent="."]
+position = Vector2( 88, -3533 )
+texture = ExtResource( 1 )
+texture_scale = 2.0
+energy = 0.6
+shadow_enabled = true
+
+[node name="Light2D43" type="Light2D" parent="."]
+position = Vector2( -88, -3533 )
+texture = ExtResource( 1 )
+texture_scale = 2.0
+energy = 0.6
+shadow_enabled = true
+
+[node name="Light2D46" type="Light2D" parent="."]
+position = Vector2( 88, -3653 )
+texture = ExtResource( 1 )
+texture_scale = 2.0
+energy = 0.6
+shadow_enabled = true
+
+[node name="Light2D45" type="Light2D" parent="."]
+position = Vector2( -88, -3653 )
+texture = ExtResource( 1 )
+texture_scale = 2.0
+energy = 0.6
+shadow_enabled = true
