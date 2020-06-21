@@ -171,13 +171,15 @@ func _on_Hurtbox_area_entered(area):
 					"SHIELD":
 						apply_shield(spell.effects)
 				
-				print(spell.inv_frames*2)
+				print(spell.inv_frames*3)
 				hurtbox.start_invincibility(spell.inv_frames)
 			"EnemyHitbox":
 				var enemy = area.enemy
-				apply_damage(enemy.damage)
-				hurtbox.start_invincibility(1)
-
+				if enemy.state != enemy.STUN:
+					apply_damage(enemy.damage)
+					hurtbox.start_invincibility(1)
+	elif area.enemy == "SpellHitbox" and area.spell.chosen_effect == "HEAL":
+		apply_heal(area.spell)
 
 func create_effect(scene, spell_colors):
 	var s = scene.instance()

@@ -103,6 +103,7 @@ var shape_scrolls = [
 		"ICON": preload("res://assets/Spells/Botão-Explosion.png"),
 		"EFFECTS": {
 			"DAMAGE": 2,
+			"STUN": 5,
 			"KNOCKBACK": 2500,
 			"GREASE": 10,
 			"BREAK": 8,
@@ -165,8 +166,8 @@ var shape_scrolls = [
 		"ICON": preload("res://assets/Spells/Botão-Rajada.png"),
 		"EFFECTS": {
 			"DAMAGE": 1,
-			"STUN": 2,
-			"KNOCKBACK": 1500,
+			"STUN": 3,
+			"KNOCKBACK": 1800,
 			"GREASE": 4,
 			"BREAK": 5,
 		},
@@ -191,7 +192,7 @@ var shape_scrolls = [
 			"SHIELD": 1
 		},
 		"CHOSEN_EFFECT": "",
-		"INV_FRAMES": 1,
+		"INV_FRAMES": 0.9,
 		"COLORS": {
 				"COLOR_BASE": Color("bd3c30"),
 				"COLOR_OUTLINE": Color("bdac2c"),
@@ -203,7 +204,7 @@ var shape_scrolls = [
 		"ICON": preload("res://assets/Spells/Botão-Missile.png"),
 		"EFFECTS": {
 			"DAMAGE": 3,
-			"STUN": 3,
+			"STUN": 6,
 			"KNOCKBACK": 3200,
 			"GREASE": 12,
 			"BREAK": 7,
@@ -222,7 +223,7 @@ var shape_scrolls = [
 		"ICON": preload("res://assets/Spells/Laser.png"),
 		"EFFECTS": {
 			"DAMAGE": 2,
-			"STUN": 2,
+			"STUN": 3,
 			"GREASE": 4,
 			"BREAK": 5,
 		},
