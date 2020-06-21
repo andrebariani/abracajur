@@ -48,7 +48,7 @@ func _process(_delta):
 			rayCast.cast_to = look_vector
 			rayCast.force_raycast_update()
 			
-			DJ.play("Teleport")
+			DJ.play_sfx("Teleport")
 			anim.play("teleport")
 			if !rayCast.is_colliding():
 				teleport_to_mouse()
@@ -59,7 +59,7 @@ func _process(_delta):
 			$Hourglass.visible = true
 			$Hourglass.frame = 0
 			yield(get_tree().create_timer(cooldownTeleport),"timeout")
-			DJ.play("TeleportRecharge")
+			DJ.play_sfx("TeleportRecharge")
 			can_teleport = true
 			$Hourglass.visible = false
 	
@@ -105,7 +105,6 @@ func _on_MagicSystem_cast_spell(spell_data, _letter, _position):
 	
 	match (spell.name):
 		"SphereSpell":
-			DJ.play("MissileLaunch")
 			var spell_radius = spell.get_node("SpellHitbox/CollisionShape2D").get_shape().radius
 			var total_radius = get_total_radius(spell_radius)
 			spell.global_position = global_position + Vector2(total_radius, total_radius) * look_vector.normalized()
@@ -116,7 +115,6 @@ func _on_MagicSystem_cast_spell(spell_data, _letter, _position):
 			spell.global_position = global_position + Vector2(total_radius, total_radius) * look_vector.normalized()
 			spell.init(look_vector.normalized())
 		"BarrageSpell":
-			DJ.play("BarrageSpell")
 			var spell_radius = spell.radius
 			var total_radius = get_total_radius(spell_radius)
 			spell.global_position = global_position + Vector2(total_radius, total_radius) * look_vector.normalized()
@@ -124,19 +122,15 @@ func _on_MagicSystem_cast_spell(spell_data, _letter, _position):
 		"AOESpell":
 			spell.position = self.position
 		"EruptionSpell":
-			DJ.play("EruptionSpell")
 			spell.position = get_global_mouse_position()
 			show_behind = true
 		"FieldSpell":
-			DJ.play("FieldSpell")
 			spell.position = get_global_mouse_position()
 			show_behind = true
 		"RuneSpell":
-			DJ.play("RuneSpell")
 			spell.position = self.position
 			show_behind = true
 		"RaySpell":
-			DJ.play("RaySpell")
 			spell.player = self
 	
 	var world = get_tree().current_scene
@@ -171,13 +165,15 @@ func _on_Hurtbox_area_entered(area):
 					"SHIELD":
 						apply_shield(spell.effects)
 				
-				print(spell.inv_frames*2)
+				print(spell.inv_frames*3)
 				hurtbox.start_invincibility(spell.inv_frames)
 			"EnemyHitbox":
 				var enemy = area.enemy
-				apply_damage(enemy.damage)
-				hurtbox.start_invincibility(1)
-
+				if enemy.state != enemy.STUN:
+					apply_damage(enemy.damage)
+					hurtbox.start_invincibility(1)
+	elif area.name == "SpellHitbox" and area.spell.chosen_effect == "HEAL":
+		apply_heal(area.spell)
 
 func create_effect(scene, spell_colors):
 	var s = scene.instance()
@@ -194,7 +190,7 @@ func set_hp(_new):
 	emit_signal("updated_health", hp)
 
 func apply_damage(value):
-	DJ.play("Damage")
+	DJ.play_sfx("Damage")
 	var damage = value
 	if vulnerable:
 		damage *= 2
@@ -206,7 +202,6 @@ func apply_damage(value):
 
 
 func apply_heal(spell):
-	DJ.play("Heal")
 	set_hp(hp + spell.effects.HEAL)
 	create_effect(healParticles, spell.colors)
 
@@ -222,7 +217,6 @@ func apply_stun(spell_effects):
 
 func apply_break(spell):
 	set_vulnerable(true)
-	DJ.play("Corruption")
 	$BreakTimer.start(spell.effects.BREAK)
 	create_effect(corruptionParticles, spell.colors)
 

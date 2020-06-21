@@ -12,7 +12,7 @@
 [ext_resource path="res://assets/abracajour/abracajour.png" type="Texture" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 10.0624, 13.217 )
+extents = Vector2( 11.7055, 14.9451 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 7.62763, 10.5546 )

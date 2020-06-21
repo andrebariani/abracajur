@@ -9,7 +9,6 @@
 [ext_resource path="res://assets/Spells/Escudo.png" type="Texture" id=7]
 [ext_resource path="res://assets/Spells/hourglass.png" type="Texture" id=8]
 
-
 [sub_resource type="CircleShape2D" id=1]
 radius = 8.06226
 
