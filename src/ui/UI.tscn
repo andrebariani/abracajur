@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/ui/UI.gd" type="Script" id=1]
 [ext_resource path="res://src/ui/UISpell.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/abracajour/mini_abracajour.png" type="Texture" id=3]
 [ext_resource path="res://assets/font/Text.tres" type="DynamicFont" id=4]
+[ext_resource path="res://assets/sounds/sfx/spell_reset.wav" type="AudioStream" id=5]
 
 [sub_resource type="Animation" id=1]
 resource_name = "start"
@@ -215,3 +216,7 @@ margin_bottom = 32.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 letter = "R"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -2.0
