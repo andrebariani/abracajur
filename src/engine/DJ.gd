@@ -24,6 +24,8 @@ func _ready():
 func stop():
 	current.stop()
 
+func is_music_playing():
+	return current.playing
 
 func play(name: String, from: float = 0.0):
 	fadeOutTween.stop_all()

@@ -7,7 +7,11 @@ func _ready():
 	for node in range(1, len(self.get_children()) - 1):
 		self.get_children()[node].hide()
 	$StartScreen.show()
-	DJ.play_after_fade_out("LevelTheme")
+	
+	if DJ.is_music_playing():
+		DJ.play_after_fade_out("LevelTheme")
+	else:
+		DJ.play("LevelTheme")
 
 func _process(_delta):
 	if Input.is_action_just_pressed("ui_select") and !started_game:

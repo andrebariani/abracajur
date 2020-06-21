@@ -256,7 +256,7 @@ func _on_ReviveTimer_timeout():
 	get_tree().reload_current_scene()
 
 func die():
-	DJ.play_sfx("GameOver")
+	DJ.play("GameOver")
 	$ReviveTimer.start(1)
 	visible = false
 	

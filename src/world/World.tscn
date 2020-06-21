@@ -332,10 +332,6 @@ blink_material = SubResource( 8 )
 position = Vector2( -6.45419, -2797.73 )
 blink_material = SubResource( 8 )
 
-[node name="Carpet6" parent="YSort/Enemies" instance=ExtResource( 17 )]
-position = Vector2( -386.125, -240.504 )
-blink_material = SubResource( 7 )
-
 [node name="Carpet2" parent="YSort/Enemies" instance=ExtResource( 17 )]
 position = Vector2( 227.586, -2125.48 )
 blink_material = SubResource( 7 )
@@ -483,8 +479,8 @@ max_scroll_count = 12
 [connection signal="started_game" from="CanvasLayer/MainUI" to="YSort/Player" method="_on_MainUI_started_game"]
 [connection signal="started_game" from="CanvasLayer/MainUI" to="CanvasLayer/UI" method="_on_MainUI_started_game"]
 [connection signal="updated_health" from="YSort/Player" to="CanvasLayer/UI" method="_on_Player_updated_health"]
-[connection signal="started_cutscene" from="Endgame" to="YSort/Player" method="_on_Endgame_started_cutscene"]
 [connection signal="started_cutscene" from="Endgame" to="YSort/Enemies" method="_on_Endgame_started_cutscene"]
+[connection signal="started_cutscene" from="Endgame" to="YSort/Player" method="_on_Endgame_started_cutscene"]
 [connection signal="started_cutscene" from="Endgame" to="CanvasLayer/UI" method="_on_Endgame_started_cutscene"]
 [connection signal="started_cutscene" from="Endgame" to="MagicSystem" method="_on_Endgame_started_cutscene"]
 [connection signal="cast_spell" from="MagicSystem" to="YSort/Player" method="_on_MagicSystem_cast_spell"]
