@@ -6,8 +6,8 @@ export(Dictionary) var effects_scrolls = {
 			"NAME":" DE FOGO", 
 			"TYPE": "DAMAGE",
 			"COLORS": {
-				"COLOR_BASE": Color("bd3c30"),
-				"COLOR_OUTLINE": Color("bdac2c"),
+				"COLOR_BASE": Color("BDAC2C"),
+				"COLOR_OUTLINE": Color("BD3C30"),
 			},
 		}
 	], 
@@ -16,16 +16,16 @@ export(Dictionary) var effects_scrolls = {
 			"NAME":" DE CHOQUE",
 			"TYPE": "STUN",
 			"COLORS": {
-				"COLOR_BASE": Color("00ffff"),
-				"COLOR_OUTLINE": Color("0000ff"),
+				"COLOR_BASE": Color("3EC2CD"),
+				"COLOR_OUTLINE": Color("002D69"),
 			},
 		}, 
 		{ 
 			"NAME":" DE VENTO",
 			 "TYPE": "KNOCKBACK",
 			 "COLORS": {
-				"COLOR_BASE": Color("ffffff"),
-				"COLOR_OUTLINE": Color("5f5f5f"),
+				"COLOR_BASE": Color("FEFEFF"),
+				"COLOR_OUTLINE": Color("AEAEAE"),
 			},
 		},
 	], 
@@ -34,16 +34,16 @@ export(Dictionary) var effects_scrolls = {
 			"NAME":" DE GELO",
 			"TYPE":"GREASE",
 			"COLORS": {
-				"COLOR_BASE": Color("85c9ff"),
-				"COLOR_OUTLINE": Color("00ffff"),
+				"COLOR_BASE": Color("3EC2CD"),
+				"COLOR_OUTLINE": Color("FEFEFF"),
 			},
 		},
 		{ 
 			"NAME":" DA CORRUPÇÃO",
 			"TYPE":"BREAK",
 			"COLORS": {
-				"COLOR_BASE": Color("4e00ac"),
-				"COLOR_OUTLINE": Color("1c003e"),
+				"COLOR_BASE": Color("3C137C"),
+				"COLOR_OUTLINE": Color("000000"),
 			},
 		},
 		
@@ -51,8 +51,8 @@ export(Dictionary) var effects_scrolls = {
 			"NAME":" DA ILUSÃO",
 			"TYPE":"ILLUSION",
 			"COLORS": {
-				"COLOR_BASE": Color("dc03bf"),
-				"COLOR_OUTLINE": Color("44173e"),
+				"COLOR_BASE": Color("C03470"),
+				"COLOR_OUTLINE": Color("600B62"),
 			},
 		},
 	], 
@@ -61,16 +61,16 @@ export(Dictionary) var effects_scrolls = {
 			"NAME":" DE CURA",
 			"TYPE":"HEAL",
 			"COLORS": {
-				"COLOR_BASE": Color("42d042"),
-				"COLOR_OUTLINE": Color("00ff00"),
+				"COLOR_BASE": Color("55C753"),
+				"COLOR_OUTLINE": Color("366D00"),
 			},
 		},
 		{ 
 			"NAME": " DE PEDRA",
 			"TYPE":"SHIELD",
 			"COLORS": {
-				"COLOR_BASE": Color("1e1a12"),
-				"COLOR_OUTLINE": Color("0f0f0f"),
+				"COLOR_BASE": Color("342800"),
+				"COLOR_OUTLINE": Color("000000"),
 			},
 		},
 	],
@@ -80,7 +80,7 @@ var shape_scrolls = [
 	{ 
 		"NAME":"BOMBA", 
 		"SCENE":preload("res://src/spells/SphereSpell.tscn"), 
-		"ICON": preload("res://icon.png"),
+		"ICON": preload("res://assets/Spells/BolaOficial.png"),
 		"EFFECTS": {
 			"DAMAGE": 2,
 			"STUN": 3,
@@ -99,7 +99,7 @@ var shape_scrolls = [
 	{ 
 		"NAME":"EXPLOSÃO", 
 		"SCENE":preload("res://src/spells/AOESpell.tscn"), 
-		"ICON": preload("res://icon.png"),
+		"ICON": preload("res://assets/Spells/Botão-Explosion.png"),
 		"EFFECTS": {
 			"DAMAGE": 2,
 			"KNOCKBACK": 1500,
@@ -109,7 +109,7 @@ var shape_scrolls = [
 			"SHIELD": 2
 		},
 		"CHOSEN_EFFECT": "",
-		"INV_FRAMES": 0.1,
+		"INV_FRAMES": 0.2,
 		"COLORS": {
 			"COLOR_BASE": Color("bd3c30"),
 			"COLOR_OUTLINE": Color("bdac2c"),
@@ -119,7 +119,7 @@ var shape_scrolls = [
 	{ 
 		"NAME":"ERUPÇÃO", 
 		"SCENE":preload("res://src/spells/EruptionSpell.tscn"), 
-		"ICON": preload("res://icon.png"),
+		"ICON": preload("res://assets/Spells/Botão-Erupção.Png"),
 		"EFFECTS": {
 			"DAMAGE": 3,
 			"STUN": 4,
@@ -131,7 +131,7 @@ var shape_scrolls = [
 			"SHIELD": 2
 		},
 		"CHOSEN_EFFECT": "",
-		"INV_FRAMES": 0.1,
+		"INV_FRAMES": 0.2,
 		"COLORS": {
 			"COLOR_BASE": Color("bd3c30"),
 			"COLOR_OUTLINE": Color("bdac2c"),
@@ -141,7 +141,7 @@ var shape_scrolls = [
 	{ 
 		"NAME":"RUNA", 
 		"SCENE":preload("res://src/spells/RuneSpell.tscn"), 
-		"ICON": preload("res://icon.png"),
+		"ICON": preload("res://assets/Spells/Botão-Runa.png"),
 		"EFFECTS": {
 			"DAMAGE": 3,
 			"STUN": 4,
@@ -163,7 +163,7 @@ var shape_scrolls = [
 	{ 
 		"NAME":"RAJADA", 
 		"SCENE":preload("res://src/spells/BarrageSpell.tscn"), 
-		"ICON": preload("res://icon.png"),
+		"ICON": preload("res://assets/Spells/Botão-Rajada.png"),
 		"EFFECTS": {
 			"DAMAGE": 1,
 			"STUN": 1,
@@ -181,7 +181,7 @@ var shape_scrolls = [
 	{ 
 		"NAME":"CAMPO", 
 		"SCENE":preload("res://src/spells/FieldSpell.tscn"), 
-		"ICON": preload("res://icon.png"),
+		"ICON": preload("res://assets/Spells/Botão-Campo.png"),
 		"EFFECTS": {
 			"DAMAGE": 1,
 			"STUN": 1,
@@ -201,16 +201,14 @@ var shape_scrolls = [
 	{ 
 		"NAME":"MÍSSIL", 
 		"SCENE":preload("res://src/spells/MissileSpell.tscn"), 
-		"ICON": preload("res://icon.png"),
+		"ICON": preload("res://assets/Spells/Botão-Null.png"),
 		"EFFECTS": {
 			"DAMAGE": 3,
 			"STUN": 3,
-			"KNOCKBACK": 500,
+			"KNOCKBACK": 1500,
 			"GREASE": 12,
 			"BREAK": 1,
 			"ILLUSION": 5,
-			"HEAL": 1,
-			"SHIELD": 1
 		},
 		"CHOSEN_EFFECT": "",
 		"INV_FRAMES": 0,
@@ -222,7 +220,7 @@ var shape_scrolls = [
 	{ 
 		"NAME":"RAIO", 
 		"SCENE":preload("res://src/spells/RaySpell.tscn"), 
-		"ICON": preload("res://icon.png"),
+		"ICON": preload("res://assets/Spells/Laser.png"),
 		"EFFECTS": {
 			"DAMAGE": 1,
 			"STUN": 1,
@@ -258,12 +256,18 @@ export var spells_at_a_time = 4
 export var max_scroll_count = 10
 onready var scroll_count = max_scroll_count
 
+var categories_used = [0, 0, 0, 0]
+var time_passed = 0.0
+
 signal reset_spells
 signal cast_spell
 
 func _ready():
 	randomize()
 	reset_spells()
+
+func _process(delta):
+	time_passed += delta
 
 func _input(event):
 	if event is InputEventKey and event.pressed:
@@ -276,6 +280,8 @@ func _input(event):
 func cast_spell(keycode):
 	emit_signal("cast_spell", active_spells[keycode], OS.get_scancode_string(keycode), 
 				keys.find(keycode))
+
+	categories_used[active_spells[keycode].CATEGORY] += 1
 	
 	# Desce a quantidade de casts disponiveis
 	scroll_count -= 1
@@ -312,6 +318,7 @@ func reset_spells():
 		rand_shape.COLORS = rand_effect.COLORS
 		
 		rand_shape["NAME"] += rand_effect["NAME"]
+		rand_shape["CATEGORY"] = k
 		active_spells[keys[k]] = rand_shape
 		
 		print_debug(str(k) + ": " + OS.get_scancode_string(keys[k]) + ", " + rand_shape["NAME"])

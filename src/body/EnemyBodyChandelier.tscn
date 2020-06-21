@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/enemies/lustre.png" type="Texture" id=1]
+[ext_resource path="res://src/body/EnemyBodyChand.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "walk-down"
+length = 1.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false, true, false, true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 0.9, 1.18075 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 2 ), Vector2( 0, 0 ), Vector2( 0, 2 ), Vector2( 0, 0 ) ]
+}
+
+[node name="EnemyBodyChand" type="Node2D"]
+use_parent_material = true
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+use_parent_material = true
+position = Vector2( 0, 0.302321 )
+texture = ExtResource( 1 )
+flip_h = true
+region_rect = Rect2( 0, 0, 48, 34 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "walk-down"
+anims/walk-down = SubResource( 1 )
