@@ -54,7 +54,7 @@ func state_machine():
 			seek_player()
 		CHASE:
 			player = AggroBox.target
-			if player != null:
+			if is_instance_valid(player):
 				var direction = player.global_position - spellExit.global_position
 				rayCast.cast_to = direction
 				rayCast.force_raycast_update()

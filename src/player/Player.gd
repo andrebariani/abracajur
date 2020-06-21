@@ -205,10 +205,13 @@ func _on_BreakTimer_timeout():
 func _on_ShieldTimer_timeout():
 	has_shield = false
 	print_debug("Shield is out")
+	
+func _on_ReviveTimer_timeout():
+	get_tree().reload_current_scene()
 
 func die():
-	queue_free()
+	$ReviveTimer.start(1)
+	visible = false
 	
 func get_look_vector():
 	return look_vector.normalized()
-

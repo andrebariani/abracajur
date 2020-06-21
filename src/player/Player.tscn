@@ -77,12 +77,16 @@ one_shot = true
 [node name="BreakTimer" type="Timer" parent="."]
 one_shot = true
 
+[node name="ReviveTimer" type="Timer" parent="."]
+one_shot = true
+
 [node name="ShieldTimer" type="Timer" parent="."]
 one_shot = true
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 [connection signal="timeout" from="BlinkTimer" to="." method="_on_BlinkTimer_timeout"]
 [connection signal="timeout" from="StunTimer" to="." method="_on_StunTimer_timeout"]
 [connection signal="timeout" from="BreakTimer" to="." method="_on_BreakTimer_timeout"]
+[connection signal="timeout" from="ReviveTimer" to="." method="_on_ReviveTimer_timeout"]
 [connection signal="timeout" from="ShieldTimer" to="." method="_on_ShieldTimer_timeout"]
 
 [editable path="Hurtbox"]
