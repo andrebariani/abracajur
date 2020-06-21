@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://assets/enemies/cadeira.png" type="Texture" id=1]
+[ext_resource path="res://assets/enemies/relogio.png" type="Texture" id=1]
 [ext_resource path="res://src/body/AnimatedEnemyBody.gd" type="Script" id=2]
 
 [sub_resource type="Animation" id=1]
@@ -16,7 +16,19 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2, 0.5, 0.7, 1 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ 0.0, 5.0, 0.0, -5.0, 0.0 ]
+"values": [ 0.0, 2.0, 0.0, -2.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -14 ), Vector2( 0, 0 ) ]
 }
 
 [node name="EnemyBodyClock" type="Node2D"]

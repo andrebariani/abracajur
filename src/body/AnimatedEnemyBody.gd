@@ -6,6 +6,7 @@ func resume():
 func stop():
 	$AnimationPlayer.stop()
 	$Sprite.rotation_degrees = 0
+	$Sprite.position = Vector2(0,0)
 
 func turn_left():
 	pass
