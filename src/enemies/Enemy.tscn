@@ -12,16 +12,16 @@
 [ext_resource path="res://assets/abracajour/abracajour.png" type="Texture" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 20.2248, 12.5681 )
+extents = Vector2( 8.09156, 9.64651 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 19.8585, 10.5546 )
+extents = Vector2( 7.62763, 10.5546 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 19.9686, 6.57075 )
+extents = Vector2( 10.0792, 21.696 )
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 18.9341, 15.0254 )
+extents = Vector2( 7.75615, 9.93512 )
 
 [sub_resource type="Shader" id=5]
 code = "shader_type canvas_item;

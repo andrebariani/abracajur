@@ -48,6 +48,7 @@ func _process(_delta):
 			rayCast.cast_to = look_vector
 			rayCast.force_raycast_update()
 			
+			DJ.play("Teleport")
 			anim.play("teleport")
 			if !rayCast.is_colliding():
 				teleport_to_mouse()
@@ -58,6 +59,7 @@ func _process(_delta):
 			$Hourglass.visible = true
 			$Hourglass.frame = 0
 			yield(get_tree().create_timer(cooldownTeleport),"timeout")
+			DJ.play("TeleportRecharge")
 			can_teleport = true
 			$Hourglass.visible = false
 	
@@ -102,25 +104,39 @@ func _on_MagicSystem_cast_spell(spell_data, _letter, _position):
 	
 	
 	match (spell.name):
-		"SphereSpell", "MissileSpell":
+		"SphereSpell":
+			DJ.play("MissileLaunch")
+			var spell_radius = spell.get_node("SpellHitbox/CollisionShape2D").get_shape().radius
+			var total_radius = get_total_radius(spell_radius)
+			spell.global_position = global_position + Vector2(total_radius, total_radius) * look_vector.normalized()
+			spell.init(look_vector.normalized())
+		"MissileSpell":
 			var spell_radius = spell.get_node("SpellHitbox/CollisionShape2D").get_shape().radius
 			var total_radius = get_total_radius(spell_radius)
 			spell.global_position = global_position + Vector2(total_radius, total_radius) * look_vector.normalized()
 			spell.init(look_vector.normalized())
 		"BarrageSpell":
+			DJ.play("BarrageSpell")
 			var spell_radius = spell.radius
 			var total_radius = get_total_radius(spell_radius)
 			spell.global_position = global_position + Vector2(total_radius, total_radius) * look_vector.normalized()
 			spell.player = self
 		"AOESpell":
 			spell.position = self.position
-		"EruptionSpell", "FieldSpell":
+		"EruptionSpell":
+			DJ.play("EruptionSpell")
+			spell.position = get_global_mouse_position()
+			show_behind = true
+		"FieldSpell":
+			DJ.play("FieldSpell")
 			spell.position = get_global_mouse_position()
 			show_behind = true
 		"RuneSpell":
+			DJ.play("RuneSpell")
 			spell.position = self.position
 			show_behind = true
 		"RaySpell":
+			DJ.play("RaySpell")
 			spell.player = self
 	
 	var world = get_tree().current_scene
@@ -178,6 +194,7 @@ func set_hp(_new):
 	emit_signal("updated_health", hp)
 
 func apply_damage(value):
+	DJ.play("Damage")
 	var damage = value
 	if vulnerable:
 		damage *= 2
@@ -189,6 +206,7 @@ func apply_damage(value):
 
 
 func apply_heal(spell):
+	DJ.play("Heal")
 	set_hp(hp + spell.effects.HEAL)
 	create_effect(healParticles, spell.colors)
 
@@ -197,12 +215,14 @@ func apply_stun(spell_effects):
 	is_active = false
 	emit_signal("player_stunned", is_active)
 	$StunIcon.visible = true
+	$StunIcon.frame = 0
 	stun_interval = float(spell_effects.STUN)/float($StunIcon.hframes)
 	stunTimer.start(spell_effects.STUN)
 
 
 func apply_break(spell):
 	set_vulnerable(true)
+	DJ.play("Corruption")
 	$BreakTimer.start(spell.effects.BREAK)
 	create_effect(corruptionParticles, spell.colors)
 
@@ -242,6 +262,7 @@ func _on_ReviveTimer_timeout():
 	get_tree().reload_current_scene()
 
 func die():
+	DJ.play("GameOver")
 	$ReviveTimer.start(1)
 	visible = false
 	

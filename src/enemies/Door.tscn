@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/enemies/Door.gd" type="Script" id=1]
 [ext_resource path="res://src/enemies/TurretEnemy.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/enemies/EnemyBlinkMaterial.tres" type="Material" id=3]
 [ext_resource path="res://src/spells/ColorSpell.shader" type="Shader" id=4]
+[ext_resource path="res://src/body/EnemyBodyDoor.tscn" type="PackedScene" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 117.068
@@ -16,32 +17,38 @@ shader_param/color_outline = Plane( 0, 0, 0, 1 )
 
 [node name="Door" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
+max_hp = 4
 blink_material = ExtResource( 3 )
+extents = Vector2( 14.822, 8.674 )
 cooldown = 4
 
-[node name="ColorRect" parent="." index="1"]
-visible = true
+[node name="EnemyBodyDoor" parent="." index="0" instance=ExtResource( 5 )]
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2( 0, -3.74627 )
+
+[node name="ColorRect" parent="." index="2"]
 color = Color( 0.0392157, 0.235294, 0.74902, 1 )
 
-[node name="EnemyHitbox" parent="." index="2"]
+[node name="EnemyHitbox" parent="." index="3"]
 visible = true
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 visible = true
-position = Vector2( 0, 0 )
+position = Vector2( 0, -3.74627 )
 
 [node name="CollisionShape2D" parent="AggroBox" index="0"]
 visible = false
 position = Vector2( 0, 0 )
 shape = SubResource( 1 )
 
-[node name="RayCast2D" parent="." index="13"]
+[node name="RayCast2D" parent="." index="14"]
 position = Vector2( 0, 0 )
 
-[node name="SpellExit" parent="." index="15"]
+[node name="SpellExit" parent="." index="16"]
 position = Vector2( 0, 0 )
 
-[node name="LaserCharge" parent="." index="18"]
+[node name="LaserCharge" parent="." index="19"]
 material = SubResource( 2 )
 
 [editable path="EnemyHitbox"]

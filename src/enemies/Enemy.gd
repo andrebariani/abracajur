@@ -47,7 +47,15 @@ var stun_clock = 0.0
 var color = Color(1, 1, 1, 1)
 export(Material) var blink_material
 
+export(Vector2) var extents
+
 var original_target
+
+func _ready():
+	$CollisionShape2D.get_shape().extents = extents
+	$EnemyHitbox/CollisionShape2D.get_shape().extents = extents
+	$Hurtbox/CollisionShape2D.get_shape().extents = extents
+	$SoftCollision/CollisionShape2D.get_shape().extents = extents
 
 func _physics_process(delta):
 	state_machine()
@@ -161,6 +169,7 @@ func apply_stun(spell_effects):
 	set_state(STUN)
 	$StunTimer.start(spell_effects.STUN)
 	$StunIcon.visible = true
+	$StunIcon.frame = 0
 	stun_interval = float(spell_effects.STUN)/float($StunIcon.hframes)
 	print_debug("Stunned for " + str(spell_effects.STUN) + " seconds!")
 	
