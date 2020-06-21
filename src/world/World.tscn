@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://src/player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/world/Map.tscn" type="PackedScene" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://src/ui/MainUI.tscn" type="PackedScene" id=15]
 [ext_resource path="res://src/enemies/Kettle.tscn" type="PackedScene" id=16]
 [ext_resource path="res://src/enemies/Carpet.tscn" type="PackedScene" id=17]
+[ext_resource path="res://src/enemies/Teacup.tscn" type="PackedScene" id=18]
 
 [sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
@@ -44,6 +45,11 @@ shader = ExtResource( 7 )
 shader_param/color_blink = Plane( 1, 0, 0, 1 )
 
 [sub_resource type="ShaderMaterial" id=6]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/color_blink = Plane( 1, 0, 0, 1 )
+
+[sub_resource type="ShaderMaterial" id=11]
 resource_local_to_scene = true
 shader = ExtResource( 7 )
 shader_param/color_blink = Plane( 1, 0, 0, 1 )
@@ -171,7 +177,7 @@ position = Vector2( -532.344, -2317.44 )
 blink_material = SubResource( 3 )
 
 [node name="Chandelier3" parent="YSort/Enemies" instance=ExtResource( 9 )]
-position = Vector2( -14.1694, -2309.64 )
+position = Vector2( -48.3612, -2514.79 )
 blink_material = SubResource( 3 )
 
 [node name="Chandelier4" parent="YSort/Enemies" instance=ExtResource( 9 )]
@@ -219,7 +225,7 @@ position = Vector2( 420.538, -1108.29 )
 blink_material = SubResource( 5 )
 
 [node name="Candelabrum2" parent="YSort/Enemies" instance=ExtResource( 11 )]
-position = Vector2( -138.918, -1339.02 )
+position = Vector2( -182.029, -1337.53 )
 blink_material = SubResource( 5 )
 
 [node name="Candelabrum10" parent="YSort/Enemies" instance=ExtResource( 11 )]
@@ -227,11 +233,11 @@ position = Vector2( -183.483, -1570.85 )
 blink_material = SubResource( 5 )
 
 [node name="Candelabrum8" parent="YSort/Enemies" instance=ExtResource( 11 )]
-position = Vector2( 171.512, -1575.19 )
+position = Vector2( 110.614, -1549.09 )
 blink_material = SubResource( 5 )
 
 [node name="Candelabrum9" parent="YSort/Enemies" instance=ExtResource( 11 )]
-position = Vector2( 411.956, -1335.86 )
+position = Vector2( 288.568, -1334.37 )
 blink_material = SubResource( 5 )
 
 [node name="Candelabrum3" parent="YSort/Enemies" instance=ExtResource( 11 )]
@@ -240,14 +246,6 @@ blink_material = SubResource( 5 )
 
 [node name="Candelabrum14" parent="YSort/Enemies" instance=ExtResource( 11 )]
 position = Vector2( -598.25, -2159.37 )
-blink_material = SubResource( 5 )
-
-[node name="Candelabrum15" parent="YSort/Enemies" instance=ExtResource( 11 )]
-position = Vector2( -463.155, -2159.37 )
-blink_material = SubResource( 5 )
-
-[node name="Candelabrum13" parent="YSort/Enemies" instance=ExtResource( 11 )]
-position = Vector2( 310.406, -2473.97 )
 blink_material = SubResource( 5 )
 
 [node name="Candelabrum11" parent="YSort/Enemies" instance=ExtResource( 11 )]
@@ -294,6 +292,18 @@ blink_material = SubResource( 6 )
 position = Vector2( -84.0764, -3371.57 )
 blink_material = SubResource( 6 )
 
+[node name="Teacup" parent="YSort/Enemies" instance=ExtResource( 18 )]
+position = Vector2( -213.019, -921.27 )
+blink_material = SubResource( 11 )
+
+[node name="Teacup2" parent="YSort/Enemies" instance=ExtResource( 18 )]
+position = Vector2( 866.661, -2663.66 )
+blink_material = SubResource( 11 )
+
+[node name="Teacup3" parent="YSort/Enemies" instance=ExtResource( 18 )]
+position = Vector2( -908.788, -1607.17 )
+blink_material = SubResource( 11 )
+
 [node name="Table3" parent="YSort/Enemies" instance=ExtResource( 12 )]
 position = Vector2( -274.571, -2143.72 )
 blink_material = SubResource( 6 )
@@ -302,16 +312,32 @@ blink_material = SubResource( 6 )
 position = Vector2( 151.815, -572.166 )
 blink_material = SubResource( 7 )
 
+[node name="Carpet6" parent="YSort/Enemies" instance=ExtResource( 17 )]
+position = Vector2( -386.125, -240.504 )
+blink_material = SubResource( 7 )
+
+[node name="Carpet2" parent="YSort/Enemies" instance=ExtResource( 17 )]
+position = Vector2( 227.586, -2125.48 )
+blink_material = SubResource( 7 )
+
+[node name="Carpet3" parent="YSort/Enemies" instance=ExtResource( 17 )]
+position = Vector2( -44.8856, -2106.43 )
+blink_material = SubResource( 7 )
+
+[node name="Carpet5" parent="YSort/Enemies" instance=ExtResource( 17 )]
+position = Vector2( -539.527, -2647.16 )
+blink_material = SubResource( 7 )
+
+[node name="Carpet4" parent="YSort/Enemies" instance=ExtResource( 17 )]
+position = Vector2( -6.45419, -2797.73 )
+blink_material = SubResource( 7 )
+
 [node name="Table10" parent="YSort/Enemies" instance=ExtResource( 12 )]
-position = Vector2( 48.6758, -2474.53 )
+position = Vector2( 11.5108, -2303.57 )
 blink_material = SubResource( 6 )
 
 [node name="Table6" parent="YSort/Enemies" instance=ExtResource( 12 )]
 position = Vector2( 531.912, -1960.61 )
-blink_material = SubResource( 6 )
-
-[node name="Table4" parent="YSort/Enemies" instance=ExtResource( 12 )]
-position = Vector2( 531.912, -2133.98 )
 blink_material = SubResource( 6 )
 
 [node name="Table2" parent="YSort/Enemies" instance=ExtResource( 12 )]
@@ -319,7 +345,7 @@ position = Vector2( 83.7857, -1103.94 )
 blink_material = SubResource( 6 )
 
 [node name="Table8" parent="YSort/Enemies" instance=ExtResource( 12 )]
-position = Vector2( 280.178, -1559.36 )
+position = Vector2( 313.778, -1537.35 )
 blink_material = SubResource( 6 )
 
 [node name="Chair" parent="YSort/Enemies" instance=ExtResource( 10 )]
@@ -330,20 +356,16 @@ blink_material = SubResource( 8 )
 position = Vector2( 402.971, -652.207 )
 blink_material = SubResource( 8 )
 
-[node name="Chair4" parent="YSort/Enemies" instance=ExtResource( 10 )]
-position = Vector2( -315.401, -905.747 )
-blink_material = SubResource( 8 )
-
 [node name="Chair6" parent="YSort/Enemies" instance=ExtResource( 10 )]
 position = Vector2( 524.576, -2322.53 )
 blink_material = SubResource( 8 )
 
 [node name="Chair8" parent="YSort/Enemies" instance=ExtResource( 10 )]
-position = Vector2( -1.31702, -2803.14 )
+position = Vector2( 137.326, -2949.18 )
 blink_material = SubResource( 8 )
 
 [node name="Chair14" parent="YSort/Enemies" instance=ExtResource( 10 )]
-position = Vector2( -30.4759, -2885.95 )
+position = Vector2( 10.8894, -2894.15 )
 blink_material = SubResource( 8 )
 
 [node name="Chair15" parent="YSort/Enemies" instance=ExtResource( 10 )]
@@ -351,7 +373,7 @@ position = Vector2( 125.816, -3070.24 )
 blink_material = SubResource( 8 )
 
 [node name="Chair9" parent="YSort/Enemies" instance=ExtResource( 10 )]
-position = Vector2( 23.6731, -2974.97 )
+position = Vector2( -144.387, -3065.36 )
 blink_material = SubResource( 8 )
 
 [node name="Chair16" parent="YSort/Enemies" instance=ExtResource( 10 )]
@@ -375,11 +397,11 @@ position = Vector2( 160.887, -1948.87 )
 blink_material = SubResource( 8 )
 
 [node name="Chair10" parent="YSort/Enemies" instance=ExtResource( 10 )]
-position = Vector2( 598.996, -1939.83 )
+position = Vector2( 335.444, -1903.59 )
 blink_material = SubResource( 8 )
 
 [node name="Chair11" parent="YSort/Enemies" instance=ExtResource( 10 )]
-position = Vector2( -197.097, -2336.58 )
+position = Vector2( -295.213, -2348.47 )
 blink_material = SubResource( 8 )
 
 [node name="Chair2" parent="YSort/Enemies" instance=ExtResource( 10 )]
@@ -390,24 +412,32 @@ blink_material = SubResource( 8 )
 position = Vector2( 362.435, -379.151 )
 blink_material = SubResource( 9 )
 
-[node name="Frame4" parent="YSort/Enemies" instance=ExtResource( 13 )]
-position = Vector2( -304.17, -1564.29 )
-blink_material = SubResource( 9 )
-
 [node name="Frame5" parent="YSort/Enemies" instance=ExtResource( 13 )]
 position = Vector2( -5.61285, -1705.95 )
 blink_material = SubResource( 9 )
 
 [node name="Frame7" parent="YSort/Enemies" instance=ExtResource( 13 )]
-position = Vector2( -11.7878, -2500.97 )
+position = Vector2( 28.3503, -2506.92 )
 blink_material = SubResource( 9 )
 
 [node name="Frame6" parent="YSort/Enemies" instance=ExtResource( 13 )]
-position = Vector2( 390.276, -1578.35 )
+position = Vector2( 438.85, -1576.9 )
 blink_material = SubResource( 9 )
 
 [node name="Kettle" parent="YSort/Enemies" instance=ExtResource( 16 )]
-position = Vector2( -391.784, -244.241 )
+position = Vector2( -292.291, -2644.06 )
+blink_material = SubResource( 10 )
+
+[node name="Kettle4" parent="YSort/Enemies" instance=ExtResource( 16 )]
+position = Vector2( -139.197, -916.799 )
+blink_material = SubResource( 10 )
+
+[node name="Kettle3" parent="YSort/Enemies" instance=ExtResource( 16 )]
+position = Vector2( 462.204, -1345.14 )
+blink_material = SubResource( 10 )
+
+[node name="Kettle2" parent="YSort/Enemies" instance=ExtResource( 16 )]
+position = Vector2( 254.798, -2640.23 )
 blink_material = SubResource( 10 )
 
 [node name="Frame8" parent="YSort/Enemies" instance=ExtResource( 13 )]
@@ -415,11 +445,11 @@ position = Vector2( 60.1751, -1352.87 )
 blink_material = SubResource( 9 )
 
 [node name="Frame10" parent="YSort/Enemies" instance=ExtResource( 13 )]
-position = Vector2( -84.5177, -1578.75 )
+position = Vector2( -395.921, -1559.97 )
 blink_material = SubResource( 9 )
 
 [node name="Frame9" parent="YSort/Enemies" instance=ExtResource( 13 )]
-position = Vector2( -346.918, -1333.82 )
+position = Vector2( -898.447, -1457.21 )
 blink_material = SubResource( 9 )
 
 [node name="Frame3" parent="YSort/Enemies" instance=ExtResource( 13 )]
@@ -444,10 +474,11 @@ max_scroll_count = 12
 [connection signal="started_cutscene" from="Endgame" to="YSort/Player" method="_on_Endgame_started_cutscene"]
 [connection signal="started_cutscene" from="Endgame" to="CanvasLayer/UI" method="_on_Endgame_started_cutscene"]
 [connection signal="started_cutscene" from="Endgame" to="YSort/Enemies/Table7" method="_on_Endgame_started_cutscene"]
-[connection signal="started_cutscene" from="Endgame" to="YSort/Enemies/Table11" method="_on_Endgame_started_cutscene"]
 [connection signal="started_cutscene" from="Endgame" to="YSort/Enemies/Table12" method="_on_Endgame_started_cutscene"]
-[connection signal="started_cutscene" from="Endgame" to="YSort/Enemies/Chair16" method="_on_Endgame_started_cutscene"]
+[connection signal="started_cutscene" from="Endgame" to="YSort/Enemies/Table11" method="_on_Endgame_started_cutscene"]
 [connection signal="started_cutscene" from="Endgame" to="MagicSystem" method="_on_Endgame_started_cutscene"]
+[connection signal="started_cutscene" from="Endgame" to="YSort/Enemies/Chair16" method="_on_Endgame_started_cutscene"]
+[connection signal="cast_spell" from="MagicSystem" to="CanvasLayer/UI" method="_on_MagicSystem_cast_spell"]
 [connection signal="cast_spell" from="MagicSystem" to="YSort/Player" method="_on_MagicSystem_cast_spell"]
 [connection signal="cast_spell" from="MagicSystem" to="CanvasLayer/UI" method="_on_MagicSystem_cast_spell"]
 [connection signal="reset_spells" from="MagicSystem" to="CanvasLayer/UI" method="_on_MagicSystem_reset_spells"]
