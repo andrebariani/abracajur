@@ -8,8 +8,8 @@ func stop():
 	$Sprite.rotation_degrees = 0
 
 func turn_left():
-	$Sprite.rotate(.1)
-
+	pass
+	
 
 func turn_right():
 	pass
