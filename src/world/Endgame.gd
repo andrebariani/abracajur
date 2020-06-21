@@ -38,11 +38,12 @@ var current_text = 0
 var current_scene = 0
 var revelation = 0
 var player = null
+var total_time = 0
 
 signal started_cutscene
 
 func set_revelation(categories_used, time):
-	print_debug(str(time))
+	total_time = time
 	
 	if time < 145:
 		revelation = 4
@@ -69,7 +70,6 @@ func _process(_delta):
 				else:
 					transformation_animation()
 					advance_cutscene()
-					current_text = -1
 
 			2:
 				current_text += 1
@@ -80,6 +80,16 @@ func _process(_delta):
 					update_text(revelation_textos[revelation][current_text])
 				else:
 					end_game()
+					advance_cutscene()
+					
+			4:
+				current_text += 1
+				if current_text == 0:
+					var minutos = int(int(total_time) / 60)
+					var segundos = int(total_time % 60)
+					$CanvasLayer/Control/Label2.text = "Seu tempo - " + str(minutos) + ":" + str(segundos)
+				else:
+					get_tree().reload_current_scene()
 
 
 func transformation_animation():
@@ -95,13 +105,14 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		$AnimationPlayer.play("pulse")
 		advance_cutscene()
 	elif anim_name == "blackout":
-		get_tree().reload_current_scene()
+		advance_cutscene()
 
 func end_game():
 	$AnimationPlayer.play("blackout")
 
 func advance_cutscene():
 	current_scene += 1
+	current_text = -1
 
 func update_text(_new):
 	$CanvasLayer/Control/Label.text = _new

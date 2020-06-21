@@ -99,7 +99,6 @@ shape = SubResource( 1 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Control" type="Control" parent="CanvasLayer"]
-visible = false
 margin_right = 402.0
 margin_bottom = 226.0
 __meta__ = {
@@ -114,7 +113,6 @@ margin_top = 32.0
 margin_right = -1227.91
 margin_bottom = -207.6
 custom_fonts/font = ExtResource( 2 )
-text = "Teste"
 align = 1
 autowrap = true
 __meta__ = {
@@ -145,6 +143,20 @@ margin_right = 414.0
 margin_bottom = 241.0
 __meta__ = {
 "_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="CanvasLayer/Control"]
+anchor_right = 3.95
+anchor_bottom = 1.6
+margin_left = 47.9902
+margin_top = 32.0
+margin_right = -1227.91
+margin_bottom = -207.6
+custom_fonts/font = ExtResource( 2 )
+align = 1
+autowrap = true
+__meta__ = {
 "_edit_use_anchors_": false
 }
 
