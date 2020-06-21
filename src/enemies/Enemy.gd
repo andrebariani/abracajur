@@ -18,6 +18,7 @@ export var max_hp = 3
 onready var hp = max_hp
 
 export var damage = 1
+onready var or_damage = damage
 
 var healParticles = preload("res://src/engine/HealParticles.tscn")
 var corruptionParticles = preload("res://src/engine/CorruptionParticles.tscn")
@@ -160,6 +161,7 @@ func apply_stun(spell_effects):
 	set_state(STUN)
 	$StunTimer.start(spell_effects.STUN)
 	$StunIcon.visible = true
+	$StunIcon.frame = 0
 	stun_interval = float(spell_effects.STUN)/float($StunIcon.hframes)
 	print_debug("Stunned for " + str(spell_effects.STUN) + " seconds!")
 	
@@ -182,6 +184,8 @@ func apply_grease(spell_effects):
 func apply_break(spell):
 	set_vulnerable(true)
 	$BreakTimer.start(spell.effects.BREAK)
+	damage = clamp(damage - 1, 0, damage)
+	
 	print_debug("Vulnerable for " + str(spell.effects.BREAK) + " seconds")
 	create_effect(corruptionParticles, spell.colors)
 
@@ -200,7 +204,8 @@ func apply_illusion(spell_effects, caster):
 		caster.activate_illusion(self, spell_effects.ILLUSION)
 		$IllusionTimer.start(spell_effects.ILLUSION)
 		$IllusionIcon.visible = true
-		print_debug("Target for " + str(spell_effects.ILLUSION) + " seconds")
+		$AggroBox/CollisionShape2D.scale /= 2
+		MAX_SPEED /= 2
 	else:
 		print_debug("Invalid caster!")
 
@@ -224,9 +229,12 @@ func _on_GreaseTimer_timeout():
 
 func _on_BreakTimer_timeout():
 	set_vulnerable(false)
+	damage = or_damage
 
 func _on_IllusionTimer_timeout():
 	$IllusionIcon.visible = false
+	$AggroBox/CollisionShape2D.scale *= 2
+	MAX_SPEED *= 2
 
 func _on_DivertedTimer_timeout():
 	AggroBox.target = original_target
@@ -238,3 +246,6 @@ func die():
 
 func _on_BlinkTimer_timeout():
 	self.material = null
+
+func _on_Endgame_started_cutscene(end):
+	call_deferred("free")

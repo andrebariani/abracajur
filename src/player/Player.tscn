@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://src/body/PlayerBody.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/player/Player.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://src/enemies/EnemyBlinkMaterial.tres" type="Material" id=5]
 [ext_resource path="res://assets/Spells/Stun-Sheet.png" type="Texture" id=6]
 [ext_resource path="res://assets/Spells/Escudo.png" type="Texture" id=7]
+[ext_resource path="res://assets/Spells/hourglass.png" type="Texture" id=8]
 
 
 [sub_resource type="CircleShape2D" id=1]
@@ -100,6 +101,12 @@ visible = false
 position = Vector2( -0.0820341, -2.7468 )
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 7 )
+
+[node name="Hourglass" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 8 )
+hframes = 5
+frame = 3
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 [connection signal="timeout" from="BlinkTimer" to="." method="_on_BlinkTimer_timeout"]
 [connection signal="timeout" from="StunTimer" to="." method="_on_StunTimer_timeout"]
