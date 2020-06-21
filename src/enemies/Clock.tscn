@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/enemies/Clock.gd" type="Script" id=1]
 [ext_resource path="res://src/enemies/TurretEnemy.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/enemies/EnemyBlink.shader" type="Shader" id=3]
 [ext_resource path="res://src/spells/ColorSpell.shader" type="Shader" id=4]
+[ext_resource path="res://src/body/EnemyBodyClock.tscn" type="PackedScene" id=5]
 
 [sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
@@ -21,14 +22,16 @@ shader_param/color_outline = Plane( 0, 0, 0, 1 )
 
 [node name="Clock" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
+max_hp = 4
 blink_material = SubResource( 1 )
 cooldown = 4
 
-[node name="ColorRect" parent="." index="1"]
-visible = true
+[node name="EnemyBodyClock" parent="." index="0" instance=ExtResource( 5 )]
+
+[node name="ColorRect" parent="." index="2"]
 color = Color( 0.266667, 0.0509804, 0.388235, 1 )
 
-[node name="EnemyHitbox" parent="." index="2"]
+[node name="EnemyHitbox" parent="." index="3"]
 visible = true
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
@@ -40,13 +43,13 @@ visible = false
 position = Vector2( 0, 0 )
 shape = SubResource( 2 )
 
-[node name="RayCast2D" parent="." index="13"]
+[node name="RayCast2D" parent="." index="14"]
 position = Vector2( 0, 0 )
 
-[node name="SpellExit" parent="." index="15"]
+[node name="SpellExit" parent="." index="16"]
 position = Vector2( 0, 0 )
 
-[node name="LaserCharge" parent="." index="18"]
+[node name="LaserCharge" parent="." index="19"]
 material = SubResource( 3 )
 
 [editable path="EnemyHitbox"]

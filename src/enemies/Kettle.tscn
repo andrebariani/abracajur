@@ -2,7 +2,7 @@
 
 [ext_resource path="res://src/enemies/MeleeEnemy.gd" type="Script" id=1]
 [ext_resource path="res://src/enemies/Enemy.tscn" type="PackedScene" id=2]
-[ext_resource path="res://src/body/EnemyBodyFrame.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/body/EnemyBodyKettle.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/enemies/EnemyBlink.shader" type="Shader" id=4]
 
 [sub_resource type="ShaderMaterial" id=1]
@@ -10,20 +10,21 @@ resource_local_to_scene = true
 shader = ExtResource( 4 )
 shader_param/color_blink = Plane( 1, 0, 0, 1 )
 
-[node name="Frame" instance=ExtResource( 2 )]
+[node name="Kettle" instance=ExtResource( 2 )]
 collision_mask = 1
 script = ExtResource( 1 )
-max_hp = 4
+MAX_SPEED = 80
+max_hp = 2
 blink_material = SubResource( 1 )
-enemy_body = "EnemyBodyFrame"
+enemy_body = "EnemyBodyCarpet"
 
-[node name="EnemyBodyFrame" parent="." index="0" instance=ExtResource( 3 )]
+[node name="EnemyBodyKettle" parent="." index="0" instance=ExtResource( 3 )]
 
 [node name="ColorRect" parent="." index="2"]
 color = Color( 0.384314, 0, 1, 1 )
 
 [node name="CollisionShape2D" parent="SoftCollision" index="0"]
-position = Vector2( -0.186951, 1.181 )
+position = Vector2( -0.128513, 1.33245 )
 
 [editable path="EnemyHitbox"]
 
