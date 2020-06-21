@@ -18,7 +18,7 @@ export var max_hp = 10
 onready var hp = max_hp
 var can_teleport = true
 var look_vector = Vector2.ZERO
-var is_active = true
+var is_active = false
 var vulnerable = false
 var diverting = false
 var stun_interval = 0.0
@@ -249,5 +249,9 @@ func get_look_vector():
 	return look_vector.normalized()
 
 
-func _on_Endgame_started_cutscene():
+func _on_Endgame_started_cutscene(end):
 	hurtbox.start_invincibility(2000)
+
+
+func _on_MainUI_started_game():
+	is_active = true

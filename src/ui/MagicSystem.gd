@@ -200,7 +200,7 @@ var shape_scrolls = [
 	{ 
 		"NAME":"MÍSSIL", 
 		"SCENE":preload("res://src/spells/MissileSpell.tscn"), 
-		"ICON": preload("res://assets/Spells/Botão-Null.png"),
+		"ICON": preload("res://assets/Spells/Botão-Missile.png"),
 		"EFFECTS": {
 			"DAMAGE": 3,
 			"STUN": 3,

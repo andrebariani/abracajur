@@ -43,6 +43,8 @@ signal started_cutscene
 signal play_credits
 
 func set_revelation(categories_used, time):
+	print_debug(str(time))
+	
 	if time < 130:
 		revelation = 4
 	else:
@@ -74,7 +76,7 @@ func _process(delta):
 				if current_text < len(revelation_textos[revelation]):
 					update_text(revelation_textos[revelation][current_text])
 				else:
-					play_credits()
+					end_game()
 
 
 func transformation_animation():
@@ -89,9 +91,11 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "whiteout":
 		$AnimationPlayer.play("pulse")
 		advance_cutscene()
+	elif anim_name == "blackout":
+		get_tree().reload_current_scene()
 
-func play_credits():
-	emit_signal("play_credits")
+func end_game():
+	$AnimationPlayer.play("blackout")
 
 func advance_cutscene():
 	current_scene += 1
