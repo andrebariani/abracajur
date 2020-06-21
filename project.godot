@@ -16,8 +16,12 @@ _global_script_class_icons={
 [application]
 
 config/name="Abracajur"
-run/main_scene="res://src/world/World.tscn"
+run/main_scene="res://src/ui/StartAnimation.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+DJ="*res://src/engine/DJ.tscn"
 
 [display]
 

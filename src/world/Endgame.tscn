@@ -12,7 +12,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 119.15, 96.85 )
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=2]
 resource_name = "blackout"
 length = 2.5
 tracks/0/type = "value"
@@ -28,8 +28,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ) ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "pulse"
+[sub_resource type="Animation" id=3]
 length = 2.0
 loop = true
 tracks/0/type = "value"
@@ -45,8 +44,7 @@ tracks/0/keys = {
 "values": [ Color( 0.996078, 0.996078, 0.996078, 1 ), Color( 0.996078, 0.996078, 0.996078, 0 ), Color( 0.996078, 0.996078, 0.996078, 1 ) ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "whiteout"
+[sub_resource type="Animation" id=4]
 length = 4.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("CanvasLayer/Control/Whiteout:modulate")
@@ -141,17 +139,19 @@ __meta__ = {
 
 [node name="Whiteout" type="ColorRect" parent="CanvasLayer/Control"]
 modulate = Color( 1, 1, 1, 0 )
-margin_right = 400.0
-margin_bottom = 223.0
+margin_left = -22.0
+margin_top = -16.0
+margin_right = 414.0
+margin_bottom = 241.0
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/blackout = SubResource( 4 )
-anims/pulse = SubResource( 2 )
-anims/whiteout = SubResource( 3 )
+anims/blackout = SubResource( 2 )
+anims/pulse = SubResource( 3 )
+anims/whiteout = SubResource( 4 )
 
 [node name="Mage" type="Sprite" parent="."]
 visible = false
