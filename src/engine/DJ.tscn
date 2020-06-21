@@ -1,9 +1,24 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://src/engine/DJ.gd" type="Script" id=1]
 [ext_resource path="res://assets/sounds/songs/LevelTheme.ogg" type="AudioStream" id=2]
 [ext_resource path="res://assets/sounds/songs/IntroCutscene.ogg" type="AudioStream" id=3]
 [ext_resource path="res://assets/sounds/songs/EndTheme.ogg" type="AudioStream" id=4]
+[ext_resource path="res://assets/sounds/sfx/corruption.wav" type="AudioStream" id=5]
+[ext_resource path="res://assets/sounds/sfx/barrage_spell.wav" type="AudioStream" id=6]
+[ext_resource path="res://assets/sounds/sfx/field_spell.wav" type="AudioStream" id=7]
+[ext_resource path="res://assets/sounds/sfx/game_over.wav" type="AudioStream" id=8]
+[ext_resource path="res://assets/sounds/sfx/heal.wav" type="AudioStream" id=9]
+[ext_resource path="res://assets/sounds/sfx/damage.wav" type="AudioStream" id=10]
+[ext_resource path="res://assets/sounds/sfx/eruption_spell.wav" type="AudioStream" id=11]
+[ext_resource path="res://assets/sounds/sfx/missile_follow.wav" type="AudioStream" id=12]
+[ext_resource path="res://assets/sounds/sfx/ray_ready.wav" type="AudioStream" id=13]
+[ext_resource path="res://assets/sounds/sfx/rune_spell.wav" type="AudioStream" id=14]
+[ext_resource path="res://assets/sounds/sfx/start.wav" type="AudioStream" id=15]
+[ext_resource path="res://assets/sounds/sfx/missile_launch.wav" type="AudioStream" id=16]
+[ext_resource path="res://assets/sounds/sfx/ray_spell.wav" type="AudioStream" id=17]
+[ext_resource path="res://assets/sounds/sfx/teleport.wav" type="AudioStream" id=18]
+[ext_resource path="res://assets/sounds/sfx/teleport_recharge.wav" type="AudioStream" id=19]
 
 [node name="DJ" type="Node"]
 script = ExtResource( 1 )
@@ -18,6 +33,51 @@ stream = ExtResource( 3 )
 
 [node name="EndTheme" type="AudioStreamPlayer" parent="songs"]
 stream = ExtResource( 4 )
+
+[node name="BarrageSpell" type="AudioStreamPlayer" parent="songs"]
+stream = ExtResource( 6 )
+
+[node name="Corruption" type="AudioStreamPlayer" parent="songs"]
+stream = ExtResource( 5 )
+
+[node name="Damage" type="AudioStreamPlayer" parent="songs"]
+stream = ExtResource( 10 )
+
+[node name="EruptionSpell" type="AudioStreamPlayer" parent="songs"]
+stream = ExtResource( 11 )
+
+[node name="FieldSpell" type="AudioStreamPlayer" parent="songs"]
+stream = ExtResource( 7 )
+
+[node name="GameOver" type="AudioStreamPlayer" parent="songs"]
+stream = ExtResource( 8 )
+
+[node name="Heal" type="AudioStreamPlayer" parent="songs"]
+stream = ExtResource( 9 )
+
+[node name="MissileFollow" type="AudioStreamPlayer" parent="songs"]
+stream = ExtResource( 12 )
+
+[node name="MissileLaunch" type="AudioStreamPlayer" parent="songs"]
+stream = ExtResource( 16 )
+
+[node name="RayReady" type="AudioStreamPlayer" parent="songs"]
+stream = ExtResource( 13 )
+
+[node name="RaySpell" type="AudioStreamPlayer" parent="songs"]
+stream = ExtResource( 17 )
+
+[node name="RuneSpell" type="AudioStreamPlayer" parent="songs"]
+stream = ExtResource( 14 )
+
+[node name="Start" type="AudioStreamPlayer" parent="songs"]
+stream = ExtResource( 15 )
+
+[node name="Teleport" type="AudioStreamPlayer" parent="songs"]
+stream = ExtResource( 18 )
+
+[node name="TeleportRecharge" type="AudioStreamPlayer" parent="songs"]
+stream = ExtResource( 19 )
 
 [node name="FadeOutTween" type="Tween" parent="."]
 [connection signal="tween_completed" from="FadeOutTween" to="." method="_on_FadeOutTween_tween_completed"]
