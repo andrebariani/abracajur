@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/font/Title.tres" type="DynamicFont" id=1]
-[ext_resource path="res://assets/abracajour/abracajour.png" type="Texture" id=2]
 [ext_resource path="res://src/ui/MainUI.gd" type="Script" id=3]
 [ext_resource path="res://icon.png" type="Texture" id=4]
 [ext_resource path="res://assets/font/Text.tres" type="DynamicFont" id=5]
@@ -71,35 +70,49 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Abracajur" type="Label" parent="StartScreen/VBoxContainer"]
-margin_top = 13.0
+[node name="Player" type="TextureRect" parent="StartScreen/VBoxContainer"]
+margin_top = 20.0
 margin_right = 400.0
-margin_bottom = 93.0
+margin_bottom = 84.0
+rect_min_size = Vector2( 100, 60 )
+texture = ExtResource( 4 )
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Abracajur" type="Label" parent="StartScreen/VBoxContainer"]
+margin_top = 94.0
+margin_right = 400.0
+margin_bottom = 162.0
 custom_fonts/font = ExtResource( 1 )
-custom_colors/font_color = Color( 0.99098, 0.989412, 0.982941, 1 )
-custom_colors/font_color_shadow = Color( 0.208431, 0.190196, 0.0496079, 0.0500001 )
+custom_colors/font_color = Color( 0.894118, 0.862745, 0.658824, 1 )
+custom_colors/font_color_shadow = Color( 0.741176, 0.67451, 0.172549, 1 )
 custom_constants/shadow_offset_x = -1
 custom_constants/shadow_offset_y = -1
 text = "Abracajur"
 align = 1
 valign = 1
 
-[node name="Player" type="TextureRect" parent="StartScreen/VBoxContainer"]
-margin_top = 103.0
+[node name="HBoxContainer" type="HBoxContainer" parent="StartScreen/VBoxContainer"]
+margin_top = 172.0
 margin_right = 400.0
-margin_bottom = 163.0
-rect_min_size = Vector2( 400, 60 )
-texture = ExtResource( 2 )
-stretch_mode = 6
+margin_bottom = 204.0
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="StartScreen/VBoxContainer/HBoxContainer"]
+margin_left = 162.0
+margin_right = 238.0
+margin_bottom = 32.0
+alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Start" type="Button" parent="StartScreen/VBoxContainer"]
-margin_left = 174.0
-margin_top = 173.0
-margin_right = 226.0
-margin_bottom = 187.0
+[node name="Start" type="Button" parent="StartScreen/VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_left = 12.0
+margin_right = 64.0
+margin_bottom = 14.0
 size_flags_horizontal = 4
 custom_fonts/font = ExtResource( 5 )
 text = "JOGAR"
@@ -108,11 +121,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Credits" type="Button" parent="StartScreen/VBoxContainer"]
-margin_left = 162.0
-margin_top = 197.0
-margin_right = 238.0
-margin_bottom = 211.0
+[node name="Credits" type="Button" parent="StartScreen/VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 18.0
+margin_right = 76.0
+margin_bottom = 32.0
 size_flags_horizontal = 4
 custom_fonts/font = ExtResource( 5 )
 text = "CRÉDITOS"
@@ -280,8 +292,8 @@ __meta__ = {
 
 [node name="Start" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
-[connection signal="pressed" from="StartScreen/VBoxContainer/Start" to="." method="_on_Start_pressed"]
-[connection signal="pressed" from="StartScreen/VBoxContainer/Credits" to="." method="_on_Credits_pressed"]
+[connection signal="pressed" from="StartScreen/VBoxContainer/HBoxContainer/VBoxContainer/Start" to="." method="_on_Start_pressed"]
+[connection signal="pressed" from="StartScreen/VBoxContainer/HBoxContainer/VBoxContainer/Credits" to="." method="_on_Credits_pressed"]
 [connection signal="pressed" from="EndScreen/VBoxContainer/HBoxContainer/Restart" to="." method="_on_Restart_pressed"]
 [connection signal="pressed" from="EndScreen/VBoxContainer/HBoxContainer/MainMenu" to="." method="_on_MainMenu_pressed"]
 [connection signal="pressed" from="CreditsScreen/VBoxContainer/MainMenu" to="." method="_on_MainMenu_pressed"]
