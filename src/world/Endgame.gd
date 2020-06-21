@@ -83,13 +83,7 @@ func _process(_delta):
 					advance_cutscene()
 					
 			4:
-				current_text += 1
-				if current_text == 0:
-					var minutos = int(int(total_time) / 60)
-					var segundos = int(total_time % 60)
-					$CanvasLayer/Control/Label2.text = "Seu tempo - " + str(minutos) + ":" + str(segundos)
-				else:
-					get_tree().reload_current_scene()
+				get_tree().reload_current_scene()
 
 
 func transformation_animation():
@@ -105,6 +99,10 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		$AnimationPlayer.play("pulse")
 		advance_cutscene()
 	elif anim_name == "blackout":
+		var minutos = int(int(total_time) / 60)
+		var segundos = int(int(total_time) % 60)
+		var format = "Seu tempo - %02d:%02d"
+		$CanvasLayer/Control/Label2.text = format % [minutos, segundos]
 		advance_cutscene()
 
 func end_game():
