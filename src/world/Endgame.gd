@@ -108,6 +108,7 @@ func _on_Endgame_body_entered(body):
 	
 	visible = true
 	$CanvasLayer/Control.visible = true
+	DJ.play_after_fade_out("EndTheme")
 	
 	player.is_active = false
 	

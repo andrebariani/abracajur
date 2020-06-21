@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/line_art/evil_mage.png" type="Texture" id=1]
 [ext_resource path="res://assets/font/Credits.tres" type="DynamicFont" id=2]
-[ext_resource path="res://assets/enemies/cadeira.png" type="Texture" id=3]
+[ext_resource path="res://assets/font/Text.tres" type="DynamicFont" id=3]
 [ext_resource path="res://assets/line_art/line_abracajour.png" type="Texture" id=4]
 [ext_resource path="res://src/ui/StartAnimation.gd" type="Script" id=5]
 [ext_resource path="res://assets/line_art/line_battle.png" type="Texture" id=6]
@@ -67,29 +67,38 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 401.0
+margin_bottom = 225.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Label" type="Label" parent="."]
 margin_left = 10.0
-margin_top = 2.11429
+margin_top = 40.0
 margin_right = 210.0
-margin_bottom = 736.114
+margin_bottom = 774.0
 grow_vertical = 0
 custom_fonts/font = ExtResource( 2 )
 text = "Por 50 anos, o Grão-Bruxo Abraão Cadabro subjugou e aterrorizou o Reino de Jur, atacando suas fazendas e amaldiçoando suas plantações. Sob a sombra pairante de terror, heróis se ergueram para combater o malevolente bruxo, utilizando-se de magia para neutralizar seus feitiços. 
 
-Depois de longos anos de lutas e investigações, uma equipe de quatro magos encontrou a cripta final do sinistro Cadabro, invadindo-a em uma última, épica batalha. 
+Depois de longos anos de lutas e investigações, uma equipe de quatro magos encontrou a mansão final do sinistro Cadabro, invadindo-a em uma última, épica batalha. 
 
 Em resposta, o Grão-Bruxo levantou mortos-vivos e chamou monstros para combater o ataque, causando grandes perdas para ambos os lados. No ápice do confronto, o último mago restante usou sua cartada final e invocou antigas palavras proibidas, lançando um incrível poder e vencendo a batalha de uma vez por todas.
 
-Porém, os antigos não são tão lenientes com suas palavras sendo proferidas, e sua retribuição foi severa: todos na cripta, tanto magos quanto monstros, tiveram a maioria de suas memórias retiradas e foram transformados em meros objetos.
+Porém, os antigos não são tão lenientes com suas palavras sendo proferidas, e sua retribuição foi severa: todos na mansão, tanto magos quanto monstros, tiveram a maioria de suas memórias retiradas e foram transformados em meros objetos.
 
-Você, Abracajur, é o último mago na cripta, que agora procura por uma forma de recuperar sua forma e mente. Você terá de atravessar o esconderijo apenas com sua memória falha e pergaminhos velhos, lutando contra os monstros-objeto que ainda querem te destruir."
+Você, Abracajur, é o último mago na mansão, que agora procura por uma forma de recuperar sua forma e mente. Você terá de atravessar o esconderijo apenas com sua memória falha e pergaminhos velhos, lutando contra os monstros-objeto que ainda querem te destruir..."
 autowrap = true
-percent_visible = 0.262857
+percent_visible = 0.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0 )
 margin_left = 198.0
 margin_top = 10.0
 margin_right = 398.0
@@ -108,3 +117,17 @@ __meta__ = {
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "show_text"
 anims/show_text = SubResource( 1 )
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 27.0033
+margin_top = 6.28524
+margin_right = 373.003
+margin_bottom = 29.2852
+custom_fonts/font = ExtResource( 3 )
+text = "Segure [Espaço] para acelerar"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
