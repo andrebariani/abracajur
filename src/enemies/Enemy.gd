@@ -119,6 +119,7 @@ func _on_Hurtbox_area_entered(area):
 		match spell.chosen_effect:
 			"DAMAGE":
 				apply_damage(spell.effects)
+				hurtbox.start_invincibility(spell.inv_frames)
 			"STUN":
 				apply_stun(spell.effects)
 			"KNOCKBACK":
@@ -129,12 +130,12 @@ func _on_Hurtbox_area_entered(area):
 				apply_break(spell)
 			"ILLUSION":
 				apply_illusion(spell.effects, spell.caster)
+				hurtbox.start_invincibility(spell.inv_frames)
 			"HEAL":
 				apply_heal(spell)
 			"SHIELD":
 				apply_shield(spell.effects)
 				
-	hurtbox.start_invincibility(spell.inv_frames)
 	
 	
 func create_effect(scene, spell_colors):
@@ -145,6 +146,7 @@ func create_effect(scene, spell_colors):
 # ---- React to stimuli -------------
 
 func apply_damage(spell_effects):
+	DJ.play_sfx("Damage")
 	var damager = spell_effects.DAMAGE
 	if vulnerable:
 		damager *= 10
