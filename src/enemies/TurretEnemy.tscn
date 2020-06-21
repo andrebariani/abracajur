@@ -6,15 +6,15 @@
 [ext_resource path="res://src/spells/ColorSpellMaterial.tres" type="Material" id=4]
 [ext_resource path="res://assets/Spells/Explosion-Sheet.png" type="Texture" id=5]
 
-[sub_resource type="ShaderMaterial" id=1]
+[sub_resource type="ShaderMaterial" id=12]
 resource_local_to_scene = true
 shader = ExtResource( 3 )
 shader_param/color_blink = Plane( 1, 0, 0, 1 )
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 105, 70 )
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 74.1855, 44.2074 )
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=14]
 resource_name = "ready_ray"
 length = 0.7
 tracks/0/type = "value"
@@ -42,7 +42,7 @@ tracks/1/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=15]
 resource_name = "stop_ray"
 tracks/0/type = "value"
 tracks/0/path = NodePath("LaserCharge:visible")
@@ -85,7 +85,7 @@ region = Rect2( 160, 0, 32, 32 )
 atlas = ExtResource( 5 )
 region = Rect2( 192, 0, 32, 32 )
 
-[sub_resource type="SpriteFrames" id=12]
+[sub_resource type="SpriteFrames" id=16]
 animations = [ {
 "frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ],
 "loop": true,
@@ -95,7 +95,7 @@ animations = [ {
 
 [node name="TurretEnemy" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
-blink_material = SubResource( 1 )
+blink_material = SubResource( 12 )
 cooldown = 3
 
 [node name="CollisionShape2D" parent="." index="0"]
@@ -117,8 +117,8 @@ wait_time = 0.001
 one_shot = true
 
 [node name="CollisionShape2D" parent="AggroBox" index="0"]
-position = Vector2( 0, 70 )
-shape = SubResource( 2 )
+position = Vector2( 0.20047, 45.6274 )
+shape = SubResource( 13 )
 
 [node name="RayCast2D" parent="." index="13"]
 visible = true
@@ -135,14 +135,14 @@ position = Vector2( 0, 2 )
 disabled = true
 
 [node name="LaserChargeAnim" type="AnimationPlayer" parent="." index="17"]
-anims/ready_ray = SubResource( 3 )
-anims/stop_ray = SubResource( 4 )
+anims/ready_ray = SubResource( 14 )
+anims/stop_ray = SubResource( 15 )
 
 [node name="LaserCharge" type="AnimatedSprite" parent="." index="18"]
 visible = false
 material = ExtResource( 4 )
 position = Vector2( 0, 12 )
-frames = SubResource( 12 )
+frames = SubResource( 16 )
 frame = 4
 [connection signal="animation_finished" from="LaserChargeAnim" to="." method="_on_LaserChargeAnim_animation_finished"]
 

@@ -14,6 +14,7 @@ shader_param/color_blink = Plane( 1, 0, 0, 1 )
 collision_mask = 1
 script = ExtResource( 1 )
 blink_material = SubResource( 1 )
+extents = Vector2( 10.062, 13.217 )
 enemy_body = "EnemyBodyChair"
 
 [node name="EnemyBodyChair" parent="." index="0" instance=ExtResource( 3 )]
