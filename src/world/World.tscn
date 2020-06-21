@@ -419,6 +419,7 @@ script = ExtResource( 4 )
 [node name="Sprite" type="Sprite" parent="."]
 [connection signal="updated_health" from="YSort/Player" to="CanvasLayer/UI" method="_on_Player_updated_health"]
 [connection signal="started_cutscene" from="Endgame" to="CanvasLayer/UI" method="_on_Endgame_started_cutscene"]
+[connection signal="started_cutscene" from="Endgame" to="MagicSystem" method="_on_Endgame_started_cutscene"]
 [connection signal="cast_spell" from="MagicSystem" to="CanvasLayer/UI" method="_on_MagicSystem_cast_spell"]
 [connection signal="cast_spell" from="MagicSystem" to="YSort/Player" method="_on_MagicSystem_cast_spell"]
 [connection signal="reset_spells" from="MagicSystem" to="CanvasLayer/UI" method="_on_MagicSystem_reset_spells"]
