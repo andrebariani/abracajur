@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/tilemap/TileSet.tres" type="TileSet" id=1]
 [ext_resource path="res://assets/devs/Barion.png" type="Texture" id=2]
 [ext_resource path="res://assets/devs/dobneros.png" type="Texture" id=3]
 [ext_resource path="res://assets/devs/Garret.png" type="Texture" id=4]
 [ext_resource path="res://assets/devs/Isamos.png" type="Texture" id=5]
+[ext_resource path="res://assets/devs/Frodo.png" type="Texture" id=6]
 
 [node name="Map" type="Node2D"]
 
@@ -33,3 +34,7 @@ texture = ExtResource( 4 )
 [node name="Sprite4" type="Sprite" parent="."]
 position = Vector2( -802.273, -707.978 )
 texture = ExtResource( 5 )
+
+[node name="Sprite5" type="Sprite" parent="."]
+position = Vector2( 889.173, -3152.31 )
+texture = ExtResource( 6 )
