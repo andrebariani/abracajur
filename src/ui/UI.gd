@@ -23,9 +23,13 @@ func _on_MagicSystem_reset_spells():
 		spell.reset()
 
 
-func _on_Endgame_started_cutscene():
+func _on_Endgame_started_cutscene(end):
 	visible = false
 
 
 func _on_Player_updated_health(_new):
 	update_hp(_new)
+
+
+func _on_MainUI_started_game():
+	visible = true

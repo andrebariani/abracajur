@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends "res://src/Entity.gd"
 
 onready var pointer = $Pointer
 onready var rayCast = $RayCast2D
@@ -18,10 +18,14 @@ export var max_hp = 10
 onready var hp = max_hp
 var can_teleport = true
 var look_vector = Vector2.ZERO
-var is_active = true
-var has_shield = false
+var is_active = false
 var vulnerable = false
 var diverting = false
+var stun_interval = 0.0
+var stun_clock = 0.0
+
+onready var hg_interval = float(cooldownTeleport)/float($Hourglass.hframes-1)
+var hg_clock = 0.0
 
 export(Material) var blink_material
 
@@ -37,6 +41,8 @@ func _process(_delta):
 	pointer.rotation = atan2(look_vector.y, look_vector.x)
 	diverting = false
 	
+	$Hourglass.global_position = get_global_mouse_position()
+	
 	if is_active:
 		if Input.is_action_just_pressed("ui_select") and can_teleport:
 			rayCast.cast_to = look_vector
@@ -49,8 +55,29 @@ func _process(_delta):
 				teleport_to_nearest_wall()
 				
 			can_teleport = false
+			$Hourglass.visible = true
+			$Hourglass.frame = 0
 			yield(get_tree().create_timer(cooldownTeleport),"timeout")
 			can_teleport = true
+			$Hourglass.visible = false
+	
+	if !$StunTimer.paused:
+		stun_clock += _delta
+		if stun_clock > stun_interval:
+			stun_clock = 0
+			if $StunIcon.frame >= $StunIcon.hframes-1:
+				$StunIcon.frame = 0
+			else:
+				$StunIcon.frame += 1
+	
+	if $Hourglass.visible:
+		hg_clock += _delta
+		if hg_clock > hg_interval:
+			hg_clock = 0
+			if $Hourglass.frame >= $Hourglass.hframes-1:
+				$Hourglass.frame = 0
+			else:
+				$Hourglass.frame += 1
 
 
 func teleport_to_mouse():
@@ -153,7 +180,7 @@ func set_hp(_new):
 func apply_damage(value):
 	var damage = value
 	if vulnerable:
-		damage *= 10
+		damage *= 2
 	
 	set_hp(hp - damage)
 	
@@ -169,6 +196,8 @@ func apply_heal(spell):
 func apply_stun(spell_effects):
 	is_active = false
 	emit_signal("player_stunned", is_active)
+	$StunIcon.visible = true
+	stun_interval = float(spell_effects.STUN)/float($StunIcon.hframes)
 	stunTimer.start(spell_effects.STUN)
 
 
@@ -190,12 +219,14 @@ func set_vulnerable(_new):
 func apply_shield(spell_effects):
 	has_shield = true
 	$ShieldTimer.start(spell_effects.SHIELD)
+	$ShieldIcon.visible = true
 
 func _on_BlinkTimer_timeout():
 	self.material = null
 
 func _on_StunTimer_timeout():
 	is_active = true
+	$StunIcon.visible = false
 	emit_signal("player_stunned", is_active)
 
 
@@ -203,6 +234,7 @@ func _on_BreakTimer_timeout():
 	set_vulnerable(false)
 
 func _on_ShieldTimer_timeout():
+	$ShieldIcon.visible = false
 	has_shield = false
 	print_debug("Shield is out")
 	
@@ -215,3 +247,11 @@ func die():
 	
 func get_look_vector():
 	return look_vector.normalized()
+
+
+func _on_Endgame_started_cutscene(end):
+	hurtbox.start_invincibility(2000)
+
+
+func _on_MainUI_started_game():
+	is_active = true

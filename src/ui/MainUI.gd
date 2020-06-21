@@ -1,10 +1,15 @@
 extends Control
 
+signal started_game
 
 func _ready():
-	for node in self.get_children():
-		node.hide()
+	for node in range(1, len(self.get_children())):
+		self.get_children()[node].hide()
 	$StartScreen.show()
+
+func _process(delta):
+	if Input.is_action_just_pressed("ui_cancel"):
+		get_tree().reload_current_scene()
 
 func show_end_screen():
 	$GameUI.hide()
@@ -13,8 +18,9 @@ func show_end_screen():
 
 func _on_Start_pressed():
 	$StartScreen.hide()
-	$GameUI.show()
-
+	$Background.hide()
+	emit_signal("started_game")
+	
 
 func _on_Restart_pressed():
 	$EndScreen.hide()
@@ -25,6 +31,7 @@ func _on_MainMenu_pressed():
 	$EndScreen.hide()
 	$CreditsScreen.hide()
 	$StartScreen.show()
+	$Background.show()
 
 
 func _on_GANHAR_O_JOGO_pressed():
