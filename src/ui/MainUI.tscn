@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/font/Title.tres" type="DynamicFont" id=1]
 [ext_resource path="res://src/ui/MainUI.gd" type="Script" id=3]
 [ext_resource path="res://icon.png" type="Texture" id=4]
 [ext_resource path="res://assets/font/Text.tres" type="DynamicFont" id=5]
 [ext_resource path="res://assets/font/Credits.tres" type="DynamicFont" id=6]
+[ext_resource path="res://assets/sounds/sfx/start.wav" type="AudioStream" id=7]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Nova Animação"
@@ -288,6 +289,9 @@ icon = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Start" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
 [connection signal="pressed" from="StartScreen/VBoxContainer/HBoxContainer/VBoxContainer/Start" to="." method="_on_Start_pressed"]
 [connection signal="pressed" from="StartScreen/VBoxContainer/HBoxContainer/VBoxContainer/Credits" to="." method="_on_Credits_pressed"]
 [connection signal="pressed" from="EndScreen/VBoxContainer/HBoxContainer/Restart" to="." method="_on_Restart_pressed"]
