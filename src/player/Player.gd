@@ -189,6 +189,7 @@ func set_vulnerable(_new):
 
 func apply_shield(spell_effects):
 	has_shield = true
+	$ShieldTimer.start(spell_effects.SHIELD)
 
 func _on_BlinkTimer_timeout():
 	self.material = null

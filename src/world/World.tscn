@@ -410,15 +410,15 @@ blink_material = SubResource( 8 )
 position = Vector2( 126.355, -659.956 )
 blink_material = SubResource( 8 )
 
-[node name="Endgame" parent="YSort/Enemies" instance=ExtResource( 14 )]
-position = Vector2( 283.387, -237.784 )
+[node name="Endgame" parent="." instance=ExtResource( 14 )]
+position = Vector2( -1.55322, -3568.41 )
 
 [node name="MagicSystem" type="Node" parent="."]
 script = ExtResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="."]
 [connection signal="updated_health" from="YSort/Player" to="CanvasLayer/UI" method="_on_Player_updated_health"]
-[connection signal="started_cutscene" from="YSort/Enemies/Endgame" to="CanvasLayer/UI" method="_on_Endgame_started_cutscene"]
-[connection signal="cast_spell" from="MagicSystem" to="CanvasLayer/UI" method="_on_MagicSystem_cast_spell"]
+[connection signal="started_cutscene" from="Endgame" to="CanvasLayer/UI" method="_on_Endgame_started_cutscene"]
 [connection signal="cast_spell" from="MagicSystem" to="YSort/Player" method="_on_MagicSystem_cast_spell"]
+[connection signal="cast_spell" from="MagicSystem" to="CanvasLayer/UI" method="_on_MagicSystem_cast_spell"]
 [connection signal="reset_spells" from="MagicSystem" to="CanvasLayer/UI" method="_on_MagicSystem_reset_spells"]
