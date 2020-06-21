@@ -2,6 +2,7 @@ extends Control
 
 onready var tooltip = $Tooltip
 onready var tooltipAnim = $TooltipAnim
+var first = true
 
 func update_hp(_new):
 	var notches = $Box/HealthScore.get_children()
@@ -19,6 +20,9 @@ func _on_MagicSystem_cast_spell(spell, letter, _position):
 
 
 func _on_MagicSystem_reset_spells():
+	if not first:
+		$AudioStreamPlayer.play()
+	first = false
 	for spell in $Box/Spells.get_children():
 		spell.reset()
 
