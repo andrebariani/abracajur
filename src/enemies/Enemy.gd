@@ -241,3 +241,6 @@ func die():
 
 func _on_BlinkTimer_timeout():
 	self.material = null
+
+func _on_Endgame_started_cutscene():
+	call_deferred("free")

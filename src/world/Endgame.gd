@@ -43,7 +43,7 @@ signal started_cutscene
 signal play_credits
 
 func set_revelation(categories_used, time):
-	if time < 0:
+	if time < 130:
 		revelation = 4
 	else:
 		var maxer = 0
