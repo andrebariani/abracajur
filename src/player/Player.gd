@@ -163,7 +163,7 @@ func set_hp(_new):
 func apply_damage(value):
 	var damage = value
 	if vulnerable:
-		damage *= 10
+		damage *= 2
 	
 	set_hp(hp - damage)
 	
