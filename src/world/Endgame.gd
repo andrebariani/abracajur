@@ -15,7 +15,7 @@ var current_scene = 0
 
 signal started_cutscene
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("ui_select") and active:
 		match current_scene:
 			0:

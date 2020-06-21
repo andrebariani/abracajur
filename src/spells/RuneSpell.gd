@@ -6,12 +6,12 @@ export(PackedScene) var explosion
 func _ready():
 	$Hurtbox/CollisionShape2D.disabled = true
 
-func _on_AnimationPlayer_animation_finished(anim_name):
+func _on_AnimationPlayer_animation_finished(_anim_name):
 	active = true
 	$Hurtbox/CollisionShape2D.disabled = false
 
 
-func _on_Hurtbox_body_entered(body):
+func _on_Hurtbox_body_entered(_body):
 	if !active:
 		return
 	
