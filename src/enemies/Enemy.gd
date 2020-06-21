@@ -137,7 +137,7 @@ func apply_damage(spell_effects):
 		damage *= 10
 		print_debug("SO MUCH DAMAGE")
 	
-	hp = clamp(hp - spell_effects.DAMAGE, 0, max_hp)
+	hp = clamp(hp - damage, 0, max_hp)
 	if hp == 0:
 		die()
 	print_debug("damage: " + str(damage) + ", HP:  " + str(hp))
