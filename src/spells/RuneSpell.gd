@@ -15,5 +15,5 @@ func _on_Hurtbox_body_entered(body):
 	if !active:
 		return
 	
-	_spawn(explosion)
-	queue_free()
+	call_deferred("_spawn", explosion, true)
+	call_deferred("free")

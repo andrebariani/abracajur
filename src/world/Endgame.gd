@@ -13,6 +13,8 @@ var active = false
 var current_text = 0
 var current_scene = 0
 
+signal started_cutscene
+
 func _process(delta):
 	if Input.is_action_just_pressed("ui_select") and active:
 		match current_scene:
@@ -33,8 +35,13 @@ func update_text(_new):
 	$CanvasLayer/Control/Label.text = _new
 
 func _on_Endgame_body_entered(body):
+	visible = true
+	$CanvasLayer/Control.visible = true
+	
 	body.is_active = false
 	active = true
 	update_text(textos[current_text])
-	$CanvasLayer/Control/Prosseguir.visible = true
 	$AnimationPlayer.play("pulse")
+	emit_signal("started_cutscene")
+	
+	
