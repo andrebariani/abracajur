@@ -215,6 +215,7 @@ func apply_stun(spell_effects):
 	is_active = false
 	emit_signal("player_stunned", is_active)
 	$StunIcon.visible = true
+	$StunIcon.frame = 0
 	stun_interval = float(spell_effects.STUN)/float($StunIcon.hframes)
 	stunTimer.start(spell_effects.STUN)
 

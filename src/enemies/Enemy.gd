@@ -161,6 +161,7 @@ func apply_stun(spell_effects):
 	set_state(STUN)
 	$StunTimer.start(spell_effects.STUN)
 	$StunIcon.visible = true
+	$StunIcon.frame = 0
 	stun_interval = float(spell_effects.STUN)/float($StunIcon.hframes)
 	print_debug("Stunned for " + str(spell_effects.STUN) + " seconds!")
 	
