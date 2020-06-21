@@ -4,7 +4,7 @@
 [ext_resource path="res://assets/font/Text.tres" type="DynamicFont" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 37.1487, 35.2632 )
+extents = Vector2( 119.15, 96.85 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "pulse"
@@ -51,6 +51,7 @@ shape = SubResource( 1 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Control" type="Control" parent="CanvasLayer"]
+visible = false
 margin_right = 402.0
 margin_bottom = 226.0
 __meta__ = {
@@ -60,9 +61,9 @@ __meta__ = {
 [node name="Label" type="Label" parent="CanvasLayer/Control"]
 anchor_right = 3.95
 anchor_bottom = 1.6
-margin_left = 46.0
+margin_left = 47.9902
 margin_top = 32.0
-margin_right = -1229.9
+margin_right = -1227.91
 margin_bottom = -207.6
 custom_fonts/font = ExtResource( 2 )
 text = "Teste"
@@ -73,13 +74,12 @@ __meta__ = {
 }
 
 [node name="Prosseguir" type="Label" parent="CanvasLayer/Control"]
-visible = false
 anchor_right = 3.95
 anchor_bottom = 1.6
-margin_left = 112.298
-margin_top = 132.601
-margin_right = -1297.6
-margin_bottom = -209.999
+margin_left = 111.16
+margin_top = 188.343
+margin_right = -1298.74
+margin_bottom = -154.257
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0.996078, 0.996078, 0.996078, 1 )
 text = "[Espaço] para
@@ -94,6 +94,7 @@ modulate = Color( 1, 1, 1, 0 )
 margin_right = 400.0
 margin_bottom = 223.0
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 

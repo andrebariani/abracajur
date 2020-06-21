@@ -2,6 +2,11 @@ extends VBoxContainer
 
 export(Texture) var nullspell
 
+export var letter = ""
+
+func _ready():
+	$Icon/Letter.text = letter
+
 func setup(spell):
 	$Label.text = spell["NAME"]
 	$Icon.visible = true

@@ -82,15 +82,16 @@ var shape_scrolls = [
 		"SCENE":preload("res://src/spells/SphereSpell.tscn"), 
 		"ICON": preload("res://assets/Spells/BolaOficial.png"),
 		"EFFECTS": {
-			"DAMAGE": 2,
-			"STUN": 3,
+			"DAMAGE": 1,
+			"STUN": 2,
 			"KNOCKBACK": 1000,
-			"GREASE": 8,
+			"GREASE": 6,
 			"ILLUSION": 4,
-			"BREAK": 4,
+			"BREAK": 5,
+			"HEAL": 3,
 		},
 		"CHOSEN_EFFECT": "",
-		"INV_FRAMES": 0.1,
+		"INV_FRAMES": 0.5,
 		"COLORS": {
 				"COLOR_BASE": Color("bd3c30"),
 				"COLOR_OUTLINE": Color("bdac2c"),
@@ -104,12 +105,10 @@ var shape_scrolls = [
 			"DAMAGE": 2,
 			"KNOCKBACK": 1500,
 			"GREASE": 10,
-			"BREAK": 5,
-			"HEAL": 1,
-			"SHIELD": 2
+			"BREAK": 6,
 		},
 		"CHOSEN_EFFECT": "",
-		"INV_FRAMES": 0.2,
+		"INV_FRAMES": 0.5,
 		"COLORS": {
 			"COLOR_BASE": Color("bd3c30"),
 			"COLOR_OUTLINE": Color("bdac2c"),
@@ -125,13 +124,13 @@ var shape_scrolls = [
 			"STUN": 4,
 			"KNOCKBACK": 1500,
 			"GREASE": 12,
-			"BREAK": 5,
+			"BREAK": 6,
 			"ILLUSION": 3,
 			"HEAL": 1,
-			"SHIELD": 2
+			"SHIELD": 4
 		},
 		"CHOSEN_EFFECT": "",
-		"INV_FRAMES": 0.2,
+		"INV_FRAMES": 0.5,
 		"COLORS": {
 			"COLOR_BASE": Color("bd3c30"),
 			"COLOR_OUTLINE": Color("bdac2c"),
@@ -147,13 +146,13 @@ var shape_scrolls = [
 			"STUN": 4,
 			"KNOCKBACK": 1000,
 			"GREASE": 12,
-			"BREAK": 6,
+			"BREAK": 8,
 			"ILLUSION": 5,
 			"HEAL": 2,
-			"SHIELD": 2
+			"SHIELD": 6
 		},
 		"CHOSEN_EFFECT": "",
-		"INV_FRAMES": 0,
+		"INV_FRAMES": 0.5,
 		"COLORS": {
 			"COLOR_BASE": Color("bd3c30"),
 			"COLOR_OUTLINE": Color("bdac2c"),
@@ -167,9 +166,9 @@ var shape_scrolls = [
 		"EFFECTS": {
 			"DAMAGE": 1,
 			"STUN": 1,
-			"KNOCKBACK": 500,
+			"KNOCKBACK": 750,
 			"GREASE": 4,
-			"BREAK": 2,
+			"BREAK": 3,
 		},
 		"CHOSEN_EFFECT": "",
 		"INV_FRAMES": 0,
@@ -185,14 +184,14 @@ var shape_scrolls = [
 		"EFFECTS": {
 			"DAMAGE": 1,
 			"STUN": 1,
-			"KNOCKBACK": 500,
+			"KNOCKBACK": 1000,
 			"GREASE": 3,
 			"BREAK": 1,
 			"HEAL": 1,
 			"SHIELD": 1
 		},
 		"CHOSEN_EFFECT": "",
-		"INV_FRAMES": 0.5,
+		"INV_FRAMES": 1,
 		"COLORS": {
 				"COLOR_BASE": Color("bd3c30"),
 				"COLOR_OUTLINE": Color("bdac2c"),
@@ -228,7 +227,7 @@ var shape_scrolls = [
 			"BREAK": 2,
 		},
 		"CHOSEN_EFFECT": "",
-		"INV_FRAMES": 0.3,
+		"INV_FRAMES": 0.5,
 		"COLORS": {
 			"COLOR_BASE": Color("bd3c30"),
 			"COLOR_OUTLINE": Color("bdac2c"),

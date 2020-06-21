@@ -19,4 +19,4 @@ func _physics_process(delta):
 
 
 func _on_Hitbox_area_entered(area):
-	queue_free()
+	call_deferred("free")

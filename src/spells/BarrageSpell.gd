@@ -19,7 +19,7 @@ func spawn_shot():
 	
 	$Timer.start(interval)
 	shots_count -= 1
-	var inst = _spawn(projectile)
+	var inst = _spawn(projectile, false)
 	
 	if player == caster:
 		inst.init(player.get_look_vector())
