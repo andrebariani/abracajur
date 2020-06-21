@@ -200,7 +200,8 @@ func apply_illusion(spell_effects, caster):
 		caster.activate_illusion(self, spell_effects.ILLUSION)
 		$IllusionTimer.start(spell_effects.ILLUSION)
 		$IllusionIcon.visible = true
-		print_debug("Target for " + str(spell_effects.ILLUSION) + " seconds")
+		$AggroBox/CollisionShape2D.scale /= 2
+		MAX_SPEED /= 2
 	else:
 		print_debug("Invalid caster!")
 
@@ -227,6 +228,8 @@ func _on_BreakTimer_timeout():
 
 func _on_IllusionTimer_timeout():
 	$IllusionIcon.visible = false
+	$AggroBox/CollisionShape2D.scale *= 2
+	MAX_SPEED *= 2
 
 func _on_DivertedTimer_timeout():
 	AggroBox.target = original_target

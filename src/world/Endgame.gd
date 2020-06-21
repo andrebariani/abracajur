@@ -35,10 +35,13 @@ var revelation_textos = [[
 	"Bem-volta, Abraão. Nem os antigos podem te parar."
 ]]
 
+export var revelation_sprites = []
+
 var active = false
 var current_text = 0
 var current_scene = 0
 var revelation = 0
+var player = null
 
 signal started_cutscene
 
