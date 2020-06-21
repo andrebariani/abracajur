@@ -16,6 +16,7 @@ script = ExtResource( 1 )
 MAX_SPEED = 80
 max_hp = 1
 blink_material = SubResource( 1 )
+extents = Vector2( 3.683, 4.938 )
 enemy_body = "EnemyBodyTeacup"
 
 [node name="EnemyBodyTeaCup" parent="." index="0" instance=ExtResource( 3 )]

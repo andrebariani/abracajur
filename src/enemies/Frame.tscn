@@ -15,6 +15,7 @@ collision_mask = 1
 script = ExtResource( 1 )
 max_hp = 4
 blink_material = SubResource( 1 )
+extents = Vector2( 8.146, 12.371 )
 enemy_body = "EnemyBodyFrame"
 
 [node name="EnemyBodyFrame" parent="." index="0" instance=ExtResource( 3 )]

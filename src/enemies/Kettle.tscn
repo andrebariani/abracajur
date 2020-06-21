@@ -16,6 +16,7 @@ script = ExtResource( 1 )
 MAX_SPEED = 80
 max_hp = 2
 blink_material = SubResource( 1 )
+extents = Vector2( 8.146, 12.371 )
 enemy_body = "EnemyBodyCarpet"
 
 [node name="EnemyBodyKettle" parent="." index="0" instance=ExtResource( 3 )]
@@ -24,7 +25,7 @@ enemy_body = "EnemyBodyCarpet"
 color = Color( 0.384314, 0, 1, 1 )
 
 [node name="CollisionShape2D" parent="SoftCollision" index="0"]
-position = Vector2( -0.128513, 1.33245 )
+position = Vector2( -0.128513, 0.752538 )
 
 [editable path="EnemyHitbox"]
 

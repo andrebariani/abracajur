@@ -19,6 +19,7 @@ shader_param/color_outline = Plane( 0, 0, 0, 1 )
 script = ExtResource( 1 )
 max_hp = 2
 blink_material = ExtResource( 3 )
+extents = Vector2( 14.996, 15.154 )
 cooldown = 4
 
 [node name="EnemyBodyChand" parent="." index="0" instance=ExtResource( 5 )]

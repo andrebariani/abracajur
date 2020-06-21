@@ -24,6 +24,7 @@ shader_param/color_outline = Plane( 0, 0, 0, 1 )
 script = ExtResource( 1 )
 max_hp = 4
 blink_material = SubResource( 1 )
+extents = Vector2( 9.777, 21.89 )
 cooldown = 4
 
 [node name="EnemyBodyClock" parent="." index="0" instance=ExtResource( 5 )]

@@ -47,7 +47,15 @@ var stun_clock = 0.0
 var color = Color(1, 1, 1, 1)
 export(Material) var blink_material
 
+export(Vector2) var extents
+
 var original_target
+
+func _ready():
+	$CollisionShape2D.get_shape().extents = extents
+	$EnemyHitbox/CollisionShape2D.get_shape().extents = extents
+	$Hurtbox/CollisionShape2D.get_shape().extents = extents
+	$SoftCollision/CollisionShape2D.get_shape().extents = extents
 
 func _physics_process(delta):
 	state_machine()
