@@ -8,10 +8,6 @@ func _ready():
 	$StartScreen.show()
 	DJ.play_after_fade_out("LevelTheme")
 
-func _process(delta):
-	if Input.is_action_just_pressed("ui_cancel"):
-		get_tree().reload_current_scene()
-
 func show_end_screen():
 	$GameUI.hide()
 	$EndScreen.show()
