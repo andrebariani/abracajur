@@ -84,7 +84,7 @@ var shape_scrolls = [
 		"EFFECTS": {
 			"DAMAGE": 2,
 			"STUN": 3,
-			"KNOCKBACK": 1500,
+			"KNOCKBACK": 1800,
 			"GREASE": 6,
 			"ILLUSION": 8,
 			"BREAK": 5,
@@ -103,7 +103,7 @@ var shape_scrolls = [
 		"ICON": preload("res://assets/Spells/Botão-Explosion.png"),
 		"EFFECTS": {
 			"DAMAGE": 2,
-			"KNOCKBACK": 2250,
+			"KNOCKBACK": 2500,
 			"GREASE": 10,
 			"BREAK": 8,
 		},
@@ -122,7 +122,7 @@ var shape_scrolls = [
 		"EFFECTS": {
 			"DAMAGE": 3,
 			"STUN": 5,
-			"KNOCKBACK": 2000,
+			"KNOCKBACK": 2500,
 			"GREASE": 12,
 			"BREAK": 8,
 			"ILLUSION": 8,
@@ -144,7 +144,7 @@ var shape_scrolls = [
 		"EFFECTS": {
 			"DAMAGE": 3,
 			"STUN": 4,
-			"KNOCKBACK": 2500,
+			"KNOCKBACK": 3000,
 			"GREASE": 12,
 			"BREAK": 7,
 			"ILLUSION": 8,
@@ -166,7 +166,7 @@ var shape_scrolls = [
 		"EFFECTS": {
 			"DAMAGE": 1,
 			"STUN": 2,
-			"KNOCKBACK": 1300,
+			"KNOCKBACK": 1500,
 			"GREASE": 4,
 			"BREAK": 5,
 		},
@@ -204,7 +204,7 @@ var shape_scrolls = [
 		"EFFECTS": {
 			"DAMAGE": 3,
 			"STUN": 3,
-			"KNOCKBACK": 2500,
+			"KNOCKBACK": 3200,
 			"GREASE": 12,
 			"BREAK": 7,
 			"ILLUSION": 8,

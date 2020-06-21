@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/enemies/MeleeEnemy.gd" type="Script" id=1]
-[ext_resource path="res://src/body/EnemyBodyCandelabrum.tscn" type="PackedScene" id=2]
-[ext_resource path="res://src/enemies/Enemy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/enemies/Enemy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/body/EnemyBodyCarpet.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/enemies/EnemyBlink.shader" type="Shader" id=4]
 
 [sub_resource type="ShaderMaterial" id=1]
@@ -10,21 +10,21 @@ resource_local_to_scene = true
 shader = ExtResource( 4 )
 shader_param/color_blink = Plane( 1, 0, 0, 1 )
 
-[node name="Candelabrum" instance=ExtResource( 3 )]
+[node name="Carpet" instance=ExtResource( 2 )]
 collision_mask = 1
 script = ExtResource( 1 )
-damage = 2
+MAX_SPEED = 80
 blink_material = SubResource( 1 )
-extents = Vector2( 9.847, 15.154 )
-enemy_body = "EnemyBodyCand"
+extents = Vector2( 10.15, 15.154 )
+enemy_body = "EnemyBodyCarpet"
 
-[node name="EnemyBodyCand" parent="." index="0" instance=ExtResource( 2 )]
+[node name="EnemyBodyCarpet" parent="." index="0" instance=ExtResource( 3 )]
 
 [node name="ColorRect" parent="." index="2"]
 color = Color( 0.384314, 0, 1, 1 )
 
 [node name="CollisionShape2D" parent="SoftCollision" index="0"]
-position = Vector2( 0.00676346, 7.96098 )
+position = Vector2( -0.128513, 1.33245 )
 
 [editable path="EnemyHitbox"]
 
