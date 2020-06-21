@@ -325,3 +325,6 @@ func reset_spells():
 
 func random_from_dict(dict):
 	return dict[dict.keys()[randi() % len(dict)]]
+
+func _on_Endgame_started_cutscene(end):
+	end.set_revelation(categories_used, time_passed)
