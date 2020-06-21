@@ -197,55 +197,55 @@ __meta__ = {
 }
 
 [node name="Credits" type="Label" parent="CreditsScreen/VBoxContainer"]
-margin_top = 20.0
+margin_top = 24.0
 margin_right = 400.0
-margin_bottom = 100.0
+margin_bottom = 104.0
 custom_fonts/font = ExtResource( 1 )
 text = "Créditos"
 align = 1
 valign = 1
 
 [node name="Credits2" type="Label" parent="CreditsScreen/VBoxContainer"]
-margin_top = 110.0
+margin_top = 114.0
 margin_right = 400.0
-margin_bottom = 118.0
+margin_bottom = 122.0
 custom_fonts/font = ExtResource( 6 )
 text = "Anderson Garrote - Arte & Game Design"
 align = 1
 valign = 1
 
 [node name="Credits3" type="Label" parent="CreditsScreen/VBoxContainer"]
-margin_top = 128.0
+margin_top = 132.0
 margin_right = 400.0
-margin_bottom = 136.0
+margin_bottom = 140.0
 custom_fonts/font = ExtResource( 6 )
 text = "André Bariani - Programação & Game Design"
 align = 1
 valign = 1
 
 [node name="Credits4" type="Label" parent="CreditsScreen/VBoxContainer"]
-margin_top = 146.0
+margin_top = 150.0
 margin_right = 400.0
-margin_bottom = 154.0
+margin_bottom = 158.0
 custom_fonts/font = ExtResource( 6 )
 text = "Danilo Isamu - Programação & Game Design"
 align = 1
 valign = 1
 
 [node name="Credits5" type="Label" parent="CreditsScreen/VBoxContainer"]
-margin_top = 164.0
+margin_top = 168.0
 margin_right = 400.0
-margin_bottom = 172.0
+margin_bottom = 176.0
 custom_fonts/font = ExtResource( 6 )
-text = "Luis D - Arte & Game Design"
+text = "Luis Henriques - Arte & Game Design"
 align = 1
 valign = 1
 
 [node name="MainMenu" type="Button" parent="CreditsScreen/VBoxContainer"]
-margin_left = 162.0
-margin_top = 182.0
-margin_right = 238.0
-margin_bottom = 204.0
+margin_left = 178.0
+margin_top = 186.0
+margin_right = 222.0
+margin_bottom = 200.0
 size_flags_horizontal = 4
 custom_fonts/font = ExtResource( 5 )
 text = "MENU"
