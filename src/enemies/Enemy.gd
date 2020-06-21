@@ -145,15 +145,15 @@ func create_effect(scene, spell_colors):
 # ---- React to stimuli -------------
 
 func apply_damage(spell_effects):
-	var damage = spell_effects.DAMAGE
+	var damager = spell_effects.DAMAGE
 	if vulnerable:
-		damage *= 10
+		damager *= 10
 		print_debug("SO MUCH DAMAGE")
 	
-	hp = clamp(hp - damage, 0, max_hp)
+	hp = clamp(hp - damager, 0, max_hp)
 	if hp == 0:
 		die()
-	print_debug("damage: " + str(damage) + ", HP:  " + str(hp))
+	print_debug("damage: " + str(damager) + ", HP:  " + str(hp))
 	
 	self.material = blink_material
 	$BlinkTimer.start(0.2)
@@ -255,5 +255,5 @@ func die():
 func _on_BlinkTimer_timeout():
 	self.material = null
 
-func _on_Endgame_started_cutscene(end):
+func _on_Endgame_started_cutscene(_ender):
 	call_deferred("free")

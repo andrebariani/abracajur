@@ -55,7 +55,7 @@ func play_after_fade_out(name: String, duration: float = 0.0):
 		print_debug("Song \'" + name + "\' not found")
 
 
-func _on_FadeOutTween_tween_completed(object, key):
+func _on_FadeOutTween_tween_completed(object, _key):
 	object.stop()
 	object.set_volume_db(0)
 	

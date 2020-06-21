@@ -270,7 +270,7 @@ func get_look_vector():
 	return look_vector.normalized()
 
 
-func _on_Endgame_started_cutscene(end):
+func _on_Endgame_started_cutscene(_ender):
 	hurtbox.start_invincibility(2000)
 
 

@@ -7,9 +7,9 @@ var velocity = Vector2.ZERO
 var acceleration = Vector2.ZERO
 export var steer_force = 2000
 
-func init(direction: Vector2, speed: int = self.speed):
-	self.direction = direction
-	self.speed = speed
+func init(directioner: Vector2, speeder: int = self.speed):
+	self.direction = directioner
+	self.speed = speeder
 
 
 func _physics_process(delta):
